@@ -21,7 +21,7 @@
 <title>세느루 SAENRU — AI 빌더 플랫폼</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --forest:#062A11;
@@ -35,8 +35,8 @@
   --ink-soft:#415647;
   --line:#D5E4D6;
   --white:#FFFFFF;
-  --disp:'Hahmlet',ui-serif,serif;
-  --body:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --disp:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --body:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,'Consolas',monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -52,7 +52,7 @@ body{
 ::selection{background:var(--accent);color:var(--white)}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balance}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing:-0.015em;text-wrap:balance}
 .mono{font-family:var(--mono)}
 
 /* ---------- NAV ---------- */
@@ -97,7 +97,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   margin-bottom:22px;text-transform:uppercase;
 }
 .stage h1,.stage .h1{
-  font-family:var(--disp);font-weight:700;color:var(--white);
+  font-family:var(--disp);font-weight:900;color:var(--white);
   font-size:clamp(2.2rem,6.2vw,4.6rem);line-height:1.22;text-wrap:balance;
 }
 .stage .sub{
@@ -224,7 +224,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   position:absolute;top:-10px;right:24px;font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;
   background:var(--accent);color:#041307;border-radius:999px;padding:3px 11px;font-weight:500;
 }
-.story .num{font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,2.6vw,2.2rem);color:var(--forest);line-height:1.25;font-variant-numeric:tabular-nums}
+.story .num{font-family:var(--disp);font-weight:900;font-size:clamp(1.7rem,2.6vw,2.2rem);color:var(--forest);line-height:1.25;font-variant-numeric:tabular-nums}
 .story .num em{font-style:normal;color:var(--accent-strong)}
 .story p{margin-top:14px;font-size:.94rem;color:var(--ink-soft);flex:1}
 .story .by{margin-top:22px;font-family:var(--mono);font-size:.76rem;color:var(--accent-strong);letter-spacing:.08em}
@@ -250,7 +250,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   margin-top:60px;display:flex;gap:clamp(24px,6vw,80px);justify-content:center;flex-wrap:wrap;
   border-top:1px solid #10521F;padding-top:44px;text-align:center;
 }
-.counters .c b{font-family:var(--disp);font-size:2rem;color:var(--white);font-variant-numeric:tabular-nums;display:block;line-height:1.2}
+.counters .c b{font-family:var(--disp);font-weight:900;font-size:2rem;color:var(--white);font-variant-numeric:tabular-nums;display:block;line-height:1.2}
 .counters .c span{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:#629067}
 .beta-badge{
   display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;

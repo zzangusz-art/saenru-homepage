@@ -21,7 +21,7 @@
 <title>세느루 AI — AEO·GEO 컨설팅</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --forest:#062A11;
@@ -35,8 +35,8 @@
   --ink-soft:#415647;
   --line:#D5E4D6;
   --white:#FFFFFF;
-  --disp:'Hahmlet',ui-serif,serif;
-  --body:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --disp:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --body:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,'Consolas',monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -48,7 +48,7 @@ body{
 ::selection{background:var(--accent);color:var(--white)}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balance}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing:-0.015em;text-wrap:balance}
 .mono{font-family:var(--mono)}
 
 /* ---------- NAV ---------- */
@@ -83,7 +83,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 }
 .hero .wrap{position:relative;z-index:2}
 .hero .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.34em;color:#97DBA0;margin-bottom:22px;text-transform:uppercase}
-.hero h1{font-weight:700;font-size:clamp(2rem,5.4vw,3.9rem);color:var(--white);max-width:18em}
+.hero h1{font-weight:900;letter-spacing:-0.02em;font-size:clamp(2rem,5.4vw,3.9rem);color:var(--white);max-width:18em}
 .hero .sub{margin-top:22px;max-width:36em;color:#C4E4C6;font-size:clamp(.95rem,1.6vw,1.12rem)}
 .hero .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
 /* AI 답변 목업 카드 */
@@ -127,7 +127,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 .shift-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:32px 28px}
 .shift-card .from{color:var(--ink-soft);font-size:.95rem;text-decoration:line-through;text-decoration-color:rgba(65,86,75,.5)}
 .shift-card .arrow{font-family:var(--mono);color:var(--accent-strong);margin:10px 0;font-size:.85rem}
-.shift-card .to{font-family:var(--disp);font-weight:600;font-size:1.35rem;color:var(--forest)}
+.shift-card .to{font-family:var(--disp);font-weight:700;font-size:1.35rem;color:var(--forest)}
 .shift-card p{margin-top:14px;font-size:.92rem;color:var(--ink-soft)}
 
 /* ---------- COMPARISON ---------- */
@@ -186,7 +186,7 @@ table.cmp{width:100%;border-collapse:collapse;min-width:640px;font-size:.94rem}
   border-radius:999px;padding:4px 12px;font-weight:500;
 }
 .plan .name{font-family:var(--mono);font-size:.78rem;letter-spacing:.22em;color:var(--accent-strong)}
-.plan .for{font-family:var(--disp);font-size:1.25rem;color:var(--forest);margin:12px 0 4px;font-weight:600}
+.plan .for{font-family:var(--disp);font-size:1.25rem;color:var(--forest);margin:12px 0 4px;font-weight:700}
 .plan .price{font-size:1.9rem;font-weight:700;color:var(--ink);margin:14px 0 2px;font-variant-numeric:tabular-nums}
 .plan .price small{font-size:.85rem;font-weight:400;color:var(--ink-soft)}
 .plan ul{list-style:none;margin:22px 0 28px;display:grid;gap:10px;flex:1}
