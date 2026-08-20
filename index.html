@@ -9,22 +9,31 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://saenru.com">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://saenru.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#062A11">
+<link rel="canonical" href="https://saenru.com/">
+<link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="/assets/logo-icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <title>세느루 SAENRU — AI 빌더 플랫폼</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --forest:#052E1F;
-  --forest-2:#07402C;
-  --accent:#17B36A;
-  --accent-strong:#0E8F53;
-  --mint:#E9F5EE;
-  --mint-2:#DCEFE4;
+  --forest:#062A11;
+  --forest-2:#0A3A18;
+  --accent:#00AF1C;
+  --accent-strong:#0A8A22;
+  --mint:#EAF6EC;
+  --mint-2:#DCEFDE;
   --paper:#FCFDFC;
-  --ink:#0D1F16;
-  --ink-soft:#41564B;
-  --line:#D4E4DA;
+  --ink:#0C1F10;
+  --ink-soft:#415647;
+  --line:#D5E4D6;
   --white:#FFFFFF;
   --disp:'Hahmlet',ui-serif,serif;
   --body:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
@@ -55,7 +64,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   color:var(--white);
 }
 .nav.solid{background:rgba(252,253,252,.92);backdrop-filter:blur(10px);color:var(--ink);box-shadow:0 1px 0 var(--line);padding-top:12px;padding-bottom:12px}
-.nav-logo{display:flex;align-items:baseline;gap:10px;font-family:var(--disp);font-weight:700;font-size:1.25rem;letter-spacing:.02em}
+.nav-logo{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:700;font-size:1.25rem;letter-spacing:.02em}
+.nav-logo img{width:34px;height:34px;display:block;border-radius:9px}
 .nav-logo .en{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.28em;opacity:.75}
 .nav-links{display:flex;gap:clamp(14px,2.4vw,30px);align-items:center;font-size:.92rem;font-weight:500}
 .nav-links a{opacity:.85;transition:opacity .2s}
@@ -73,7 +83,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 .hero-track{height:320vh;position:relative;background:var(--forest)}
 .hero-stage{
   position:sticky;top:0;height:100vh;overflow:hidden;
-  background:radial-gradient(120% 90% at 50% 115%,#0B4A32 0%,var(--forest) 55%,#031F15 100%);
+  background:radial-gradient(120% 90% at 50% 115%,#0D4A1C 0%,var(--forest) 55%,#04200C 100%);
 }
 #globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-copy{
@@ -83,7 +93,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 }
 .stage{position:absolute;top:15vh;left:0;right:0;opacity:0;transform:translateY(14px);transition:none;padding:0 24px}
 .stage .eyebrow{
-  font-family:var(--mono);font-size:.75rem;letter-spacing:.34em;color:#8FD7B4;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.34em;color:#97DBA0;
   margin-bottom:22px;text-transform:uppercase;
 }
 .stage h1,.stage .h1{
@@ -91,7 +101,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   font-size:clamp(2.2rem,6.2vw,4.6rem);line-height:1.22;text-wrap:balance;
 }
 .stage .sub{
-  margin:20px auto 0;max-width:34em;color:#BFE0CF;
+  margin:20px auto 0;max-width:34em;color:#C4E4C6;
   font-size:clamp(.95rem,1.6vw,1.12rem);font-weight:400;
 }
 .stage .cta-row{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;pointer-events:auto}
@@ -101,18 +111,18 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   transition:transform .15s,background .2s,box-shadow .2s;cursor:pointer;border:0;
 }
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--accent);color:#03130B;box-shadow:0 8px 30px rgba(23,179,106,.35)}
-.btn-primary:hover{background:#25C97C}
+.btn-primary{background:var(--accent);color:#041307;box-shadow:0 8px 30px rgba(0,175,28,.35)}
+.btn-primary:hover{background:#22C441}
 .btn-ghost{border:1px solid rgba(255,255,255,.4);color:var(--white)}
 .btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
 .scroll-hint{
   position:absolute;bottom:4vh;left:50%;transform:translateX(-50%);
-  font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;color:#7FBE9E;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;color:#86C288;
   display:flex;flex-direction:column;align-items:center;gap:10px;transition:opacity .4s;
 }
 .scroll-hint::after{
   content:"";width:1px;height:44px;
-  background:linear-gradient(to bottom,#7FBE9E,transparent);
+  background:linear-gradient(to bottom,#86C288,transparent);
   animation:drop 1.8s ease-in-out infinite;
 }
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -131,7 +141,16 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 .sec-mint{background:var(--mint)}
 .sec-dark{background:var(--forest);color:#DFF0E7}
 .sec-dark .sec-title{color:var(--white)}
-.sec-dark .sec-lead{color:#A8CDBB}
+.sec-dark .sec-lead{color:#AFD2B0}
+
+/* ---------- DEFINE (AEO 직답 블록) ---------- */
+.define{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:16px;padding:34px 36px;background:var(--white)}
+.define h2{font-size:1.35rem;color:var(--forest);margin-bottom:12px}
+.define .bluf{color:var(--ink-soft);font-size:.98rem;max-width:58em}
+.define .bluf a{color:var(--accent-strong);font-weight:700;border-bottom:1px solid var(--mint-2)}
+.define .facts{list-style:none;display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);font-size:.78rem;color:var(--accent-strong)}
+.define .facts li{padding-left:16px;position:relative}
+.define .facts li::before{content:"✓";position:absolute;left:0}
 
 /* ---------- PROJECT RANKING (jocohunt-style) ---------- */
 .rank-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -157,7 +176,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 22px;
   transition:transform .2s,box-shadow .2s,border-color .2s;
 }
-.proj:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(5,46,31,.08);border-color:var(--mint-2)}
+.proj:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(6,42,17,.08);border-color:var(--mint-2)}
 .proj.hide{display:none}
 .proj .rank{font-family:var(--mono);font-size:.8rem;color:var(--accent-strong);width:2ch}
 .proj .logo{
@@ -186,7 +205,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 }
 .quiet{
   margin-top:44px;border:1px dashed var(--line);border-radius:16px;padding:24px 28px;
-  display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:rgba(23,179,106,.03);
+  display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:rgba(0,175,28,.03);
 }
 .quiet .q-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--accent-strong);flex-shrink:0}
 .quiet .q-items{display:flex;gap:18px;flex-wrap:wrap;font-size:.88rem;color:var(--ink-soft)}
@@ -200,10 +219,10 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   position:relative;display:flex;flex-direction:column;
   transition:transform .25s,box-shadow .25s;
 }
-.story:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(5,46,31,.10)}
+.story:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(6,42,17,.10)}
 .story .new{
   position:absolute;top:-10px;right:24px;font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;
-  background:var(--accent);color:#03130B;border-radius:999px;padding:3px 11px;font-weight:500;
+  background:var(--accent);color:#041307;border-radius:999px;padding:3px 11px;font-weight:500;
 }
 .story .num{font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,2.6vw,2.2rem);color:var(--forest);line-height:1.25;font-variant-numeric:tabular-nums}
 .story .num em{font-style:normal;color:var(--accent-strong)}
@@ -215,27 +234,27 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 @media(max-width:920px){.comm-grid{grid-template-columns:1fr}}
 .threads{display:grid;gap:14px}
 .thread{
-  background:#03150E;border:1px solid #0E4B33;border-radius:16px;padding:22px 24px;
+  background:#041508;border:1px solid #10521F;border-radius:16px;padding:22px 24px;
   transition:border-color .2s,transform .2s;
 }
 .thread:hover{border-color:var(--accent-strong);transform:translateY(-2px)}
 .thread h3{font-family:var(--body);font-weight:700;font-size:.98rem;color:#DFF0E7}
-.thread .t-meta{font-family:var(--mono);font-size:.72rem;color:#5E8F78;margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
-.thread .t-meta .hl{color:#57C690}
+.thread .t-meta{font-family:var(--mono);font-size:.72rem;color:#629067;margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
+.thread .t-meta .hl{color:#52C868}
 .open-points{list-style:none;display:grid;gap:26px}
 .open-points li{padding-left:38px;position:relative}
 .open-points .k{font-family:var(--mono);position:absolute;left:0;top:2px;color:var(--accent);font-size:1rem}
 .open-points h3{color:var(--white);font-size:1.15rem;margin-bottom:6px}
-.open-points p{font-size:.92rem;color:#A8CDBB}
+.open-points p{font-size:.92rem;color:#AFD2B0}
 .counters{
   margin-top:60px;display:flex;gap:clamp(24px,6vw,80px);justify-content:center;flex-wrap:wrap;
-  border-top:1px solid #0E4B33;padding-top:44px;text-align:center;
+  border-top:1px solid #10521F;padding-top:44px;text-align:center;
 }
 .counters .c b{font-family:var(--disp);font-size:2rem;color:var(--white);font-variant-numeric:tabular-nums;display:block;line-height:1.2}
-.counters .c span{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:#5E8F78}
+.counters .c span{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:#629067}
 .beta-badge{
   display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;
-  border:1px solid #0E4B33;color:#57C690;border-radius:999px;padding:4px 12px;margin-left:12px;vertical-align:middle;
+  border:1px solid #10521F;color:#52C868;border-radius:999px;padding:4px 12px;margin-left:12px;vertical-align:middle;
 }
 
 /* ---------- LAUNCH STEPS ---------- */
@@ -271,7 +290,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px 32px;
   transition:transform .25s,box-shadow .25s;
 }
-.svc:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(5,46,31,.10)}
+.svc:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(6,42,17,.10)}
 .svc .tag{
   font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;color:var(--accent-strong);
   border:1px solid var(--mint-2);background:var(--mint);border-radius:6px;padding:4px 10px;display:inline-block;
@@ -289,8 +308,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
   padding:36px 40px;
 }
 .ai-banner h3{color:var(--white);font-size:1.35rem}
-.ai-banner p{color:#A8CDBB;font-size:.92rem;margin-top:6px;max-width:36em}
-.ai-banner .mono-path{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;color:#57C690;margin-bottom:8px}
+.ai-banner p{color:#AFD2B0;font-size:.92rem;margin-top:6px;max-width:36em}
+.ai-banner .mono-path{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;color:#52C868;margin-bottom:8px}
 
 /* ---------- FAQ ---------- */
 .faq{margin-top:48px;display:grid;gap:0}
@@ -308,18 +327,18 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.3;text-wrap:balan
 
 /* ---------- FINAL CTA + FOOTER ---------- */
 .final{
-  background:linear-gradient(160deg,var(--forest) 0%,#03432B 100%);
+  background:linear-gradient(160deg,var(--forest) 0%,#054A18 100%);
   color:var(--white);text-align:center;
 }
 .final h2{font-size:clamp(1.9rem,4.4vw,3rem);color:var(--white)}
-.final p{color:#A8CDBB;margin-top:16px}
+.final p{color:#AFD2B0;margin-top:16px}
 .final .cta-row{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.contact-line{margin-top:34px;font-family:var(--mono);font-size:.85rem;color:#8FD7B4;display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
+.contact-line{margin-top:34px;font-family:var(--mono);font-size:.85rem;color:#97DBA0;display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
 .contact-line a:hover{color:var(--white)}
-footer{background:#03150E;color:#6E9682;font-size:.8rem;padding:44px clamp(20px,5vw,48px)}
+footer{background:#041508;color:#6E9682;font-size:.8rem;padding:44px clamp(20px,5vw,48px)}
 footer .wrap{display:grid;gap:8px}
 footer .biz{line-height:1.9}
-footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#4E7263}
+footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#4E7256}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -338,7 +357,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
 <body>
 
 <nav class="nav" id="nav" aria-label="주 메뉴">
-  <a class="nav-logo" href="#top">세느루 <span class="en">SAENRU</span></a>
+  <a class="nav-logo" href="#top"><img src="assets/logo-icon.png" alt="세느루 로고" width="34" height="34">세느루 <span class="en">SAENRU</span></a>
   <div class="nav-links">
     <a href="#projects">프로젝트</a>
     <a href="#stories">빌더 스토리</a>
@@ -377,6 +396,21 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
     </div>
   </div>
 </div>
+
+<!-- ============ WHAT IS SAENRU (AEO 직답) ============ -->
+<section class="sec" id="what" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="define reveal">
+      <h2>세느루는 어떤 플랫폼인가요?</h2>
+      <p class="bluf">세느루(SAENRU)는 AI로 만든 웹사이트·웹앱을 공개하고 반응을 얻는 <strong>대한민국 AI 빌더 런칭 플랫폼</strong>입니다. 프로젝트 등록과 노출은 무료이며, GitHub 저장소를 함께 여는 오픈 런칭을 지향합니다. 직접 만들 시간이 없는 팀을 위한 제작 스튜디오와 <a href="ai/">AEO·GEO 컨설팅(saenru.com/ai)</a>도 함께 운영합니다.</p>
+      <ul class="facts">
+        <li>프로젝트 출시 무료 · 큐레이션 영업일 1일</li>
+        <li>GitHub 오픈 런칭 · 코드 소유권은 빌더에게</li>
+        <li>2023년 설립 · 서울 영등포 기반</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- ============ TODAY'S PROJECTS ============ -->
 <section class="sec" id="projects">
@@ -506,7 +540,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
 <section class="sec sec-dark" id="community">
   <div class="wrap">
     <div class="reveal">
-      <div class="sec-eyebrow" style="color:#57C690">Community</div>
+      <div class="sec-eyebrow" style="color:#52C868">Community</div>
       <h2 class="sec-title">혼자 만들고, 함께 성장하는 곳<span class="beta-badge">OPEN BETA</span></h2>
       <p class="sec-lead">만들다 막힌 것, 런칭하고 배운 것. 빌더들의 진짜 이야기가 오가는 커뮤니티입니다.</p>
     </div>
@@ -677,6 +711,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
 
 <footer>
   <div class="wrap">
+    <img src="assets/logo-icon.png" alt="세느루 심볼" width="40" height="40" style="border-radius:10px;margin-bottom:8px" loading="lazy">
     <div class="biz">
       법인명(상호): 세느루 · 대표자: 이재현 · 사업자등록번호: 698-25-01527<br>
       통신판매업 신고: 제2023-서울영등포-1610호 · 개인정보보호책임자: 이재현(dkdlslek1@naver.com)<br>
@@ -693,6 +728,9 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
   "name":"세느루",
   "alternateName":"SAENRU",
   "url":"https://saenru.com",
+  "logo":"https://saenru.com/assets/logo-stacked.png",
+  "image":"https://saenru.com/assets/og-image.png",
+  "sameAs":["https://github.com/zzangusz-art/saenru-homepage"],
   "telephone":"+82-507-1369-7319",
   "email":"dkdlslek1@naver.com",
   "foundingDate":"2023",
@@ -722,6 +760,17 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
     {"@type":"Question","name":"GitHub 공개가 필수인가요?","acceptedAnswer":{"@type":"Answer","text":"권장 사항입니다. 공개 시 오픈 런칭 배지와 함께 더 넓게 소개됩니다."}},
     {"@type":"Question","name":"AEO·GEO 컨설팅은 어디서 신청하나요?","acceptedAnswer":{"@type":"Answer","text":"전용 페이지 saenru.com/ai에서 진단 리포트부터 신청할 수 있습니다."}}
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"세느루",
+  "alternateName":"SAENRU",
+  "url":"https://saenru.com",
+  "inLanguage":"ko",
+  "publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com"}
 }
 </script>
 
@@ -778,7 +827,7 @@ chips.forEach(function(ch){
   });
 });
 
-/* ---------- GLOBE ---------- */
+/* ---------- GLOBE v2 : 질감 + 인터랙션 ---------- */
 var cv = document.getElementById("globe"), ctx = cv.getContext("2d");
 var DPR = Math.min(devicePixelRatio||1, 2), W=0, H=0;
 function resize(){
@@ -789,32 +838,20 @@ function resize(){
 }
 addEventListener("resize", resize); resize();
 
-var RAD = Math.PI/180;
+var RAD = Math.PI/180, TAU = Math.PI*2;
 /* 대략적 대륙 외곽 (lon,lat) — 히어로 스케일에서 지구로 읽히는 수준의 근사 */
 var POLY = [
- /* North America */
  [[-166,66],[-158,71],[-140,70],[-124,71],[-110,72],[-96,73],[-85,70],[-80,73],[-72,62],[-58,52],[-65,47],[-70,43],[-75,38],[-79,33],[-81,26],[-84,30],[-90,29],[-96,27],[-97,22],[-105,20],[-97,16],[-90,13],[-83,9],[-79,8],[-84,12],[-92,16],[-97,18],[-106,24],[-113,30],[-118,34],[-124,40],[-124,48],[-128,52],[-132,57],[-140,60],[-150,60],[-158,57],[-165,60]],
- /* Greenland */
  [[-52,60],[-43,60],[-30,68],[-20,70],[-18,76],[-30,83],[-55,83],[-62,76],[-55,68]],
- /* South America */
  [[-79,9],[-72,11],[-62,10],[-52,4],[-44,-2],[-35,-6],[-35,-10],[-39,-14],[-48,-25],[-54,-33],[-58,-39],[-63,-42],[-65,-48],[-69,-53],[-72,-52],[-72,-44],[-73,-36],[-71,-28],[-70,-18],[-76,-14],[-80,-5],[-80,2]],
- /* Africa */
  [[-15,32],[-6,35],[3,37],[11,37],[20,32],[31,31],[35,27],[38,20],[43,11],[51,12],[48,4],[41,-3],[40,-11],[36,-18],[33,-26],[27,-34],[19,-35],[16,-28],[13,-18],[9,-7],[9,2],[3,6],[-6,5],[-13,9],[-17,15],[-17,21],[-16,28]],
- /* Europe */
  [[-9,37],[-7,43],[-2,44],[3,43],[8,44],[13,41],[16,39],[19,42],[23,38],[27,41],[30,45],[38,46],[47,44],[48,49],[45,56],[38,60],[30,60],[28,66],[31,70],[25,71],[17,68],[12,64],[8,58],[5,53],[-2,50],[-6,44]],
- /* UK */
  [[-6,50],[-2,51],[0,53],[-2,57],[-5,58],[-6,55],[-8,52]],
- /* Asia mainland */
  [[47,44],[56,44],[64,42],[72,40],[78,36],[86,30],[93,27],[98,24],[105,22],[109,18],[106,10],[104,2],[99,7],[95,17],[90,22],[87,22],[80,15],[77,8],[73,17],[69,23],[62,25],[57,27],[50,30],[44,36],[48,49],[52,55],[60,62],[70,68],[82,72],[95,74],[110,73],[125,71],[140,70],[155,68],[168,67],[178,66],[178,63],[168,60],[160,60],[157,53],[148,50],[140,47],[133,43],[128,39],[122,37],[121,30],[116,23],[110,20],[108,15]],
- /* Korea */
  [[126,38],[127.6,38.4],[129.4,37],[129.3,35.3],[127.8,34.6],[126.3,34.7],[126.1,36.6]],
- /* Japan */
  [[130,31],[132,33],[135,34],[138,35],[141,38],[141,41],[143,43],[145,44],[142,45],[140,42],[137,37],[133,35],[130,33]],
- /* SE Asia / Indonesia */
  [[95,5],[100,2],[104,-2],[110,-6],[116,-8],[122,-8],[130,-7],[135,-6],[140,-7],[141,-3],[134,-2],[128,-3],[120,-5],[113,-4],[106,-4],[100,0]],
- /* Australia */
  [[114,-22],[118,-18],[122,-14],[129,-12],[133,-11],[137,-13],[142,-12],[146,-16],[149,-21],[153,-27],[152,-33],[147,-38],[140,-38],[134,-33],[126,-33],[118,-34],[113,-27]],
- /* New Zealand */
  [[172,-35],[176,-38],[174,-41],[171,-44],[167,-46],[169,-43],[172,-40]]
 ];
 function inPoly(lon,lat,poly){
@@ -825,29 +862,61 @@ function inPoly(lon,lat,poly){
   }
   return inside;
 }
-var dots=[];
+function isLand(lon,lat){
+  for(var p=0;p<POLY.length;p++){ if(inPoly(lon,lat,POLY[p])) return true; }
+  return false;
+}
+function ll(lon,lat){ return {x:Math.cos(lat*RAD)*Math.sin(lon*RAD), y:Math.sin(lat*RAD), z:Math.cos(lat*RAD)*Math.cos(lon*RAD)}; }
+
+/* 육지 도트(라이팅·트윙클용 지터 포함) + 바다 텍스처 도트 */
+var dots=[], ocean=[];
 (function(){
-  for(var lat=-55;lat<=80;lat+=2.4){
-    var c=Math.cos(lat*RAD); if(c<0.08) continue;
-    var step=2.4/c;
-    for(var lon=-180;lon<180;lon+=step){
-      for(var p=0;p<POLY.length;p++){
-        if(inPoly(lon,lat,POLY[p])){
-          dots.push({
-            x:Math.cos(lat*RAD)*Math.sin(lon*RAD),
-            y:Math.sin(lat*RAD),
-            z:Math.cos(lat*RAD)*Math.cos(lon*RAD)
-          });
-          break;
-        }
+  var lat,lon,c,step,v;
+  for(lat=-55;lat<=80;lat+=2.2){
+    c=Math.cos(lat*RAD); if(c<0.08) continue;
+    step=2.2/c;
+    for(lon=-180;lon<180;lon+=step){
+      if(isLand(lon,lat)){
+        v=ll(lon,lat); v.j=(dots.length*0.618034)%1;
+        dots.push(v);
+      }
+    }
+  }
+  for(lat=-72;lat<=84;lat+=4.8){
+    c=Math.cos(lat*RAD); if(c<0.06) continue;
+    step=4.8/c;
+    for(lon=-180;lon<180;lon+=step){
+      if(!isLand(lon,lat)){
+        v=ll(lon,lat); v.j=(ocean.length*0.7548777)%1;
+        ocean.push(v);
       }
     }
   }
 })();
 
-function ll(lon,lat){ return {x:Math.cos(lat*RAD)*Math.sin(lon*RAD), y:Math.sin(lat*RAD), z:Math.cos(lat*RAD)*Math.cos(lon*RAD)}; }
+/* 별 배경 (결정적 의사난수) */
+var STARS=[];
+(function(){
+  for(var i=0;i<150;i++){
+    STARS.push({
+      nx:(i*0.7548777)%1,
+      ny:((i*0.5698403)%1)*0.92,
+      s:0.5+((i*7)%10)/10*1.3,
+      p:((i*13)%100)/100*TAU
+    });
+  }
+})();
+
+/* 도시 + 아크 */
 var SEOUL = ll(126.98,37.57);
-var CITIES = [ll(-122.4,37.8), ll(-74,40.7), ll(-0.1,51.5), ll(103.8,1.35), ll(151.2,-33.9), ll(13.4,52.5)];
+var CITIES = [
+  {name:"SAN FRANCISCO", v:ll(-122.4,37.8)},
+  {name:"NEW YORK",      v:ll(-74,40.7)},
+  {name:"LONDON",        v:ll(-0.1,51.5)},
+  {name:"SINGAPORE",     v:ll(103.8,1.35)},
+  {name:"SYDNEY",        v:ll(151.2,-33.9)},
+  {name:"BERLIN",        v:ll(13.4,52.5)}
+];
 function slerp(a,b,t){
   var dot=a.x*b.x+a.y*b.y+a.z*b.z; dot=Math.min(1,Math.max(-1,dot));
   var th=Math.acos(dot), s=Math.sin(th);
@@ -858,34 +927,64 @@ function slerp(a,b,t){
 var ARCS = CITIES.map(function(c){
   var pts=[];
   for(var i=0;i<=56;i++){
-    var t=i/56, p=slerp(SEOUL,c,t), lift=1+Math.sin(t*Math.PI)*0.16;
+    var t=i/56, p=slerp(SEOUL,c.v,t), lift=1+Math.sin(t*Math.PI)*0.16;
     pts.push({x:p.x*lift,y:p.y*lift,z:p.z*lift});
   }
   return pts;
 });
 
-var TILT=-14*RAD, ct=Math.cos(TILT), st=Math.sin(TILT);
-var yawScroll=0, yawDrag=0, yawIdle=0, dragV=0;
+/* 회전 상태: 2축 드래그 + 관성 + 호버 패럴랙스 */
+var TILT_BASE=-14*RAD;
+var yawDrag=0, pitchDrag=0, dragVX=0, dragVY=0, yawIdle=0;
+var mxN=0.5, myN=0.42, hoverTX=0, hoverTY=0;
+var mouseX=-999, mouseY=-999;
+var ct=1, st=0; /* 프레임마다 갱신 */
 function proj(p,yaw,R,cx,cy){
   var cy_=Math.cos(yaw), sy_=Math.sin(yaw);
   var x=p.x*cy_+p.z*sy_, z=-p.x*sy_+p.z*cy_, y=p.y;
   var y2=y*ct - z*st, z2=y*st + z*ct;
-  return {sx:cx+x*R, sy:cy - y2*R, z:z2};
+  return {sx:cx+x*R, sy:cy - y2*R, x:x, y2:y2, z:z2};
 }
 
-var dragging=false,lastX=0;
-cv.addEventListener("pointerdown",function(e){dragging=true;lastX=e.clientX;dragV=0;cv.setPointerCapture(e.pointerId);});
-cv.addEventListener("pointermove",function(e){
-  if(!dragging) return;
-  var dx=e.clientX-lastX; lastX=e.clientX;
-  yawDrag+=dx*0.005; dragV=dx*0.005;
+/* 포인터: 드래그(2축) · 호버 · 클릭 리플 */
+var dragging=false,lastX=0,lastY=0,downX=0,downY=0,downT=0;
+var ripples=[];
+var lastYaw=0,lastR=1,lastCx=0,lastCy=0;
+function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+cv.addEventListener("pointerdown",function(e){
+  dragging=true;lastX=e.clientX;lastY=e.clientY;downX=e.clientX;downY=e.clientY;downT=performance.now();
+  dragVX=0;dragVY=0;cv.setPointerCapture(e.pointerId);cv.style.cursor="grabbing";
 });
-cv.addEventListener("pointerup",function(){dragging=false;});
-cv.addEventListener("pointercancel",function(){dragging=false;});
+cv.addEventListener("pointermove",function(e){
+  mouseX=e.clientX; mouseY=e.clientY;
+  mxN=e.clientX/Math.max(1,W); myN=e.clientY/Math.max(1,H);
+  if(!dragging) return;
+  var dx=e.clientX-lastX, dy=e.clientY-lastY; lastX=e.clientX; lastY=e.clientY;
+  yawDrag+=dx*0.005; dragVX=dx*0.005;
+  pitchDrag=clamp(pitchDrag+dy*0.004,-0.55,0.55); dragVY=dy*0.004;
+});
+function endDrag(e){
+  if(!dragging) return;
+  dragging=false; cv.style.cursor="grab";
+  var moved=Math.abs(e.clientX-downX)+Math.abs(e.clientY-downY);
+  if(moved<6 && performance.now()-downT<400) spawnRipple(e.clientX,e.clientY);
+}
+cv.addEventListener("pointerup",endDrag);
+cv.addEventListener("pointercancel",function(){dragging=false;cv.style.cursor="grab";});
+cv.addEventListener("pointerleave",function(){mouseX=-999;mouseY=-999;});
 cv.style.cursor="grab";
-cv.addEventListener("pointerdown",function(){cv.style.cursor="grabbing";});
-cv.addEventListener("pointerup",function(){cv.style.cursor="grab";});
+function spawnRipple(sx,sy){
+  var x=(sx-lastCx)/lastR, yy=-(sy-lastCy)/lastR;
+  var rr=x*x+yy*yy; if(rr>1) return;
+  var z2=Math.sqrt(1-rr);
+  var y=yy*ct+z2*st, z=-yy*st+z2*ct;
+  var cy_=Math.cos(lastYaw), sy_=Math.sin(lastYaw);
+  var px=x*cy_-z*sy_, pz=x*sy_+z*cy_;
+  ripples.push({v:{x:px,y:y,z:pz}, t:0});
+  if(ripples.length>6) ripples.shift();
+}
 
+/* 스크롤 진행도 */
 var progress=0;
 function calcProgress(){
   var r=track.getBoundingClientRect();
@@ -894,6 +993,7 @@ function calcProgress(){
 }
 addEventListener("scroll",calcProgress,{passive:true}); calcProgress();
 
+/* 카피 스테이지 */
 var st1=document.getElementById("st1"),st2=document.getElementById("st2"),st3=document.getElementById("st3"),hint=document.getElementById("hint");
 function band(p,a,b,f){
   if(p<a-f||p>b+f) return 0;
@@ -913,86 +1013,175 @@ function updateCopy(){
   hint.style.opacity = progress<0.04?1:0;
 }
 
+/* 광원(뷰 공간, 좌상단 앞) */
+var LX=-0.42, LY=0.52, LZ=0.74;
+(function(){ var m=Math.sqrt(LX*LX+LY*LY+LZ*LZ); LX/=m; LY/=m; LZ/=m; })();
+
 var t0=performance.now();
 function frame(now){
-  var dt=(now-t0)/1000; t0=now;
-  if(!dragging){ yawDrag+=dragV; dragV*=0.94; }
+  var dt=Math.min(0.05,(now-t0)/1000); t0=now;
+  var time=reduced?0:now/1000;
+  if(!dragging){
+    yawDrag+=dragVX; dragVX*=0.94;
+    pitchDrag=clamp(pitchDrag+dragVY,-0.55,0.55); dragVY*=0.90;
+  }
   if(!reduced) yawIdle+=dt*0.05;
-  yawScroll=progress*Math.PI*3;
-  var yaw=yawIdle+yawScroll+yawDrag + 2.1;
+  /* 호버 패럴랙스: 커서 쪽으로 살짝 기울기 */
+  hoverTX+=(((mxN-0.5)*0.16)-hoverTX)*0.05;
+  hoverTY+=(((myN-0.45)*0.13)-hoverTY)*0.05;
+
+  var yaw=yawIdle+progress*Math.PI*3+yawDrag+hoverTX+2.1;
+  var tilt=clamp(TILT_BASE+pitchDrag+hoverTY,-1.0,0.6);
+  ct=Math.cos(tilt); st=Math.sin(tilt);
 
   var R=Math.min(W,H)*(0.40+progress*0.06);
   var cx=W/2, cyC=H*0.66;
+  lastYaw=yaw; lastR=R; lastCx=cx; lastCy=cyC;
 
   ctx.clearRect(0,0,W,H);
 
-  var g=ctx.createRadialGradient(cx,cyC,R*0.6,cx,cyC,R*1.45);
-  g.addColorStop(0,"rgba(23,179,106,0.10)");
-  g.addColorStop(0.72,"rgba(23,179,106,0.045)");
-  g.addColorStop(1,"rgba(23,179,106,0)");
-  ctx.fillStyle=g; ctx.beginPath(); ctx.arc(cx,cyC,R*1.45,0,6.2832); ctx.fill();
+  /* 별 */
+  var i,p,a,s;
+  for(i=0;i<STARS.length;i++){
+    s=STARS[i];
+    var sx=s.nx*W, sy=s.ny*H;
+    var dxs=sx-cx, dys=sy-cyC;
+    if(dxs*dxs+dys*dys < R*R*1.1) continue;
+    a=0.25+0.3*(reduced?0.5:Math.sin(time*1.3+s.p)*0.5+0.5);
+    ctx.fillStyle="rgba(198,235,199,"+(a*0.55).toFixed(3)+")";
+    ctx.fillRect(sx,sy,s.s,s.s);
+  }
 
-  ctx.strokeStyle="rgba(143,215,180,0.18)"; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.arc(cx,cyC,R,0,6.2832); ctx.stroke();
+  /* 대기 글로우 */
+  var g=ctx.createRadialGradient(cx,cyC,R*0.72,cx,cyC,R*1.5);
+  g.addColorStop(0,"rgba(0,175,28,0.12)");
+  g.addColorStop(0.6,"rgba(0,175,28,0.05)");
+  g.addColorStop(1,"rgba(0,175,28,0)");
+  ctx.fillStyle=g; ctx.beginPath(); ctx.arc(cx,cyC,R*1.5,0,TAU); ctx.fill();
 
-  ctx.strokeStyle="rgba(255,255,255,0.05)";
-  for(var la=-60;la<=60;la+=30){
-    ctx.beginPath(); var started=false;
-    for(var lo=-180;lo<=180;lo+=6){
-      var p=proj(ll(lo,la),yaw,R,cx,cyC);
+  /* 구체 바탕: 광원 방향 셰이딩(질감의 뼈대) */
+  var sph=ctx.createRadialGradient(cx+LX*R*0.55,cyC-LY*R*0.55,R*0.1,cx,cyC,R);
+  sph.addColorStop(0,"rgba(28,96,44,0.85)");
+  sph.addColorStop(0.55,"rgba(12,58,26,0.92)");
+  sph.addColorStop(1,"rgba(4,26,11,0.98)");
+  ctx.fillStyle=sph; ctx.beginPath(); ctx.arc(cx,cyC,R,0,TAU); ctx.fill();
+
+  /* 림 라이트(광원 쪽 가장자리 하이라이트) */
+  ctx.save();
+  ctx.beginPath(); ctx.arc(cx,cyC,R,0,TAU); ctx.clip();
+  var rim=ctx.createRadialGradient(cx+LX*R*0.9,cyC-LY*R*0.9,R*0.5,cx+LX*R*0.2,cyC-LY*R*0.2,R*1.6);
+  rim.addColorStop(0,"rgba(150,219,158,0.20)");
+  rim.addColorStop(0.35,"rgba(150,219,158,0.04)");
+  rim.addColorStop(1,"rgba(0,0,0,0)");
+  ctx.fillStyle=rim; ctx.fillRect(cx-R,cyC-R,R*2,R*2);
+  ctx.restore();
+
+  /* 그라티큘 */
+  ctx.strokeStyle="rgba(255,255,255,0.045)"; ctx.lineWidth=1;
+  var la,lo,started;
+  for(la=-60;la<=60;la+=30){
+    ctx.beginPath(); started=false;
+    for(lo=-180;lo<=180;lo+=6){
+      p=proj(ll(lo,la),yaw,R,cx,cyC);
       if(p.z>0){ if(!started){ctx.moveTo(p.sx,p.sy);started=true;} else ctx.lineTo(p.sx,p.sy); }
       else started=false;
     }
     ctx.stroke();
   }
 
-  var i,p;
-  ctx.fillStyle="rgba(143,215,180,0.07)";
-  for(i=0;i<dots.length;i++){
-    p=proj(dots[i],yaw,R,cx,cyC);
-    if(p.z<=0) ctx.fillRect(p.sx-0.8,p.sy-0.8,1.6,1.6);
-  }
-  for(i=0;i<dots.length;i++){
-    p=proj(dots[i],yaw,R,cx,cyC);
-    if(p.z>0){
-      var a=0.25+0.65*p.z;
-      ctx.fillStyle="rgba(191,232,210,"+a.toFixed(3)+")";
-      var s=1.4+p.z*1.1;
-      ctx.fillRect(p.sx-s/2,p.sy-s/2,s,s);
-    }
+  /* 바다 텍스처 도트 */
+  for(i=0;i<ocean.length;i++){
+    p=proj(ocean[i],yaw,R,cx,cyC);
+    if(p.z<=0.02) continue;
+    var lam0=Math.max(0,p.x*LX+p.y2*LY+p.z*LZ);
+    a=0.03+0.09*lam0;
+    ctx.fillStyle="rgba(150,219,158,"+a.toFixed(3)+")";
+    ctx.fillRect(p.sx-0.7,p.sy-0.7,1.4,1.4);
   }
 
-  var time=now/1000;
+  /* 육지 도트: 램버트 라이팅 + 트윙클 + 색 편차 */
+  for(i=0;i<dots.length;i++){
+    var d=dots[i];
+    p=proj(d,yaw,R,cx,cyC);
+    if(p.z<=0.02) continue;
+    var lam=Math.max(0,p.x*LX+p.y2*LY+p.z*LZ);
+    var tw=reduced?1:(0.86+0.28*Math.sin(time*1.6+d.j*TAU));
+    a=(0.16+0.72*lam)*tw;
+    s=1.1+1.5*lam+0.5*p.z;
+    if(d.j<0.28){ ctx.fillStyle="rgba(62,220,91,"+a.toFixed(3)+")"; }
+    else{ ctx.fillStyle="rgba(198,235,199,"+a.toFixed(3)+")"; }
+    ctx.fillRect(p.sx-s/2,p.sy-s/2,s,s);
+  }
+
+  /* 스페큘러 하이라이트 */
+  ctx.save();
+  ctx.beginPath(); ctx.arc(cx,cyC,R,0,TAU); ctx.clip();
+  var spec=ctx.createRadialGradient(cx+LX*R*0.62,cyC-LY*R*0.62,0,cx+LX*R*0.62,cyC-LY*R*0.62,R*0.5);
+  spec.addColorStop(0,"rgba(233,255,236,0.10)");
+  spec.addColorStop(1,"rgba(233,255,236,0)");
+  ctx.fillStyle=spec; ctx.fillRect(cx-R,cyC-R,R*2,R*2);
+  ctx.restore();
+
+  /* 아크 + 펄스 */
   for(var ai=0;ai<ARCS.length;ai++){
     var arc=ARCS[ai];
     ctx.beginPath(); var on=false;
     for(i=0;i<arc.length;i++){
       p=proj(arc[i],yaw,R,cx,cyC);
-      if(p.z>-0.15){ if(!on){ctx.moveTo(p.sx,p.sy);on=true;} else ctx.lineTo(p.sx,p.sy); }
+      if(p.z>0.02){ if(!on){ctx.moveTo(p.sx,p.sy);on=true;} else ctx.lineTo(p.sx,p.sy); }
       else on=false;
     }
-    ctx.strokeStyle="rgba(23,179,106,0.30)"; ctx.lineWidth=1; ctx.stroke();
+    ctx.strokeStyle="rgba(0,175,28,0.32)"; ctx.lineWidth=1; ctx.stroke();
     if(!reduced){
       var tp=(time*0.16+ai*0.37)%1;
       var pp=arc[Math.floor(tp*(arc.length-1))];
       p=proj(pp,yaw,R,cx,cyC);
-      if(p.z>-0.15){
-        ctx.fillStyle="rgba(63,224,141,0.9)";
-        ctx.beginPath(); ctx.arc(p.sx,p.sy,2.2,0,6.2832); ctx.fill();
+      if(p.z>0.02){
+        ctx.fillStyle="rgba(62,220,91,0.9)";
+        ctx.beginPath(); ctx.arc(p.sx,p.sy,2.2,0,TAU); ctx.fill();
       }
     }
   }
 
+  /* 클릭 리플 */
+  for(i=ripples.length-1;i>=0;i--){
+    var rp=ripples[i];
+    rp.t+=dt*1.4;
+    if(rp.t>=1){ ripples.splice(i,1); continue; }
+    p=proj(rp.v,yaw,R,cx,cyC);
+    if(p.z<=0) continue;
+    ctx.strokeStyle="rgba(62,220,91,"+((1-rp.t)*0.55).toFixed(3)+")";
+    ctx.lineWidth=1.6;
+    ctx.beginPath(); ctx.arc(p.sx,p.sy,2+rp.t*R*0.2,0,TAU); ctx.stroke();
+  }
+
+  /* 도시 마커 + 호버 라벨 */
+  ctx.font="500 10px 'IBM Plex Mono',monospace";
+  for(i=0;i<CITIES.length;i++){
+    p=proj(CITIES[i].v,yaw,R,cx,cyC);
+    if(p.z<=0.05) continue;
+    ctx.fillStyle="rgba(150,219,158,"+(0.35+0.5*p.z).toFixed(3)+")";
+    ctx.beginPath(); ctx.arc(p.sx,p.sy,1.8,0,TAU); ctx.fill();
+    var mdx=mouseX-p.sx, mdy=mouseY-p.sy;
+    if(mdx*mdx+mdy*mdy<900){
+      ctx.strokeStyle="rgba(62,220,91,0.8)"; ctx.lineWidth=1.2;
+      ctx.beginPath(); ctx.arc(p.sx,p.sy,7,0,TAU); ctx.stroke();
+      ctx.fillStyle="rgba(198,235,199,0.95)";
+      ctx.fillText(CITIES[i].name,p.sx+12,p.sy+3);
+    }
+  }
+
+  /* 서울 비콘 */
   p=proj(SEOUL,yaw,R,cx,cyC);
   if(p.z>0){
     var pulse=reduced?0.5:(0.5+0.5*Math.sin(time*2.4));
-    ctx.strokeStyle="rgba(63,224,141,"+(0.55-0.4*pulse)+")";
+    ctx.strokeStyle="rgba(62,220,91,"+(0.55-0.4*pulse)+")";
     ctx.lineWidth=1.4;
-    ctx.beginPath(); ctx.arc(p.sx,p.sy,4+9*pulse,0,6.2832); ctx.stroke();
-    ctx.fillStyle="#3FE08D";
-    ctx.beginPath(); ctx.arc(p.sx,p.sy,3,0,6.2832); ctx.fill();
+    ctx.beginPath(); ctx.arc(p.sx,p.sy,4+9*pulse,0,TAU); ctx.stroke();
+    ctx.fillStyle="#3EDC5B";
+    ctx.beginPath(); ctx.arc(p.sx,p.sy,3,0,TAU); ctx.fill();
     ctx.font="500 10px 'IBM Plex Mono',monospace";
-    ctx.fillStyle="rgba(191,232,210,0.85)";
+    ctx.fillStyle="rgba(198,235,199,0.9)";
     ctx.fillText("SEOUL",p.sx+12,p.sy+3);
   }
 
@@ -1001,6 +1190,7 @@ function frame(now){
 }
 requestAnimationFrame(function(now){ t0=now; frame(now); });
 if(reduced){ progress=1; updateCopy(); }
+
 })();
 </script>
 </body>
