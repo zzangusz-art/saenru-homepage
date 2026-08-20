@@ -1,0 +1,44 @@
+name: blog-auto-publish
+
+on:
+  schedule:
+    # KST 08:00 / 12:30 / 17:00 (UTC 23:00 / 03:30 / 08:00) — 하루 3회 발행
+    - cron: "0 23 * * *"
+    - cron: "30 3 * * *"
+    - cron: "0 8 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        working-directory: tools
+        run: npm install --no-audit --no-fund
+
+      - name: Generate post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node tools/generate-post.mjs
+
+      - name: Commit & push
+        run: |
+          git config user.name "saenru-bot"
+          git config user.email "dkdlslek1@naver.com"
+          git add blog sitemap.xml
+          git diff --cached --quiet && echo "변경 없음" && exit 0
+          git commit -m "blog: 자동 발행 $(TZ=Asia/Seoul date +%Y-%m-%d\ %H:%M)"
+          git push
