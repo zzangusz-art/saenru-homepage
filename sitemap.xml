@@ -3,7 +3,7 @@
   <url>
     <loc>https://saenru.com/</loc>
     <lastmod>2026-08-20</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
@@ -11,5 +11,35 @@
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://saenru.com/about/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saenru.com/blog/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://saenru.com/blog/posts/2026-08-20-homepage-in-ai-overviews-era.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://saenru.com/blog/posts/2026-08-20-vibe-coding-getting-started.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://saenru.com/blog/posts/2026-08-20-why-chatgpt-recommends-some-brands.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
