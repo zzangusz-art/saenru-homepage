@@ -1,5 +1,13 @@
 [
   {
+    "slug": "2026-08-21-ai-agent-delegation-design-for-small-teams",
+    "date": "2026-08-21",
+    "title": "AI 에이전트, 어디까지 맡겨도 될까?",
+    "category": "AI 트렌드",
+    "summary": "실행하는 AI가 늘어난 지금, 1인 빌더와 소규모 팀이 업무를 안전하게 위임하는 설계법을 정리했습니다.",
+    "readMin": 4
+  },
+  {
     "slug": "2026-08-21-ai-token-cost-diet-for-small-teams",
     "date": "2026-08-21",
     "title": "AI 요금이 갑자기 늘었다면? 토큰 다이어트 6가지",
