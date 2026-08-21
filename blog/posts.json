@@ -1,5 +1,13 @@
 [
   {
+    "slug": "2026-08-21-mini-eval-set-for-small-teams",
+    "date": "2026-08-21",
+    "title": "우리 AI, 잘하고 있나? 미니 평가셋 만드는 법",
+    "category": "AI 도구",
+    "summary": "모델을 바꿀 때마다 불안하다면, 질문 20~30개짜리 평가셋부터 만들어 보세요.",
+    "readMin": 4
+  },
+  {
     "slug": "2026-08-21-ai-agent-delegation-design-for-small-teams",
     "date": "2026-08-21",
     "title": "AI 에이전트, 어디까지 맡겨도 될까?",

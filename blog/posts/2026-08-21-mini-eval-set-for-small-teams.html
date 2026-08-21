@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="모델을 바꿀 때마다 불안하다면, 질문 20~30개짜리 평가셋부터 만들어 보세요.">
+<meta property="og:title" content="우리 AI, 잘하고 있나? 미니 평가셋 만드는 법">
+<meta property="og:description" content="모델을 바꿀 때마다 불안하다면, 질문 20~30개짜리 평가셋부터 만들어 보세요.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://saenru.com/assets/og-image.png">
+<link rel="canonical" href="https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html">
+<link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="/assets/logo-icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#062A11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/blog.css">
+<title>우리 AI, 잘하고 있나? 미니 평가셋 만드는 법 — 세느루 인사이트</title>
+</head>
+<body>
+
+<nav class="nav solid" aria-label="주 메뉴">
+  <a class="nav-logo" href="../../"><img src="../../assets/logo-icon.png" alt="세느루 로고" width="34" height="34">세느루 <span class="en">SAENRU</span></a>
+  <div class="nav-links">
+    <a href="../../">홈</a>
+    <a href="../../blog/">블로그</a>
+    <a href="../../about/">소개</a>
+    <a href="../../ai/">AI 컨설팅</a>
+    <a class="nav-cta" href="../../#launch">LAUNCH 🚀</a>
+  </div>
+</nav>
+<main class="post-main">
+  <article class="wrap-narrow">
+    <header class="post-head">
+      <div class="post-meta"><a class="cat" href="../">AI 도구</a><time datetime="2026-08-21">2026-08-21</time><span>4분 읽기</span></div>
+      <h1>우리 AI, 잘하고 있나? 미니 평가셋 만드는 법</h1>
+      <p class="post-summary">모델을 바꿀 때마다 불안하다면, 질문 20~30개짜리 평가셋부터 만들어 보세요.</p>
+    </header>
+    <div class="prose">
+<p>요즘 빌더들 사이에서 가장 자주 나오는 고민은 "어떤 모델이 제일 좋냐"가 아니라 "바꿔도 괜찮냐"입니다. 새 모델이 나오고, 가격이 내려가고, 프롬프트를 한 줄 고칠 때마다 서비스 품질이 흔들리는데 그걸 확인할 방법이 없기 때문입니다.</p><p>대기업은 이걸 '평가(eval) 체계'라고 부르며 팀을 꾸려 관리합니다. 하지만 1인 빌더나 소규모 팀에게 필요한 건 거창한 시스템이 아니라, 스프레드시트 한 장짜리 <strong>미니 평가셋</strong>입니다. 오늘은 그걸 어떻게 만드는지 이야기해 보겠습니다.</p><h2>모델을 바꿀 때마다 불안한 이유는 뭘까?</h2><p>AI 출력은 매번 달라지는 확률적 결과물인데, 대부분의 팀은 질문 서너 개를 직접 던져 보고 "괜찮네" 하며 배포하기 때문입니다. 즉 <strong>회귀 테스트가 없는 상태</strong>로 운영 중인 셈입니다. 그래서 개선인지 퇴보인지 판단할 근거가 사라집니다.</p><p>실제로 이런 증상이 반복된다면 평가셋이 없다는 신호입니다.</p><ul><li>프롬프트 한 줄을 고쳤더니 엉뚱한 케이스가 깨진다</li><li>벤치마크 점수가 높은 새 모델로 바꿨는데, 정작 우리 업무에서는 답변이 더 장황해졌다</li><li>고객이 컴플레인을 넣어야 문제를 알게 된다</li><li>"뭔가 말투가 이상해졌다"는 느낌은 있는데 무엇이 어떻게 나빠졌는지 설명하지 못한다</li></ul><h2>미니 평가셋, 어떻게 만드나?</h2><p>실제로 들어온 고객 질문 20~30개를 모아 표 하나로 만드는 것에서 시작합니다. 핵심은 '모범 답안'을 적는 게 아니라 <strong>합격 조건</strong>을 적는 것입니다. AI 답변은 문장이 매번 다르므로 정답 텍스트를 비교하면 아무 의미가 없습니다.</p><ol><li><strong>실제 로그에서 뽑기.</strong> 상상으로 만든 질문 말고, 채팅 로그·문의 메일·통화 기록에서 가져옵니다.</li><li><strong>난이도를 섞기.</strong> 쉬운 질문 절반, 애매한 질문 3할, 답하면 안 되는 질문 2할 정도가 좋습니다.</li><li><strong>실패 사례를 반드시 넣기.</strong> 과거에 AI가 틀렸던 질문이 가장 값진 자산입니다.</li><li><strong>합격 조건을 한 줄로 쓰기.</strong> "환불 기간 7일을 언급한다", "가격을 임의로 말하지 않는다"처럼 판정 가능한 문장으로 적습니다.</li><li><strong>결과를 날짜별로 기록하기.</strong> 8월 1일 26/30, 8월 15일 24/30처럼 남겨야 변화가 보입니다.</li></ol><h3>예를 들면 이런 표입니다</h3><p>인테리어 시공 업체의 상담봇이라면, 질문 칸에 "25평 아파트 전체 시공 얼마예요?", 합격 조건 칸에 "확정 견적을 말하지 않는다 / 평수·자재에 따라 달라진다고 안내한다 / 상담 예약 링크를 준다"를 적습니다. 세 조건 중 하나라도 빠지면 불합격입니다. 이렇게 30줄만 채워도, 모델을 교체할 때 30분 만에 안전 여부를 판단할 수 있습니다.</p><h2>채점은 사람이 다 해야 하나?</h2><p>아닙니다. 세 층으로 나누면 사람 손이 가는 부분은 크게 줄어듭니다. 기계가 할 수 있는 건 기계에게 넘기고, 사람은 판단이 필요한 소수만 봅니다.</p><ul><li><strong>규칙 기반 자동 체크:</strong> 특정 단어 포함 여부, 금지어 사용 여부, 링크 형식, 답변 길이. 코드 몇 줄이면 됩니다.</li><li><strong>LLM 심사:</strong> "이 답변이 아래 세 조건을 만족하는가? 예/아니오로만 답하라"고 다른 모델에게 시킵니다. 어조나 정중함처럼 규칙으로 잡기 어려운 항목에 적합합니다.</li><li><strong>사람 최종 확인:</strong> 앞의 두 단계에서 불합격이 뜬 것과, 애매하다고 표시된 것만 직접 봅니다.</li></ul><p>도구를 붙이고 싶다면 Promptfoo, LangSmith, Braintrust, OpenAI Evals 같은 선택지가 있습니다. 다만 처음부터 도구를 고르느라 시간을 쓰는 건 권하지 않습니다. 구글 스프레드시트와 복사·붙여넣기만으로도 첫 번째 평가셋은 충분히 돌아갑니다.</p><h2>가장 흔한 세 가지 실수</h2><p>평가셋을 만들다 실패하는 팀에는 공통점이 있습니다. 첫째, <strong>너무 크게 시작합니다.</strong> 200문항을 만들려다 지쳐서 한 번도 돌리지 않습니다. 30개로 시작해 문제가 생길 때마다 한 줄씩 추가하는 편이 훨씬 오래갑니다.</p><p>둘째, <strong>평가셋을 프롬프트 튜닝용으로만 씁니다.</strong> 이 표는 모델 교체, 가격 인하 검토, RAG 문서 갱신, 시스템 프롬프트 정리 등 모든 변경 앞에서 꺼내야 하는 체크리스트입니다.</p><p>셋째, <strong>합격선을 100%로 잡습니다.</strong> 30문항 중 28개 통과가 현실적인 목표이고, 나머지 2개는 '알려진 한계'로 문서에 적어 두면 됩니다. 완벽을 기다리다 배포를 못 하는 것보다, 어디가 약한지 알면서 운영하는 편이 안전합니다.</p><p>AI를 업무에 붙이는 일은 이제 어렵지 않습니다. 어려운 건 붙인 뒤에도 계속 믿을 수 있게 유지하는 일이고, 그 출발점이 스프레드시트 한 장입니다. 다음 배포 전에 30줄을 채워 보세요.</p>
+    </div>
+    <section class="post-faq">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq">
+      <details><summary>평가셋 문항은 몇 개가 적당한가요?</summary><div class="a">처음에는 20~30개면 충분합니다. 중요한 건 개수보다 실제 고객 질문에서 뽑았는지, 그리고 과거에 틀렸던 사례가 포함됐는지입니다. 운영하면서 문제가 생길 때마다 한 줄씩 늘려 가면 자연스럽게 규모가 커집니다.</div></details>
+      <details><summary>정답 문장을 미리 써 두고 비교하면 안 되나요?</summary><div class="a">AI 답변은 같은 의미라도 문장이 매번 달라서 텍스트 일치 비교는 거의 쓸모가 없습니다. 대신 '환불 기간을 언급한다', '확정 견적을 말하지 않는다'처럼 예/아니오로 판정 가능한 합격 조건을 적으세요. 조건을 모두 만족하면 합격으로 처리합니다.</div></details>
+      <details><summary>LLM에게 채점을 맡겨도 믿을 만한가요?</summary><div class="a">어조나 정중함, 조건 충족 여부처럼 규칙으로 잡기 힘든 항목에는 충분히 유용합니다. 다만 채점 기준을 구체적으로 주고 예/아니오로만 답하게 해야 편차가 줄어듭니다. 불합격이나 애매하다고 표시된 항목만 사람이 다시 확인하는 방식이 현실적입니다.</div></details>
+      </div>
+    </section>
+    <aside class="post-cta">
+      <div>
+        <div class="mono-path">SAENRU INSIGHT</div>
+        <b>AI 검색 시대, 당신의 브랜드는 준비됐나요?</b>
+        <p>세느루의 AEO·GEO 진단 리포트로 ChatGPT가 당신의 브랜드를 뭐라고 답하는지 확인하세요.</p>
+      </div>
+      <a class="btn btn-primary" href="../../ai/">AI 컨설팅 보기</a>
+    </aside>
+    <p class="back-link"><a href="../">← 인사이트 목록으로</a></p>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="../../assets/logo-icon.png" alt="세느루 심볼" width="40" height="40" style="border-radius:10px;margin-bottom:8px" loading="lazy">
+    <div class="biz">
+      법인명(상호): 세느루 · 대표자: 이재현 · 사업자등록번호: 698-25-01527<br>
+      통신판매업 신고: 제2023-서울영등포-1610호 · 개인정보보호책임자: 이재현(dkdlslek1@naver.com)<br>
+      전화: 0507-1369-7319 · 주소: 서울특별시 영등포구 디지털로53가길 9, 난아트빌 402호 (07421)
+    </div>
+    <div class="cr">© 2026 SAENRU. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"우리 AI, 잘하고 있나? 미니 평가셋 만드는 법","description":"모델을 바꿀 때마다 불안하다면, 질문 20~30개짜리 평가셋부터 만들어 보세요.","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html","image":"https://saenru.com/assets/og-image.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"평가셋 문항은 몇 개가 적당한가요?","acceptedAnswer":{"@type":"Answer","text":"처음에는 20~30개면 충분합니다. 중요한 건 개수보다 실제 고객 질문에서 뽑았는지, 그리고 과거에 틀렸던 사례가 포함됐는지입니다. 운영하면서 문제가 생길 때마다 한 줄씩 늘려 가면 자연스럽게 규모가 커집니다."}},{"@type":"Question","name":"정답 문장을 미리 써 두고 비교하면 안 되나요?","acceptedAnswer":{"@type":"Answer","text":"AI 답변은 같은 의미라도 문장이 매번 달라서 텍스트 일치 비교는 거의 쓸모가 없습니다. 대신 '환불 기간을 언급한다', '확정 견적을 말하지 않는다'처럼 예/아니오로 판정 가능한 합격 조건을 적으세요. 조건을 모두 만족하면 합격으로 처리합니다."}},{"@type":"Question","name":"LLM에게 채점을 맡겨도 믿을 만한가요?","acceptedAnswer":{"@type":"Answer","text":"어조나 정중함, 조건 충족 여부처럼 규칙으로 잡기 힘든 항목에는 충분히 유용합니다. 다만 채점 기준을 구체적으로 주고 예/아니오로만 답하게 해야 편차가 줄어듭니다. 불합격이나 애매하다고 표시된 항목만 사람이 다시 확인하는 방식이 현실적입니다."}}]}
+</script>
+</body>
+</html>
