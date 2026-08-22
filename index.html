@@ -170,6 +170,11 @@ h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing
 .event .count-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:#86C288;margin-bottom:8px}
 .event .count{font-family:var(--mono);font-size:1.45rem;color:#3EDC5B;letter-spacing:.05em;font-variant-numeric:tabular-nums}
 .event .e-right .btn{margin-top:16px;font-size:.88rem;padding:12px 24px}
+@media(max-width:640px){
+  .event{padding:26px 22px;gap:20px}
+  .event .e-right{text-align:left;width:100%}
+  .event .count{font-size:1.25rem}
+}
 
 /* ---------- REFERENCE LIBRARY ---------- */
 .lib-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:84px;border-top:1px solid var(--line);padding-top:60px}
@@ -191,6 +196,14 @@ h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing
 .ref .stars .lang{display:block;color:var(--ink-soft);font-size:.68rem;margin-top:3px}
 .lib-more{margin-top:26px;text-align:center}
 .lib-empty{color:var(--ink-soft);font-size:.9rem;padding:26px 0;text-align:center}
+@media(max-width:640px){
+  .lib-head{margin-top:64px;padding-top:44px}
+  .lib-search{width:100%;min-width:0}
+  .ref{grid-template-columns:auto 1fr;gap:8px 12px;padding:14px 16px}
+  .ref .logo{width:38px;height:38px;font-size:1.05rem}
+  .ref .stars{grid-column:1/-1;text-align:left;display:flex;gap:12px;align-items:baseline;font-size:.76rem;border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}
+  .ref .stars .lang{display:inline;margin-top:0}
+}
 
 /* ---------- PROJECT RANKING (jocohunt-style) ---------- */
 .rank-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -210,6 +223,11 @@ h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing
 .chip.on{background:var(--forest);border-color:var(--forest);color:var(--white)}
 .chip .hot{font-family:var(--mono);font-size:.62rem;color:#E4573D;margin-left:5px;vertical-align:2px}
 .chip.on .hot{color:#FFB4A4}
+@media(max-width:640px){
+  .chips{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px -20px 0;padding:0 20px 10px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex-shrink:0;white-space:nowrap}
+}
 .rank-list{margin-top:26px;display:grid;gap:12px}
 .proj{
   display:grid;grid-template-columns:auto auto 1fr auto;gap:18px;align-items:center;
@@ -1255,7 +1273,10 @@ function frame(now){
   ct=Math.cos(tilt); st=Math.sin(tilt);
 
   var R=Math.min(W,H)*(0.40+progress*0.06);
-  var cx=W/2, cyC=H*0.66;
+  var cyC=H*0.62;
+  var fitR=H*0.97-cyC; /* 구 전체가 화면 안에 보이도록 반지름 클램프 */
+  if(R>fitR) R=fitR;
+  var cx=W/2;
   lastYaw=yaw; lastR=R; lastCx=cx; lastCy=cyC;
 
   ctx.clearRect(0,0,W,H);
