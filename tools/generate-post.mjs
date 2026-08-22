@@ -32,6 +32,12 @@ function readMinutes(html) {
   const chars = html.replace(/<[^>]+>/g, "").length;
   return Math.max(2, Math.round(chars / 500));
 }
+/* 한국어 문장 종결 뒤 줄바꿈 (마침표·물음표 기준, 숫자/영문 마침표는 미적용) */
+function koSentenceBreaks(html) {
+  return String(html)
+    .replace(/([다요죠])\. (?=[^\s<])/g, "$1.<br>")
+    .replace(/([가-힣])\? (?=[^\s<])/g, "$1?<br>");
+}
 
 /* ---------------- 썸네일 SVG (600×600 프리미엄) ---------------- */
 function hashSeed(s) {
@@ -546,7 +552,7 @@ function publish(entry, contentHTML, faq, enHtml, enFaq) {
   const posts = loadPosts();
   if (posts.some(p => p.slug === entry.slug)) throw new Error(`slug 중복: ${entry.slug}`);
   writeThumb(entry);
-  fs.writeFileSync(path.join(POSTS_DIR, `${entry.slug}.html`), renderPost(entry, contentHTML, faq));
+  fs.writeFileSync(path.join(POSTS_DIR, `${entry.slug}.html`), renderPost(entry, koSentenceBreaks(contentHTML), faq));
   if (entry.enTitle && enHtml) {
     fs.writeFileSync(path.join(POSTS_DIR, `${entry.slug}-en.html`), renderPostEn(entry, enHtml, enFaq));
     console.log(`영어판 발행: /blog/posts/${entry.slug}-en.html`);
