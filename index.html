@@ -583,8 +583,8 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
     <div class="lib-head reveal" id="library">
       <div>
         <div class="sec-eyebrow">Global References</div>
-        <h3 class="lib-title">글로벌 레퍼런스 라이브러리<span class="cnt" id="libCount"></span></h3>
-        <p class="lib-lead">전 세계에서 주목받는 AI 도구·자동화·웹서비스·개발자 도구를 15개 카테고리로 수집했습니다. 다음 프로젝트의 영감을 찾아보세요. <span class="src" id="libMeta"></span></p>
+        <h3 class="lib-title">글로벌 레퍼런스 라이브러리</h3>
+        <p class="lib-lead">전 세계에서 주목받는 AI 도구·자동화·웹서비스·개발자 도구를 15개 카테고리로 수집했습니다. 다음 프로젝트의 영감을 찾아보세요.</p>
       </div>
       <input class="lib-search" id="libSearch" type="search" placeholder="이름·설명 검색" aria-label="레퍼런스 검색">
     </div>
@@ -990,7 +990,7 @@ fetch("blog/posts.json").then(function(r){return r.json();}).then(function(posts
   var listEl=document.getElementById("libList");
   if(!listEl) return;
   var chipsEl=document.getElementById("libChips"), searchEl=document.getElementById("libSearch"),
-      moreBtn=document.getElementById("libMore"), countEl=document.getElementById("libCount"), metaEl=document.getElementById("libMeta");
+      moreBtn=document.getElementById("libMore");
   var state={cat:"all", q:"", shown:24, items:[], cats:{}, emoji:{}};
   function escR(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML;}
   function fmtStars(s){return s>=1000?(s/1000).toFixed(1).replace(/\.0$/,"")+"k":String(s);}
@@ -1019,8 +1019,6 @@ fetch("blog/posts.json").then(function(r){return r.json();}).then(function(posts
   fetch("data/projects.json").then(function(r){return r.json();}).then(function(j){
     state.items=j.items;
     j.meta.categories.forEach(function(c){state.cats[c.key]=c.label;state.emoji[c.key]=c.emoji;});
-    countEl.textContent=j.meta.total.toLocaleString()+"개";
-    metaEl.textContent="("+j.meta.source+" · "+j.meta.collectedAt+" 수집)";
     var chips=['<button class="chip on" data-cat="all" type="button">전체</button>']
       .concat(j.meta.categories.map(function(c){
         return '<button class="chip" data-cat="'+c.key+'" type="button">'+c.emoji+" "+escR(c.label)+'</button>';

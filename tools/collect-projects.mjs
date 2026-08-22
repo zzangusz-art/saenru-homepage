@@ -63,18 +63,9 @@ for (const [key, label, emoji, queries] of CATS) {
   console.log(`${label}: ${count}개 (누적 ${all.length})`);
 }
 
-// 카테고리별 star 내림차순 정렬 후 상한 조정: 총 1000개로 맞춤
+// 전체 후보 반영 (star 내림차순)
 all.sort((a, b) => b.s - a.s);
-let dataset = all;
-if (all.length > 1000) {
-  // 카테고리 균형: 카테고리당 최소 40개는 보존하고 star순으로 채움
-  const byCat = {};
-  for (const it of all) (byCat[it.c] ||= []).push(it);
-  const keep = new Set();
-  for (const k of Object.keys(byCat)) byCat[k].slice(0, 40).forEach(it => keep.add(it.f));
-  for (const it of all) { if (keep.size >= 1000) break; keep.add(it.f); }
-  dataset = all.filter(it => keep.has(it.f)).slice(0, 1000);
-}
+const dataset = all;
 
 const meta = {
   collectedAt: new Date().toISOString().slice(0, 10),
