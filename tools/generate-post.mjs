@@ -215,7 +215,7 @@ const FOOTER = (depth) => `
     <img src="${depth}assets/logo-icon.png" alt="세느루 심볼" width="40" height="40" style="border-radius:10px;margin-bottom:8px" loading="lazy">
     <div class="biz">
       법인명(상호): 세느루 · 대표자: 이재현 · 사업자등록번호: 698-25-01527<br>
-      통신판매업 신고: 제2023-서울영등포-1610호 · 개인정보보호책임자: 이재현(dkdlslek1@naver.com)<br>
+      통신판매업 신고: 제2023-서울영등포-1610호 · 개인정보보호책임자: 이재현(zzangusz2@naver.com)<br>
       전화: 0507-1369-7319 · 주소: 서울특별시 영등포구 디지털로53가길 9, 난아트빌 402호 (07421)
     </div>
     <div class="cr">© 2026 SAENRU. ALL RIGHTS RESERVED.</div>
