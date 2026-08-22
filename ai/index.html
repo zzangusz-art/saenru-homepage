@@ -746,14 +746,10 @@ scanBtn.addEventListener("click", async function(){
   }
   scanning=false;
 });
-/* 외부 도메인 → 정식 진단 신청 */
+/* 외부 도메인 → 정식 진단 신청 (네이버 폼) */
+var DIAG_FORM="https://naver.me/FvTySTlv";
 var askBtn=document.getElementById("askBtn"), domainInput=document.getElementById("domainInput");
-function askDiag(){
-  var d=(domainInput.value||"").trim();
-  var subj=encodeURIComponent("[세느루 AI] 진단 리포트 신청"+(d?" — "+d:""));
-  var body=encodeURIComponent("진단할 도메인: "+(d||"(입력해주세요)")+"\n브랜드명: \n궁금한 점: ");
-  location.href="mailto:dkdlslek1@naver.com?subject="+subj+"&body="+body;
-}
+function askDiag(){ window.open(DIAG_FORM, "_blank", "noopener"); }
 askBtn.addEventListener("click", askDiag);
 domainInput.addEventListener("keydown", function(e){ if(e.key==="Enter") askDiag(); });
 
