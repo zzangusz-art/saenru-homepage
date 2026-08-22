@@ -75,6 +75,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing
 .prose ul,.prose ol{margin:0 0 20px;padding-left:24px}
 .prose li{margin-bottom:8px}
 .prose strong{color:var(--forest)}
+.prose a{color:var(--accent-strong);font-weight:700;border-bottom:1px solid var(--mint-2)}
+.prose a:hover{border-bottom-color:var(--accent-strong)}
 .post-faq{margin-top:56px}
 .post-faq h2{font-size:1.3rem;color:var(--forest);margin-bottom:14px}
 .faq details{border-top:1px solid var(--line)}

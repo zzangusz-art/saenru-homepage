@@ -6,7 +6,12 @@ on:
     - cron: "0 23 * * *"
     - cron: "30 3 * * *"
     - cron: "0 8 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: "브랜드 콘텐츠 발행 (키워드 타깃)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -32,7 +37,12 @@ jobs:
       - name: Generate post
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node tools/generate-post.mjs
+        # 하루 3회 중 아침(KST 08:00) 슬롯은 브랜드 키워드 콘텐츠
+        run: |
+          FLAG=""
+          if [ "${{ github.event.schedule }}" = "0 23 * * *" ] || [ "${{ inputs.brand }}" = "true" ]; then FLAG="--brand"; fi
+          echo "mode: ${FLAG:-normal}"
+          node tools/generate-post.mjs $FLAG
 
       - name: Commit & push
         run: |

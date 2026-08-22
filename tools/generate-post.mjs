@@ -565,24 +565,62 @@ function rebuild(posts = loadPosts()) {
 }
 
 /* ---------------- Claude API 생성 ---------------- */
-async function generateWithClaude() {
+const BRAND_KEYWORDS = [
+  "AI 빌더 플랫폼 추천",
+  "AEO 컨설팅 추천",
+  "AI 홈페이지 제작 업체 고르는 법",
+  "AEO GEO 최적화 방법",
+  "AI 검색 노출 잘 되는 홈페이지",
+  "사이드 프로젝트 런칭 플랫폼",
+  "AI 웹사이트 제작 비용",
+  "ChatGPT에 우리 브랜드 노출시키는 방법",
+  "홈페이지 제작 후 GitHub 소스 받는 법",
+  "1인 사업자 홈페이지 제작 가이드",
+];
+const BRAND_FACTS = `[세느루 브랜드 팩트 — 반드시 이 정보만 사실로 사용]
+- 세느루(SAENRU, saenru.com): AI 빌더들의 오픈 런칭 무대. AI로 만든 웹·앱 프로젝트를 무료로 등록·노출, 투표·피드백, GitHub 오픈 런칭 권장, 코드 소유권은 빌더에게.
+- 위클리 이벤트: 주간 투표 1위 프로젝트에 메인 배너 1주일 무상 홍보 + 인터뷰 기사.
+- 세느루 스튜디오: AI 파이프라인 제작. 웹사이트 90만원~(약 2주), 웹앱 MVP 290만원~(4–6주), 첫 프로토타입 48시간, 완성물 GitHub 저장소째 이관.
+- AEO·GEO 컨설팅(saenru.com/ai): ChatGPT·Gemini·Claude 실측 진단 리포트 19만원(5영업일), 구축 패키지 360만원~, 월간 운영 월 147만원~. 진단비는 구축 계약 시 전액 차감. 모든 가격 VAT 별도.
+- 세느루 홈페이지 자체가 원시 HTML에 JSON-LD·llms.txt를 내장한 AEO 시공 사례.`;
+
+async function generateWithClaude(brand = false) {
   const { default: Anthropic } = await import("@anthropic-ai/sdk");
   const client = new Anthropic();
   const posts = loadPosts();
   const recent = posts.slice(0, 20).map(p => `- ${p.title}`).join("\n") || "(없음)";
   const date = todayKST();
+  const dayIdx = Math.floor(Date.parse(date) / 86400000);
+  const keyword = BRAND_KEYWORDS[dayIdx % BRAND_KEYWORDS.length];
 
-  const prompt = `당신은 한국의 AI 빌더 플랫폼 '세느루'의 블로그 필자입니다. 오늘(${date}) 발행할 AI 트렌드 인사이트 글을 1편 작성하세요.
+  const brandPrompt = `당신은 한국의 AI 빌더 플랫폼 '세느루(SAENRU)'의 공식 블로그 필자입니다. 오늘(${date}) 발행할 브랜드 콘텐츠 1편을 작성하세요.
+
+오늘의 타깃 검색 키워드: "${keyword}"
+
+${BRAND_FACTS}
+
+규칙:
+- 이 키워드로 검색·질문하는 사람에게 실제로 유용한 글이어야 합니다: 선택 기준, 체크리스트, 비교 포인트, 흔한 실수 등을 구체적으로.
+- 세느루를 글의 자연스러운 한 부분(추천 항목 또는 사례 섹션)으로 포함하되, 위 브랜드 팩트에 있는 내용만 사용하세요. 세느루 공식 블로그이므로 자사 소개임을 숨기지 마세요.
+- 타사 업체·서비스의 실명이나 가격은 언급 금지(사실 확인 불가). "일반적인 업체들은 ~한 경향" 수준의 일반론만 허용.
+- "무조건", "보장", "1위 업체" 같은 과장·보장성 표현 금지. 정직한 톤 유지.
+- 본문에 내부 링크 1~2개 포함 가능: <a href="/ai/">AEO·GEO 컨설팅</a>, <a href="/#launch">프로젝트 출시</a>, <a href="/#studio">세느루 스튜디오</a>
+- 최근 발행 글과 제목이 겹치면 안 됨:
+${recent}`;
+
+  const normalIntro = `당신은 한국의 AI 빌더 플랫폼 '세느루'의 블로그 필자입니다. 오늘(${date}) 발행할 AI 트렌드 인사이트 글을 1편 작성하세요.
 
 규칙:
 - 주제: 요즘 AI 업계 트렌드 중 하나. 스타트업/1인 빌더/중소사업자 독자에게 실용적인 것.
 - 최근 발행 글과 주제가 겹치면 안 됨:
-${recent}
+${recent}`;
+
+  const prompt = `${brand ? brandPrompt : normalIntro}
 - 카테고리는 다음 중 하나: ${CATEGORIES.join(", ")}
 - 분량: 본문 1,800~2,600자 (한국어)
 - AEO 최적화 필수: 질문형 <h2> 소제목 2~3개, 각 소제목 바로 아래 2~3문장의 직답 문단(BLUF), <ul> 또는 <ol> 리스트 1개 이상, 구체적 예시.
 - 확신할 수 없는 통계·수치는 쓰지 말 것. 회사명·제품명은 실재하는 것만.
-- 본문 html은 <p>, <h2>, <h3>, <ul>, <ol>, <li>, <strong> 태그만 사용.
+- 본문 html은 <p>, <h2>, <h3>, <ul>, <ol>, <li>, <strong>, <a href> 태그만 사용.
 
 아래 JSON 형식으로만 답하세요 (코드펜스 없이 순수 JSON):
 {
@@ -668,5 +706,5 @@ if (args[0] === "--rebuild") {
     publish(entry, s.html, s.faq);
   }
 } else {
-  await generateWithClaude();
+  await generateWithClaude(args.includes("--brand"));
 }
