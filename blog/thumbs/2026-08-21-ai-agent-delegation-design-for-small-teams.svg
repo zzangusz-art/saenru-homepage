@@ -1,24 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="AI 트렌드 썸네일">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="AI 트렌드 썸네일">
 <defs>
-<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#0C4A1E"/><stop offset="0.55" stop-color="#062A11"/><stop offset="1" stop-color="#04200C"/>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#10281A"/><stop offset="0.6" stop-color="#081810"/><stop offset="1" stop-color="#050F0A"/>
 </linearGradient>
-<radialGradient id="glow" cx="0.72" cy="0.42" r="0.65">
-<stop offset="0" stop-color="#00AF1C" stop-opacity="0.28"/><stop offset="1" stop-color="#00AF1C" stop-opacity="0"/>
+<radialGradient id="vig" cx="0.5" cy="0.42" r="0.75">
+<stop offset="0.6" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.4"/>
 </radialGradient>
+<pattern id="tex" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<line x1="0" y1="0" x2="0" y2="7" stroke="#FFFFFF" stroke-opacity="0.028" stroke-width="1"/>
+</pattern>
 </defs>
-<rect width="1200" height="630" fill="url(#g)"/>
-<rect width="1200" height="630" fill="url(#glow)"/>
-<circle cx="594" cy="200" r="2" fill="#97DBA0" opacity="0.11"/><circle cx="743" cy="411" r="3" fill="#97DBA0" opacity="0.08"/><circle cx="892" cy="622" r="4" fill="#97DBA0" opacity="0.11"/><circle cx="1041" cy="203" r="2" fill="#97DBA0" opacity="0.13"/><circle cx="1190" cy="414" r="3" fill="#97DBA0" opacity="0.09"/><circle cx="139" cy="625" r="4" fill="#97DBA0" opacity="0.07"/><circle cx="288" cy="206" r="2" fill="#97DBA0" opacity="0.06"/><circle cx="437" cy="417" r="3" fill="#97DBA0" opacity="0.05"/><circle cx="586" cy="628" r="4" fill="#97DBA0" opacity="0.05"/><circle cx="735" cy="209" r="2" fill="#97DBA0" opacity="0.10"/><circle cx="884" cy="420" r="3" fill="#97DBA0" opacity="0.07"/><circle cx="1033" cy="1" r="4" fill="#97DBA0" opacity="0.06"/><circle cx="1182" cy="212" r="2" fill="#97DBA0" opacity="0.10"/><circle cx="131" cy="423" r="3" fill="#97DBA0" opacity="0.07"/><circle cx="280" cy="4" r="4" fill="#97DBA0" opacity="0.06"/><circle cx="429" cy="215" r="2" fill="#97DBA0" opacity="0.10"/><circle cx="578" cy="426" r="3" fill="#97DBA0" opacity="0.07"/><circle cx="727" cy="7" r="4" fill="#97DBA0" opacity="0.06"/><circle cx="876" cy="218" r="2" fill="#97DBA0" opacity="0.05"/><circle cx="1025" cy="429" r="3" fill="#97DBA0" opacity="0.05"/><circle cx="1174" cy="10" r="4" fill="#97DBA0" opacity="0.11"/><circle cx="123" cy="221" r="2" fill="#97DBA0" opacity="0.08"/><circle cx="272" cy="432" r="3" fill="#97DBA0" opacity="0.11"/><circle cx="421" cy="13" r="4" fill="#97DBA0" opacity="0.13"/><circle cx="570" cy="224" r="2" fill="#97DBA0" opacity="0.09"/><circle cx="719" cy="435" r="3" fill="#97DBA0" opacity="0.07"/><circle cx="868" cy="16" r="4" fill="#97DBA0" opacity="0.06"/><circle cx="1017" cy="227" r="2" fill="#97DBA0" opacity="0.05"/><circle cx="1166" cy="438" r="3" fill="#97DBA0" opacity="0.05"/><circle cx="115" cy="19" r="4" fill="#97DBA0" opacity="0.10"/><circle cx="264" cy="230" r="2" fill="#97DBA0" opacity="0.07"/><circle cx="413" cy="441" r="3" fill="#97DBA0" opacity="0.06"/><circle cx="562" cy="22" r="4" fill="#97DBA0" opacity="0.10"/><circle cx="711" cy="233" r="2" fill="#97DBA0" opacity="0.07"/><circle cx="860" cy="444" r="3" fill="#97DBA0" opacity="0.06"/><circle cx="1009" cy="25" r="4" fill="#97DBA0" opacity="0.10"/><circle cx="1158" cy="236" r="2" fill="#97DBA0" opacity="0.07"/><circle cx="107" cy="447" r="3" fill="#97DBA0" opacity="0.06"/><circle cx="256" cy="28" r="4" fill="#97DBA0" opacity="0.05"/><circle cx="405" cy="239" r="2" fill="#97DBA0" opacity="0.05"/><circle cx="554" cy="450" r="3" fill="#97DBA0" opacity="0.11"/><circle cx="703" cy="31" r="4" fill="#97DBA0" opacity="0.08"/><circle cx="852" cy="242" r="2" fill="#97DBA0" opacity="0.11"/><circle cx="1001" cy="453" r="3" fill="#97DBA0" opacity="0.13"/><circle cx="1150" cy="34" r="4" fill="#97DBA0" opacity="0.09"/><circle cx="99" cy="245" r="2" fill="#97DBA0" opacity="0.07"/><circle cx="248" cy="456" r="3" fill="#97DBA0" opacity="0.06"/><circle cx="397" cy="37" r="4" fill="#97DBA0" opacity="0.05"/><circle cx="546" cy="248" r="2" fill="#97DBA0" opacity="0.05"/><circle cx="695" cy="459" r="3" fill="#97DBA0" opacity="0.10"/><circle cx="844" cy="40" r="4" fill="#97DBA0" opacity="0.07"/><circle cx="993" cy="251" r="2" fill="#97DBA0" opacity="0.06"/><circle cx="1142" cy="462" r="3" fill="#97DBA0" opacity="0.10"/><circle cx="91" cy="43" r="4" fill="#97DBA0" opacity="0.07"/><circle cx="240" cy="254" r="2" fill="#97DBA0" opacity="0.06"/><circle cx="389" cy="465" r="3" fill="#97DBA0" opacity="0.10"/><circle cx="538" cy="46" r="4" fill="#97DBA0" opacity="0.07"/><circle cx="687" cy="257" r="2" fill="#97DBA0" opacity="0.06"/><circle cx="836" cy="468" r="3" fill="#97DBA0" opacity="0.05"/><circle cx="985" cy="49" r="4" fill="#97DBA0" opacity="0.05"/><circle cx="1134" cy="260" r="2" fill="#97DBA0" opacity="0.11"/><circle cx="83" cy="471" r="3" fill="#97DBA0" opacity="0.08"/><circle cx="232" cy="52" r="4" fill="#97DBA0" opacity="0.11"/><circle cx="381" cy="263" r="2" fill="#97DBA0" opacity="0.13"/><circle cx="530" cy="474" r="3" fill="#97DBA0" opacity="0.09"/><circle cx="679" cy="55" r="4" fill="#97DBA0" opacity="0.07"/><circle cx="828" cy="266" r="2" fill="#97DBA0" opacity="0.06"/><circle cx="977" cy="477" r="3" fill="#97DBA0" opacity="0.05"/><circle cx="1126" cy="58" r="4" fill="#97DBA0" opacity="0.05"/><circle cx="75" cy="269" r="2" fill="#97DBA0" opacity="0.10"/>
-
-      <g stroke="#3EDC5B" stroke-width="9" fill="none" stroke-linecap="round">
-        <path d="M 770 380 A 150 150 0 0 1 1070 380" opacity="0.35"/>
-        <path d="M 810 380 A 110 110 0 0 1 1030 380" opacity="0.6"/>
-        <path d="M 850 380 A 70 70 0 0 1 990 380" opacity="0.9"/>
-      </g>
-      <circle cx="920" cy="380" r="16" fill="#3EDC5B"/>
-      <polyline points="760,300 840,250 900,270 1000,170 1060,190" stroke="#EAF6EC" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-      <path d="M 1060 190 l -34 -6 m 34 6 l -8 33" stroke="#EAF6EC" stroke-width="9" fill="none" stroke-linecap="round"/>
-<text x="64" y="524" font-family="'IBM Plex Mono',Consolas,monospace" font-size="24" letter-spacing="8" fill="#52C868">SAENRU INSIGHT</text>
-<text x="64" y="574" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="38" font-weight="700" fill="#EAF6EC">AI 트렌드</text>
+<rect width="600" height="600" fill="url(#g)"/>
+<rect width="600" height="600" fill="url(#tex)"/>
+<circle cx="341" cy="419" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="514" cy="550" r="2" fill="#D8C289" opacity="0.06"/><circle cx="87" cy="81" r="1" fill="#D8C289" opacity="0.06"/><circle cx="260" cy="212" r="2" fill="#9FE3AE" opacity="0.06"/><circle cx="433" cy="343" r="1" fill="#D8C289" opacity="0.06"/><circle cx="6" cy="474" r="2" fill="#D8C289" opacity="0.06"/><circle cx="179" cy="5" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="352" cy="136" r="2" fill="#D8C289" opacity="0.06"/><circle cx="525" cy="267" r="1" fill="#D8C289" opacity="0.06"/><circle cx="98" cy="398" r="2" fill="#9FE3AE" opacity="0.06"/><circle cx="271" cy="529" r="1" fill="#D8C289" opacity="0.06"/><circle cx="444" cy="60" r="2" fill="#D8C289" opacity="0.06"/><circle cx="17" cy="191" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="190" cy="322" r="2" fill="#D8C289" opacity="0.06"/>
+<rect width="600" height="600" fill="url(#vig)"/>
+<text x="300" y="84" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="13" letter-spacing="7" fill="#B9C7B4" opacity="0.75">SAENRU INSIGHT</text>
+<line x1="272" y1="104" x2="328" y2="104" stroke="#D8C289" stroke-width="1" opacity="0.55"/>
+<g transform="translate(300,235)">
+    <circle cx="0" cy="-38" r="17" fill="none" stroke="#D8C289" stroke-width="3"/>
+    <circle cx="-44" cy="34" r="13" fill="none" stroke="#D8C289" stroke-width="3"/>
+    <circle cx="44" cy="34" r="13" fill="none" stroke="#D8C289" stroke-width="3"/>
+    <line x1="-9" y1="-24" x2="-36" y2="22" stroke="#D8C289" stroke-width="2.5" opacity="0.7"/>
+    <line x1="9" y1="-24" x2="36" y2="22" stroke="#D8C289" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="0" cy="-38" r="5" fill="#9FE3AE"/>
+</g>
+<text x="300" y="404" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="56" letter-spacing="2" fill="#EDE7D4">Agent</text>
+<text x="300" y="456" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="40" letter-spacing="1" fill="#D8C289">Delegation</text>
+<text x="300" y="512" text-anchor="middle" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="17" fill="#CFDCCB" opacity="0.85">AI 에이전트, 어디까지 맡겨도 될까?</text>
+<line x1="272" y1="542" x2="328" y2="542" stroke="#D8C289" stroke-width="1" opacity="0.4"/>
+<text x="300" y="570" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="12" letter-spacing="5" fill="#8FA98F">AI 트렌드</text>
 </svg>

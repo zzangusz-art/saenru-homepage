@@ -1,26 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="AEO·GEO 썸네일">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="AEO·GEO 썸네일">
 <defs>
-<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#0C4A1E"/><stop offset="0.55" stop-color="#062A11"/><stop offset="1" stop-color="#04200C"/>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#10281A"/><stop offset="0.6" stop-color="#081810"/><stop offset="1" stop-color="#050F0A"/>
 </linearGradient>
-<radialGradient id="glow" cx="0.72" cy="0.42" r="0.65">
-<stop offset="0" stop-color="#00AF1C" stop-opacity="0.28"/><stop offset="1" stop-color="#00AF1C" stop-opacity="0"/>
+<radialGradient id="vig" cx="0.5" cy="0.42" r="0.75">
+<stop offset="0.6" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.4"/>
 </radialGradient>
+<pattern id="tex" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<line x1="0" y1="0" x2="0" y2="7" stroke="#FFFFFF" stroke-opacity="0.028" stroke-width="1"/>
+</pattern>
 </defs>
-<rect width="1200" height="630" fill="url(#g)"/>
-<rect width="1200" height="630" fill="url(#glow)"/>
-<circle cx="813" cy="-461" r="4" fill="#97DBA0" opacity="-0.01"/><circle cx="962" cy="-250" r="2" fill="#97DBA0" opacity="-0.03"/><circle cx="1111" cy="-39" r="3" fill="#97DBA0" opacity="-0.04"/><circle cx="60" cy="172" r="4" fill="#97DBA0" opacity="0.00"/><circle cx="209" cy="383" r="2" fill="#97DBA0" opacity="0.02"/><circle cx="358" cy="594" r="3" fill="#97DBA0" opacity="-0.02"/><circle cx="507" cy="175" r="4" fill="#97DBA0" opacity="0.01"/><circle cx="656" cy="386" r="2" fill="#97DBA0" opacity="0.03"/><circle cx="805" cy="597" r="3" fill="#97DBA0" opacity="-0.01"/><circle cx="954" cy="178" r="4" fill="#97DBA0" opacity="-0.03"/><circle cx="1103" cy="389" r="2" fill="#97DBA0" opacity="-0.04"/><circle cx="52" cy="600" r="3" fill="#97DBA0" opacity="0.05"/><circle cx="201" cy="181" r="4" fill="#97DBA0" opacity="0.00"/><circle cx="350" cy="392" r="2" fill="#97DBA0" opacity="-0.03"/><circle cx="499" cy="603" r="3" fill="#97DBA0" opacity="0.01"/><circle cx="648" cy="184" r="4" fill="#97DBA0" opacity="-0.02"/><circle cx="797" cy="395" r="2" fill="#97DBA0" opacity="0.01"/><circle cx="946" cy="606" r="3" fill="#97DBA0" opacity="-0.02"/><circle cx="1095" cy="187" r="4" fill="#97DBA0" opacity="-0.04"/><circle cx="44" cy="398" r="2" fill="#97DBA0" opacity="0.05"/><circle cx="193" cy="609" r="3" fill="#97DBA0" opacity="-0.01"/><circle cx="342" cy="190" r="4" fill="#97DBA0" opacity="-0.03"/><circle cx="491" cy="401" r="2" fill="#97DBA0" opacity="-0.04"/><circle cx="640" cy="612" r="3" fill="#97DBA0" opacity="0.00"/><circle cx="789" cy="193" r="4" fill="#97DBA0" opacity="0.02"/><circle cx="938" cy="404" r="2" fill="#97DBA0" opacity="-0.02"/><circle cx="1087" cy="615" r="3" fill="#97DBA0" opacity="0.01"/><circle cx="36" cy="196" r="4" fill="#97DBA0" opacity="0.03"/><circle cx="185" cy="407" r="2" fill="#97DBA0" opacity="-0.01"/><circle cx="334" cy="618" r="3" fill="#97DBA0" opacity="-0.03"/><circle cx="483" cy="199" r="4" fill="#97DBA0" opacity="-0.04"/><circle cx="632" cy="410" r="2" fill="#97DBA0" opacity="0.05"/><circle cx="781" cy="621" r="3" fill="#97DBA0" opacity="0.00"/><circle cx="930" cy="202" r="4" fill="#97DBA0" opacity="-0.03"/><circle cx="1079" cy="413" r="2" fill="#97DBA0" opacity="0.01"/><circle cx="28" cy="624" r="3" fill="#97DBA0" opacity="-0.02"/><circle cx="177" cy="205" r="4" fill="#97DBA0" opacity="0.01"/><circle cx="326" cy="416" r="2" fill="#97DBA0" opacity="-0.02"/><circle cx="475" cy="627" r="3" fill="#97DBA0" opacity="-0.04"/><circle cx="624" cy="208" r="4" fill="#97DBA0" opacity="0.05"/><circle cx="773" cy="419" r="2" fill="#97DBA0" opacity="-0.01"/><circle cx="922" cy="0" r="3" fill="#97DBA0" opacity="-0.03"/><circle cx="1071" cy="211" r="4" fill="#97DBA0" opacity="-0.04"/><circle cx="20" cy="422" r="2" fill="#97DBA0" opacity="0.00"/><circle cx="169" cy="3" r="3" fill="#97DBA0" opacity="0.02"/><circle cx="318" cy="214" r="4" fill="#97DBA0" opacity="-0.02"/><circle cx="467" cy="425" r="2" fill="#97DBA0" opacity="0.01"/><circle cx="616" cy="6" r="3" fill="#97DBA0" opacity="0.03"/><circle cx="765" cy="217" r="4" fill="#97DBA0" opacity="-0.01"/><circle cx="914" cy="428" r="2" fill="#97DBA0" opacity="-0.03"/><circle cx="1063" cy="9" r="3" fill="#97DBA0" opacity="-0.04"/><circle cx="12" cy="220" r="4" fill="#97DBA0" opacity="0.05"/><circle cx="161" cy="431" r="2" fill="#97DBA0" opacity="0.00"/><circle cx="310" cy="12" r="3" fill="#97DBA0" opacity="-0.03"/><circle cx="459" cy="223" r="4" fill="#97DBA0" opacity="0.01"/><circle cx="608" cy="434" r="2" fill="#97DBA0" opacity="-0.02"/><circle cx="757" cy="15" r="3" fill="#97DBA0" opacity="0.01"/><circle cx="906" cy="226" r="4" fill="#97DBA0" opacity="-0.02"/><circle cx="1055" cy="437" r="2" fill="#97DBA0" opacity="-0.04"/><circle cx="4" cy="18" r="3" fill="#97DBA0" opacity="0.05"/><circle cx="153" cy="229" r="4" fill="#97DBA0" opacity="-0.01"/><circle cx="302" cy="440" r="2" fill="#97DBA0" opacity="-0.03"/><circle cx="451" cy="21" r="3" fill="#97DBA0" opacity="-0.04"/><circle cx="600" cy="232" r="4" fill="#97DBA0" opacity="0.00"/><circle cx="749" cy="443" r="2" fill="#97DBA0" opacity="0.02"/><circle cx="898" cy="24" r="3" fill="#97DBA0" opacity="-0.02"/><circle cx="1047" cy="235" r="4" fill="#97DBA0" opacity="0.01"/><circle cx="1196" cy="446" r="2" fill="#97DBA0" opacity="0.03"/><circle cx="145" cy="27" r="3" fill="#97DBA0" opacity="-0.01"/><circle cx="294" cy="238" r="4" fill="#97DBA0" opacity="-0.03"/>
-
-      <g stroke="#97DBA0" stroke-width="8" fill="none" opacity="0.9">
-        <circle cx="880" cy="300" r="130"/>
-        <ellipse cx="880" cy="300" rx="130" ry="50"/>
-        <ellipse cx="880" cy="300" rx="50" ry="130"/>
-      </g>
-      <g transform="translate(990,150)">
-        <rect x="0" y="0" width="190" height="120" rx="26" fill="#00AF1C"/>
-        <path d="M 40 120 L 40 160 L 88 120 Z" fill="#00AF1C"/>
-        <path d="M 50 62 l 28 28 l 60 -56" stroke="#04200C" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-<text x="64" y="524" font-family="'IBM Plex Mono',Consolas,monospace" font-size="24" letter-spacing="8" fill="#52C868">SAENRU INSIGHT</text>
-<text x="64" y="574" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="38" font-weight="700" fill="#EAF6EC">AEO·GEO</text>
+<rect width="600" height="600" fill="url(#g)"/>
+<rect width="600" height="600" fill="url(#tex)"/>
+<circle cx="308" cy="-93" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="481" cy="38" r="2" fill="#D8C289" opacity="0.06"/><circle cx="54" cy="169" r="1" fill="#D8C289" opacity="0.06"/><circle cx="227" cy="300" r="2" fill="#9FE3AE" opacity="0.06"/><circle cx="400" cy="431" r="1" fill="#D8C289" opacity="0.06"/><circle cx="573" cy="562" r="2" fill="#D8C289" opacity="0.06"/><circle cx="146" cy="93" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="319" cy="224" r="2" fill="#D8C289" opacity="0.06"/><circle cx="492" cy="355" r="1" fill="#D8C289" opacity="0.06"/><circle cx="65" cy="486" r="2" fill="#9FE3AE" opacity="0.06"/><circle cx="238" cy="17" r="1" fill="#D8C289" opacity="0.06"/><circle cx="411" cy="148" r="2" fill="#D8C289" opacity="0.06"/><circle cx="584" cy="279" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="157" cy="410" r="2" fill="#D8C289" opacity="0.06"/>
+<rect width="600" height="600" fill="url(#vig)"/>
+<text x="300" y="84" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="13" letter-spacing="7" fill="#B9C7B4" opacity="0.75">SAENRU INSIGHT</text>
+<line x1="272" y1="104" x2="328" y2="104" stroke="#D8C289" stroke-width="1" opacity="0.55"/>
+<g transform="translate(300,235)">
+    <path d="M -56 -40 h 112 a 12 12 0 0 1 12 12 v 48 a 12 12 0 0 1 -12 12 h -70 l -26 22 v -22 h -16 a 12 12 0 0 1 -12 -12 v -48 a 12 12 0 0 1 12 -12 Z" fill="none" stroke="#D8C289" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M -22 -4 l 14 14 l 30 -28" fill="none" stroke="#9FE3AE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="300" y="404" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="56" letter-spacing="2" fill="#EDE7D4">Answer</text>
+<text x="300" y="456" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="40" letter-spacing="1" fill="#D8C289">Engine</text>
+<text x="300" y="512" text-anchor="middle" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="17" fill="#CFDCCB" opacity="0.85">ChatGPT는 왜 어떤 브랜드만 추천할까?</text>
+<line x1="272" y1="542" x2="328" y2="542" stroke="#D8C289" stroke-width="1" opacity="0.4"/>
+<text x="300" y="570" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="12" letter-spacing="5" fill="#8FA98F">AEO·GEO</text>
 </svg>

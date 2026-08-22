@@ -33,96 +33,126 @@ function readMinutes(html) {
   return Math.max(2, Math.round(chars / 500));
 }
 
-/* ---------------- 썸네일 SVG (브랜드 제너러티브) ---------------- */
+/* ---------------- 썸네일 SVG (600×600 프리미엄) ---------------- */
 function hashSeed(s) {
   let h = 7;
   for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
   return h;
 }
-function makeThumb(category, slug) {
-  const seed = hashSeed(slug);
-  // 시드 기반 배경 도트 (글마다 배치가 달라짐)
-  let dots = "";
-  for (let i = 0; i < 70; i++) {
-    const x = (i * 149 + (seed % 977)) % 1200;
-    const y = (i * 211 + ((seed >> 5) % 613)) % 630;
-    const o = 0.05 + ((seed >> (i % 20)) % 10) / 100;
-    const r = 2 + ((i + seed) % 3);
-    dots += `<circle cx="${x}" cy="${y}" r="${r}" fill="#97DBA0" opacity="${o.toFixed(2)}"/>`;
+/* 주제별 라인 아이콘 (골드 라인 + 민트 포인트, 중앙 -80..80 좌표계) */
+const GOLD = "#D8C289", MINT = "#9FE3AE", IVORY = "#EDE7D4";
+const ICONS = {
+  video: { en: ["Video", "Creative"], svg: `
+    <rect x="-62" y="-44" width="124" height="88" rx="14" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <path d="M -12 -22 L 26 0 L -12 22 Z" fill="none" stroke="${GOLD}" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="-46" cy="58" r="3" fill="${MINT}"/><circle cx="0" cy="58" r="3" fill="${MINT}" opacity="0.6"/><circle cx="46" cy="58" r="3" fill="${MINT}" opacity="0.3"/>` },
+  voice: { en: ["Voice", "Interface"], svg: `
+    <rect x="-15" y="-52" width="30" height="62" rx="15" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <path d="M -32 -4 A 32 32 0 0 0 32 -4" fill="none" stroke="${GOLD}" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="28" x2="0" y2="48" stroke="${GOLD}" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-18" y1="48" x2="18" y2="48" stroke="${GOLD}" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 46 -26 A 26 26 0 0 1 46 14" fill="none" stroke="${MINT}" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+    <path d="M 58 -36 A 40 40 0 0 1 58 24" fill="none" stroke="${MINT}" stroke-width="3" stroke-linecap="round" opacity="0.45"/>` },
+  eval: { en: ["Quality", "Evaluation"], svg: `
+    <rect x="-46" y="-56" width="92" height="112" rx="12" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <line x1="-26" y1="-28" x2="26" y2="-28" stroke="${GOLD}" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+    <line x1="-26" y1="-6" x2="26" y2="-6" stroke="${GOLD}" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+    <path d="M -22 26 l 14 14 l 30 -30" fill="none" stroke="${MINT}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>` },
+  agent: { en: ["Agent", "Orchestration"], svg: `
+    <circle cx="0" cy="-38" r="17" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <circle cx="-44" cy="34" r="13" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <circle cx="44" cy="34" r="13" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <line x1="-9" y1="-24" x2="-36" y2="22" stroke="${GOLD}" stroke-width="2.5" opacity="0.7"/>
+    <line x1="9" y1="-24" x2="36" y2="22" stroke="${GOLD}" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="0" cy="-38" r="5" fill="${MINT}"/>` },
+  cost: { en: ["Token", "Economics"], svg: `
+    <ellipse cx="-6" cy="-30" rx="42" ry="15" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <path d="M -48 -30 V 8 c 0 8 19 15 42 15 c 23 0 42 -7 42 -15 V -30" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <path d="M -48 -11 c 0 8 19 15 42 15 c 23 0 42 -7 42 -15" fill="none" stroke="${GOLD}" stroke-width="2.5" opacity="0.6"/>
+    <path d="M 46 40 l 12 12 l 12 -12 M 58 20 v 30" fill="none" stroke="${MINT}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>` },
+  data: { en: ["Data", "Connection"], svg: `
+    <rect x="-70" y="-24" width="48" height="48" rx="10" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <rect x="22" y="-24" width="48" height="48" rx="10" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <line x1="-22" y1="0" x2="22" y2="0" stroke="${MINT}" stroke-width="3" stroke-dasharray="7 6"/>
+    <circle cx="-46" cy="0" r="5" fill="${MINT}"/><circle cx="46" cy="0" r="5" fill="${MINT}"/>` },
+  search: { en: ["AI", "Search"], svg: `
+    <circle cx="-10" cy="-10" r="38" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <line x1="18" y1="18" x2="52" y2="52" stroke="${GOLD}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M -50 -52 l 4 10 l 10 4 l -10 4 l -4 10 l -4 -10 l -10 -4 l 10 -4 Z" fill="${MINT}" opacity="0.9"/>` },
+  code: { en: ["Vibe", "Coding"], svg: `
+    <path d="M -34 -26 L -62 0 L -34 26" fill="none" stroke="${GOLD}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 34 -26 L 62 0 L 34 26" fill="none" stroke="${GOLD}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="12" y1="-38" x2="-12" y2="38" stroke="${MINT}" stroke-width="3.5" stroke-linecap="round"/>` },
+  chart: { en: ["Growth", "Metrics"], svg: `
+    <line x1="-58" y1="52" x2="62" y2="52" stroke="${GOLD}" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <rect x="-46" y="8" width="20" height="44" rx="4" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <rect x="-8" y="-16" width="20" height="68" rx="4" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <rect x="30" y="-40" width="20" height="92" rx="4" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <path d="M -46 -34 L 2 -52 L 44 -60 M 44 -60 l -12 -2 m 12 2 l -4 11" fill="none" stroke="${MINT}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>` },
+  globe: { en: ["Global", "Reach"], svg: `
+    <circle cx="0" cy="0" r="52" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <ellipse cx="0" cy="0" rx="52" ry="20" fill="none" stroke="${GOLD}" stroke-width="2.5" opacity="0.7"/>
+    <ellipse cx="0" cy="0" rx="20" ry="52" fill="none" stroke="${GOLD}" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="18" cy="-14" r="5" fill="${MINT}"/>` },
+  chat: { en: ["Answer", "Engine"], svg: `
+    <path d="M -56 -40 h 112 a 12 12 0 0 1 12 12 v 48 a 12 12 0 0 1 -12 12 h -70 l -26 22 v -22 h -16 a 12 12 0 0 1 -12 -12 v -48 a 12 12 0 0 1 12 -12 Z" fill="none" stroke="${GOLD}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M -22 -4 l 14 14 l 30 -28" fill="none" stroke="${MINT}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>` },
+  gear: { en: ["Auto", "Mation"], svg: `
+    <circle cx="0" cy="0" r="34" fill="none" stroke="${GOLD}" stroke-width="3"/>
+    <circle cx="0" cy="0" r="13" fill="none" stroke="${MINT}" stroke-width="3"/>
+    <g stroke="${GOLD}" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="-44" x2="0" y2="-56"/><line x1="0" y1="44" x2="0" y2="56"/>
+      <line x1="-44" y1="0" x2="-56" y2="0"/><line x1="44" y1="0" x2="56" y2="0"/>
+      <line x1="-31" y1="-31" x2="-40" y2="-40"/><line x1="31" y1="31" x2="40" y2="40"/>
+      <line x1="-31" y1="31" x2="-40" y2="40"/><line x1="31" y1="-31" x2="40" y2="-40"/>
+    </g>` },
+};
+const ICON_KEYS = Object.keys(ICONS);
+const CATEGORY_ICON = { "AI 트렌드": "search", "AEO·GEO": "chat", "바이브 코딩": "code", "AI 도구": "gear", "케이스 스터디": "chart" };
+function makeThumb(post) {
+  const seed = hashSeed(post.slug);
+  const iconKey = ICONS[post.icon] ? post.icon : (CATEGORY_ICON[post.category] || "search");
+  const icon = ICONS[iconKey];
+  const en = Array.isArray(post.en) && post.en.length === 2 ? post.en : icon.en;
+  const title = post.title.length > 26 ? post.title.slice(0, 25) + "…" : post.title;
+  let dust = "";
+  for (let i = 0; i < 14; i++) {
+    const x = (i * 173 + (seed % 557)) % 600;
+    const y = (i * 131 + ((seed >> 4) % 431)) % 600;
+    dust += `<circle cx="${x}" cy="${y}" r="${1 + (i % 2)}" fill="${i % 3 ? GOLD : MINT}" opacity="0.06"/>`;
   }
-  const rot = (seed % 21) - 10; // 모티프 미세 회전
-  const MOTIFS = {
-    "AI 트렌드": `
-      <g stroke="#3EDC5B" stroke-width="9" fill="none" stroke-linecap="round">
-        <path d="M 770 380 A 150 150 0 0 1 1070 380" opacity="0.35"/>
-        <path d="M 810 380 A 110 110 0 0 1 1030 380" opacity="0.6"/>
-        <path d="M 850 380 A 70 70 0 0 1 990 380" opacity="0.9"/>
-      </g>
-      <circle cx="920" cy="380" r="16" fill="#3EDC5B"/>
-      <polyline points="760,300 840,250 900,270 1000,170 1060,190" stroke="#EAF6EC" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-      <path d="M 1060 190 l -34 -6 m 34 6 l -8 33" stroke="#EAF6EC" stroke-width="9" fill="none" stroke-linecap="round"/>`,
-    "AEO·GEO": `
-      <g stroke="#97DBA0" stroke-width="8" fill="none" opacity="0.9">
-        <circle cx="880" cy="300" r="130"/>
-        <ellipse cx="880" cy="300" rx="130" ry="50"/>
-        <ellipse cx="880" cy="300" rx="50" ry="130"/>
-      </g>
-      <g transform="translate(990,150)">
-        <rect x="0" y="0" width="190" height="120" rx="26" fill="#00AF1C"/>
-        <path d="M 40 120 L 40 160 L 88 120 Z" fill="#00AF1C"/>
-        <path d="M 50 62 l 28 28 l 60 -56" stroke="#04200C" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>`,
-    "바이브 코딩": `
-      <g transform="rotate(${rot} 920 300)">
-        <rect x="740" y="160" width="380" height="280" rx="24" fill="none" stroke="#97DBA0" stroke-width="8" opacity="0.85"/>
-        <line x1="740" y1="222" x2="1120" y2="222" stroke="#97DBA0" stroke-width="8" opacity="0.85"/>
-        <circle cx="778" cy="191" r="9" fill="#3EDC5B"/><circle cx="812" cy="191" r="9" fill="#97DBA0" opacity="0.6"/><circle cx="846" cy="191" r="9" fill="#97DBA0" opacity="0.35"/>
-        <path d="M 830 280 l -46 46 l 46 46" stroke="#3EDC5B" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M 1030 280 l 46 46 l -46 46" stroke="#3EDC5B" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="950" y1="270" x2="912" y2="382" stroke="#EAF6EC" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
-      </g>`,
-    "AI 도구": `
-      <g stroke="#97DBA0" stroke-width="7" opacity="0.8">
-        <line x1="820" y1="220" x2="1000" y2="180"/><line x1="820" y1="220" x2="880" y2="390"/>
-        <line x1="1000" y1="180" x2="1070" y2="330"/><line x1="880" y1="390" x2="1070" y2="330"/>
-        <line x1="820" y1="220" x2="1070" y2="330"/>
-      </g>
-      <circle cx="820" cy="220" r="26" fill="#3EDC5B"/>
-      <circle cx="1000" cy="180" r="20" fill="none" stroke="#EAF6EC" stroke-width="9"/>
-      <circle cx="880" cy="390" r="20" fill="none" stroke="#EAF6EC" stroke-width="9"/>
-      <circle cx="1070" cy="330" r="26" fill="#00AF1C"/>`,
-    "케이스 스터디": `
-      <g transform="rotate(${rot} 940 320)">
-        <rect x="780" y="330" width="70" height="110" rx="12" fill="#97DBA0" opacity="0.55"/>
-        <rect x="880" y="270" width="70" height="170" rx="12" fill="#3EDC5B" opacity="0.8"/>
-        <rect x="980" y="200" width="70" height="240" rx="12" fill="#00AF1C"/>
-        <path d="M 780 240 L 900 190 L 1000 140" stroke="#EAF6EC" stroke-width="10" fill="none" stroke-linecap="round"/>
-        <path d="M 1000 140 l -36 -2 m 36 2 l -12 34" stroke="#EAF6EC" stroke-width="10" fill="none" stroke-linecap="round"/>
-      </g>`,
-  };
-  const motif = MOTIFS[category] || MOTIFS["AI 트렌드"];
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="${esc(category)} 썸네일">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="${esc(post.category)} 썸네일">
 <defs>
-<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#0C4A1E"/><stop offset="0.55" stop-color="#062A11"/><stop offset="1" stop-color="#04200C"/>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#10281A"/><stop offset="0.6" stop-color="#081810"/><stop offset="1" stop-color="#050F0A"/>
 </linearGradient>
-<radialGradient id="glow" cx="0.72" cy="0.42" r="0.65">
-<stop offset="0" stop-color="#00AF1C" stop-opacity="0.28"/><stop offset="1" stop-color="#00AF1C" stop-opacity="0"/>
+<radialGradient id="vig" cx="0.5" cy="0.42" r="0.75">
+<stop offset="0.6" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.4"/>
 </radialGradient>
+<pattern id="tex" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<line x1="0" y1="0" x2="0" y2="7" stroke="#FFFFFF" stroke-opacity="0.028" stroke-width="1"/>
+</pattern>
 </defs>
-<rect width="1200" height="630" fill="url(#g)"/>
-<rect width="1200" height="630" fill="url(#glow)"/>
-${dots}
-${motif}
-<text x="64" y="524" font-family="'IBM Plex Mono',Consolas,monospace" font-size="24" letter-spacing="8" fill="#52C868">SAENRU INSIGHT</text>
-<text x="64" y="574" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="38" font-weight="700" fill="#EAF6EC">${esc(category)}</text>
+<rect width="600" height="600" fill="url(#g)"/>
+<rect width="600" height="600" fill="url(#tex)"/>
+${dust}
+<rect width="600" height="600" fill="url(#vig)"/>
+<text x="300" y="84" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="13" letter-spacing="7" fill="#B9C7B4" opacity="0.75">SAENRU INSIGHT</text>
+<line x1="272" y1="104" x2="328" y2="104" stroke="${GOLD}" stroke-width="1" opacity="0.55"/>
+<g transform="translate(300,235)">${icon.svg}
+</g>
+<text x="300" y="404" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="56" letter-spacing="2" fill="${IVORY}">${esc(en[0])}</text>
+<text x="300" y="456" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="40" letter-spacing="1" fill="${GOLD}">${esc(en[1])}</text>
+<text x="300" y="512" text-anchor="middle" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="17" fill="#CFDCCB" opacity="0.85">${esc(title)}</text>
+<line x1="272" y1="542" x2="328" y2="542" stroke="${GOLD}" stroke-width="1" opacity="0.4"/>
+<text x="300" y="570" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="12" letter-spacing="5" fill="#8FA98F">${esc(post.category)}</text>
 </svg>
 `;
 }
-function writeThumb(category, slug) {
+function writeThumb(post) {
   const dir = path.join(BLOG, "thumbs");
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, `${slug}.svg`), makeThumb(category, slug));
+  fs.writeFileSync(path.join(dir, `${post.slug}.svg`), makeThumb(post));
 }
 
 /* ---------------- 공통 조각 ---------------- */
@@ -197,7 +227,7 @@ ${NAV("../../")}
       <h1>${esc(post.title)}</h1>
       <p class="post-summary">${esc(post.summary)}</p>
     </header>
-    <img class="post-thumb" src="../thumbs/${post.slug}.svg" alt="${esc(post.category)} 대표 이미지" width="1200" height="630">
+    <img class="post-thumb" src="../thumbs/${post.slug}.svg" alt="${esc(post.category)} 대표 이미지" width="600" height="600">
     <div class="prose">
 ${contentHTML}
     </div>${faqHTML ? `
@@ -241,7 +271,7 @@ function renderIndex(posts) {
     .concat(cats.map(c => `<button class="chip" data-cat="${esc(c)}" type="button">${esc(c)}</button>`)).join("\n      ");
   const cards = posts.map(p => `
       <a class="card" data-cat="${esc(p.category)}" href="posts/${p.slug}.html">
-        <img class="card-thumb" src="thumbs/${p.slug}.svg" alt="" loading="lazy" width="1200" height="630">
+        <img class="card-thumb" src="thumbs/${p.slug}.svg" alt="" loading="lazy" width="600" height="600">
         <div class="card-meta"><span class="cat">${esc(p.category)}</span><time datetime="${p.date}">${p.date}</time></div>
         <h2>${esc(p.title)}</h2>
         <p>${esc(p.summary)}</p>
@@ -342,7 +372,7 @@ function publish(entry, contentHTML, faq) {
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   const posts = loadPosts();
   if (posts.some(p => p.slug === entry.slug)) throw new Error(`slug 중복: ${entry.slug}`);
-  writeThumb(entry.category, entry.slug);
+  writeThumb(entry);
   fs.writeFileSync(path.join(POSTS_DIR, `${entry.slug}.html`), renderPost(entry, contentHTML, faq));
   posts.unshift(entry);
   savePosts(posts);
@@ -381,6 +411,8 @@ ${recent}
   "slug": "english-url-slug-with-hyphens",
   "category": "카테고리",
   "summary": "요약 한 문장 (80자 이내)",
+  "icon": "글 주제와 가장 관련 있는 것 하나: ${ICON_KEYS.join(" | ")}",
+  "en": ["주제를 나타내는 영문 단어 2개 (예: [\\"Voice\\",\\"Agent\\"], 각 12자 이내, 썸네일 타이포그래피용)"],
   "html": "<p>...</p><h2>...</h2>...",
   "faq": [{"q":"질문","a":"두세 문장 답변"},{"q":"...","a":"..."},{"q":"...","a":"..."}]
 }`;
@@ -400,9 +432,12 @@ ${recent}
 
   if (!CATEGORIES.includes(data.category)) data.category = "AI 트렌드";
   let slug = `${date}-${String(data.slug || "post").toLowerCase().replace(/[^a-z0-9-]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "")}`;
+  const en = Array.isArray(data.en) && data.en.length === 2
+    && data.en.every(w => typeof w === "string" && w.length <= 14) ? data.en : undefined;
   const entry = {
     slug, date, title: data.title, category: data.category,
     summary: data.summary, readMin: readMinutes(data.html),
+    icon: ICONS[data.icon] ? data.icon : undefined, en,
   };
   publish(entry, data.html, data.faq);
 }
@@ -413,17 +448,30 @@ if (args[0] === "--rebuild") {
   rebuild();
 } else if (args[0] === "--thumbs") {
   // 백필: 모든 글의 썸네일 생성 + 기존 포스트 HTML에 이미지 삽입 + index 재생성
+  const BACKFILL = {
+    "2026-08-22-ai-video-ads-for-small-teams": { icon: "video", en: ["Video", "Advertising"] },
+    "2026-08-22-voice-ai-phone-agent-for-small-business": { icon: "voice", en: ["Voice", "Agent"] },
+    "2026-08-21-mini-eval-set-for-small-teams": { icon: "eval", en: ["Quality", "Evaluation"] },
+    "2026-08-21-ai-agent-delegation-design-for-small-teams": { icon: "agent", en: ["Agent", "Delegation"] },
+    "2026-08-21-ai-token-cost-diet-for-small-teams": { icon: "cost", en: ["Token", "Economics"] },
+    "2026-08-20-mcp-connect-your-business-data-to-ai": { icon: "data", en: ["Data", "Connection"] },
+    "2026-08-20-homepage-in-ai-overviews-era": { icon: "search", en: ["AI", "Overviews"] },
+    "2026-08-20-vibe-coding-getting-started": { icon: "code", en: ["Vibe", "Coding"] },
+    "2026-08-20-why-chatgpt-recommends-some-brands": { icon: "chat", en: ["Answer", "Engine"] },
+  };
   const posts = loadPosts();
   for (const p of posts) {
-    writeThumb(p.category, p.slug);
+    if (BACKFILL[p.slug]) { p.icon = p.icon || BACKFILL[p.slug].icon; p.en = p.en || BACKFILL[p.slug].en; }
+    writeThumb(p);
     const file = path.join(POSTS_DIR, `${p.slug}.html`);
     let html = fs.readFileSync(file, "utf8");
     if (!html.includes("post-thumb")) {
-      html = html.replace("</header>", `</header>\n    <img class="post-thumb" src="../thumbs/${p.slug}.svg" alt="${esc(p.category)} 대표 이미지" width="1200" height="630">`);
+      html = html.replace("</header>", `</header>\n    <img class="post-thumb" src="../thumbs/${p.slug}.svg" alt="${esc(p.category)} 대표 이미지" width="600" height="600">`);
       fs.writeFileSync(file, html);
       console.log(`이미지 삽입: ${p.slug}`);
     }
   }
+  savePosts(posts);
   rebuild(posts);
 } else if (args[0] === "--seed") {
   const seeds = JSON.parse(fs.readFileSync(path.resolve(args[1]), "utf8"));
