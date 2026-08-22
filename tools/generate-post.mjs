@@ -245,7 +245,7 @@ ${JSON.stringify({
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="${SITE}/assets/og-image-v2.png">
+<meta property="og:image" content="${SITE}/assets/og-image-v3.png">
 <link rel="canonical" href="${url}">${post.enTitle ? `
 <link rel="alternate" hreflang="ko" href="${url}">
 <link rel="alternate" hreflang="en" href="${SITE}/blog/posts/${post.slug}-en.html">` : ""}${HEAD_COMMON("../../")}
@@ -286,7 +286,7 @@ ${JSON.stringify({
     "@context": "https://schema.org", "@type": "BlogPosting",
     headline: post.title, description: post.summary, datePublished: post.date, dateModified: post.date,
     inLanguage: "ko", url,
-    image: `${SITE}/assets/og-image-v2.png`,
+    image: `${SITE}/assets/og-image-v3.png`,
     author: { "@type": "Organization", name: "세느루", url: SITE },
     publisher: { "@type": "Organization", name: "세느루", url: SITE, logo: { "@type": "ImageObject", url: `${SITE}/assets/logo-stacked.png` } },
     mainEntityOfPage: url
@@ -321,7 +321,7 @@ ${JSON.stringify({
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="${SITE}/assets/og-image-v2.png">
+<meta property="og:image" content="${SITE}/assets/og-image-v3.png">
 <link rel="canonical" href="${url}">
 <link rel="alternate" hreflang="ko" href="${koUrl}">
 <link rel="alternate" hreflang="en" href="${url}">${HEAD_COMMON("../../")}
@@ -362,7 +362,7 @@ ${JSON.stringify({
     "@context": "https://schema.org", "@type": "BlogPosting",
     headline: post.enTitle, description: post.enSummary || "", datePublished: post.date, dateModified: post.date,
     inLanguage: "en", url,
-    image: `${SITE}/assets/og-image-v2.png`,
+    image: `${SITE}/assets/og-image-v3.png`,
     author: { "@type": "Organization", name: "SAENRU", url: `${SITE}/en/` },
     publisher: { "@type": "Organization", name: "SAENRU", url: `${SITE}/en/`, logo: { "@type": "ImageObject", url: `${SITE}/assets/logo-stacked.png` } },
     mainEntityOfPage: url
@@ -396,7 +396,7 @@ function renderIndexEn(posts) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/en/blog">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="${SITE}/assets/og-image-v2.png">
+<meta property="og:image" content="${SITE}/assets/og-image-v3.png">
 <link rel="canonical" href="${SITE}/en/blog/">
 <link rel="alternate" hreflang="ko" href="${SITE}/blog/">
 <link rel="alternate" hreflang="en" href="${SITE}/en/blog/">${HEAD_COMMON("/")}
@@ -455,7 +455,7 @@ function renderIndex(posts) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/blog">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="${SITE}/assets/og-image-v2.png">
+<meta property="og:image" content="${SITE}/assets/og-image-v3.png">
 <link rel="canonical" href="${SITE}/blog/">${HEAD_COMMON("../")}
 <title>세느루 인사이트 — AI 트렌드 블로그</title>
 </head>

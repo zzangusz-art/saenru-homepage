@@ -9,7 +9,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://saenru.com/assets/og-image-v2.png">
+<meta property="og:image" content="https://saenru.com/assets/og-image-v3.png">
 <link rel="canonical" href="https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html">
 <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="/assets/logo-icon.png" sizes="512x512">
@@ -76,7 +76,7 @@
   </div>
 </footer>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"우리 AI, 잘하고 있나? 미니 평가셋 만드는 법","description":"모델을 바꿀 때마다 불안하다면, 질문 20~30개짜리 평가셋부터 만들어 보세요.","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html","image":"https://saenru.com/assets/og-image-v2.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"우리 AI, 잘하고 있나? 미니 평가셋 만드는 법","description":"모델을 바꿀 때마다 불안하다면, 질문 20~30개짜리 평가셋부터 만들어 보세요.","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html","image":"https://saenru.com/assets/og-image-v3.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-21-mini-eval-set-for-small-teams.html"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"평가셋 문항은 몇 개가 적당한가요?","acceptedAnswer":{"@type":"Answer","text":"처음에는 20~30개면 충분합니다. 중요한 건 개수보다 실제 고객 질문에서 뽑았는지, 그리고 과거에 틀렸던 사례가 포함됐는지입니다. 운영하면서 문제가 생길 때마다 한 줄씩 늘려 가면 자연스럽게 규모가 커집니다."}},{"@type":"Question","name":"정답 문장을 미리 써 두고 비교하면 안 되나요?","acceptedAnswer":{"@type":"Answer","text":"AI 답변은 같은 의미라도 문장이 매번 달라서 텍스트 일치 비교는 거의 쓸모가 없습니다. 대신 '환불 기간을 언급한다', '확정 견적을 말하지 않는다'처럼 예/아니오로 판정 가능한 합격 조건을 적으세요. 조건을 모두 만족하면 합격으로 처리합니다."}},{"@type":"Question","name":"LLM에게 채점을 맡겨도 믿을 만한가요?","acceptedAnswer":{"@type":"Answer","text":"어조나 정중함, 조건 충족 여부처럼 규칙으로 잡기 힘든 항목에는 충분히 유용합니다. 다만 채점 기준을 구체적으로 주고 예/아니오로만 답하게 해야 편차가 줄어듭니다. 불합격이나 애매하다고 표시된 항목만 사람이 다시 확인하는 방식이 현실적입니다."}}]}
