@@ -174,9 +174,34 @@ const NAV = (depth) => `
     <a href="${depth}blog/">블로그</a>
     <a href="${depth}about/">소개</a>
     <a href="${depth}ai/">AI 컨설팅</a>
+    <a href="${depth}en/blog/" lang="en">EN</a>
     <a class="nav-cta" href="${depth}#launch">LAUNCH 🚀</a>
   </div>
 </nav>`;
+
+const NAV_EN = `
+<nav class="nav solid" aria-label="Main navigation">
+  <a class="nav-logo" href="/en/"><img src="/assets/logo-icon.png" alt="SAENRU logo" width="34" height="34">세느루 <span class="en">SAENRU</span></a>
+  <div class="nav-links">
+    <a href="/en/">Home</a>
+    <a href="/en/blog/">Blog</a>
+    <a href="/en/ai/">AI Search (AEO)</a>
+    <a href="/blog/" lang="ko">한국어</a>
+    <a class="nav-cta" href="/en/#contact">CONTACT</a>
+  </div>
+</nav>`;
+
+const FOOTER_EN = `
+<footer>
+  <div class="wrap">
+    <img src="/assets/logo-icon.png" alt="SAENRU symbol" width="40" height="40" style="border-radius:10px;margin-bottom:8px" loading="lazy">
+    <div class="biz">
+      SAENRU · CEO: Jaehyun Lee · Business Reg. No. 698-25-01527<br>
+      402, 9 Digital-ro 53ga-gil, Yeongdeungpo-gu, Seoul 07421, Republic of Korea · +82-507-1369-7319
+    </div>
+    <div class="cr">© 2026 SAENRU. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>`;
 
 const FOOTER = (depth) => `
 <footer>
@@ -215,7 +240,9 @@ ${JSON.stringify({
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="${SITE}/assets/og-image.png">
-<link rel="canonical" href="${url}">${HEAD_COMMON("../../")}
+<link rel="canonical" href="${url}">${post.enTitle ? `
+<link rel="alternate" hreflang="ko" href="${url}">
+<link rel="alternate" hreflang="en" href="${SITE}/blog/posts/${post.slug}-en.html">` : ""}${HEAD_COMMON("../../")}
 <title>${esc(post.title)} — 세느루 인사이트</title>
 </head>
 <body>
@@ -223,7 +250,7 @@ ${NAV("../../")}
 <main class="post-main">
   <article class="wrap-narrow">
     <header class="post-head">
-      <div class="post-meta"><a class="cat" href="../">${esc(post.category)}</a><time datetime="${post.date}">${post.date}</time><span>${post.readMin}분 읽기</span></div>
+      <div class="post-meta"><a class="cat" href="../">${esc(post.category)}</a><time datetime="${post.date}">${post.date}</time><span>${post.readMin}분 읽기</span>${post.enTitle ? `<a class="cat" href="${post.slug}-en.html" hreflang="en">READ IN ENGLISH</a>` : ""}</div>
       <h1>${esc(post.title)}</h1>
       <p class="post-summary">${esc(post.summary)}</p>
     </header>
@@ -259,6 +286,140 @@ ${JSON.stringify({
     mainEntityOfPage: url
   })}
 <\/script>${faqLD}
+</body>
+</html>
+`;
+}
+
+/* ---------------- 영어 포스트 페이지 ---------------- */
+function renderPostEn(post, enHtml, enFaq) {
+  const url = `${SITE}/blog/posts/${post.slug}-en.html`;
+  const koUrl = `${SITE}/blog/posts/${post.slug}.html`;
+  const faqHTML = (enFaq || []).map(f => `
+      <details><summary>${esc(f.q)}</summary><div class="a">${esc(f.a)}</div></details>`).join("");
+  const faqLD = (enFaq || []).length ? `
+<script type="application/ld+json">
+${JSON.stringify({
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: enFaq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } }))
+  })}
+<\/script>` : "";
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="${esc(post.enSummary || post.enTitle)}">
+<meta property="og:title" content="${esc(post.enTitle)}">
+<meta property="og:description" content="${esc(post.enSummary || "")}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="${SITE}/assets/og-image.png">
+<link rel="canonical" href="${url}">
+<link rel="alternate" hreflang="ko" href="${koUrl}">
+<link rel="alternate" hreflang="en" href="${url}">${HEAD_COMMON("../../")}
+<title>${esc(post.enTitle)} — SAENRU Insight</title>
+</head>
+<body>
+${NAV_EN}
+<main class="post-main">
+  <article class="wrap-narrow">
+    <header class="post-head">
+      <div class="post-meta"><a class="cat" href="/en/blog/">${esc(post.category)}</a><time datetime="${post.date}">${post.date}</time><span>${post.readMin} min read</span><a class="cat" href="${post.slug}.html" hreflang="ko">한국어로 읽기</a></div>
+      <h1>${esc(post.enTitle)}</h1>
+      <p class="post-summary">${esc(post.enSummary || "")}</p>
+    </header>
+    <img class="post-thumb" src="../thumbs/${post.slug}.svg" alt="" width="600" height="600">
+    <div class="prose">
+${enHtml}
+    </div>${faqHTML ? `
+    <section class="post-faq">
+      <h2>FAQ</h2>
+      <div class="faq">${faqHTML}
+      </div>
+    </section>` : ""}
+    <aside class="post-cta">
+      <div>
+        <div class="mono-path">SAENRU INSIGHT</div>
+        <b>Is your brand visible in AI search?</b>
+        <p>Our AEO·GEO diagnostic shows exactly what ChatGPT says about your brand today.</p>
+      </div>
+      <a class="btn btn-primary" href="/en/ai/">AEO Consulting</a>
+    </aside>
+    <p class="back-link"><a href="/en/blog/">← Back to Insights</a></p>
+  </article>
+</main>
+${FOOTER_EN}
+<script type="application/ld+json">
+${JSON.stringify({
+    "@context": "https://schema.org", "@type": "BlogPosting",
+    headline: post.enTitle, description: post.enSummary || "", datePublished: post.date, dateModified: post.date,
+    inLanguage: "en", url,
+    image: `${SITE}/assets/og-image.png`,
+    author: { "@type": "Organization", name: "SAENRU", url: `${SITE}/en/` },
+    publisher: { "@type": "Organization", name: "SAENRU", url: `${SITE}/en/`, logo: { "@type": "ImageObject", url: `${SITE}/assets/logo-stacked.png` } },
+    mainEntityOfPage: url
+  })}
+<\/script>${faqLD}
+</body>
+</html>
+`;
+}
+
+/* ---------------- 영어 인덱스 ---------------- */
+function renderIndexEn(posts) {
+  const enPosts = posts.filter(p => p.enTitle);
+  const cards = enPosts.map(p => `
+      <a class="card" href="/blog/posts/${p.slug}-en.html">
+        <img class="card-thumb" src="/blog/thumbs/${p.slug}.svg" alt="" loading="lazy" width="600" height="600">
+        <div class="card-meta"><span class="cat">${esc(p.category)}</span><time datetime="${p.date}">${p.date}</time></div>
+        <h2>${esc(p.enTitle)}</h2>
+        <p>${esc(p.enSummary || "")}</p>
+        <span class="more">${p.readMin} min read →</span>
+      </a>`).join("");
+  const empty = enPosts.length ? "" : `
+    <p style="color:var(--ink-soft);font-size:.95rem">English posts publish automatically alongside our Korean insights — the first ones are on their way. Meanwhile, browse the <a href="/blog/" style="color:var(--accent-strong);font-weight:700">Korean edition →</a></p>`;
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SAENRU Insight — practical takes on AI trends, AEO·GEO, and vibe coding, published daily by our AI pipeline.">
+<meta property="og:title" content="SAENRU Insight — AI Trends Blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${SITE}/en/blog">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="${SITE}/assets/og-image.png">
+<link rel="canonical" href="${SITE}/en/blog/">
+<link rel="alternate" hreflang="ko" href="${SITE}/blog/">
+<link rel="alternate" hreflang="en" href="${SITE}/en/blog/">${HEAD_COMMON("/")}
+<title>SAENRU Insight — AI Trends Blog</title>
+</head>
+<body>
+${NAV_EN}
+<header class="blog-hero">
+  <div class="wrap">
+    <div class="eyebrow">SAENRU INSIGHT · AI PUBLISHING PIPELINE</div>
+    <h1>SAENRU Insight</h1>
+    <p class="sub">AI trends, AEO·GEO, and vibe coding — published daily by the same AI pipeline we sell. This blog is its own demo.</p>
+  </div>
+</header>
+<main class="sec-blog">
+  <div class="wrap">${empty}
+    <div class="card-grid">${cards}
+    </div>
+  </div>
+</main>
+${FOOTER_EN}
+<script type="application/ld+json">
+${JSON.stringify({
+    "@context": "https://schema.org", "@type": "Blog",
+    name: "SAENRU Insight", url: `${SITE}/en/blog/`, inLanguage: "en",
+    description: "Practical insights on AI trends, AEO·GEO, and vibe coding",
+    publisher: { "@type": "Organization", name: "SAENRU", url: `${SITE}/en/` }
+  })}
+<\/script>
 </body>
 </html>
 `;
@@ -351,6 +512,9 @@ function renderSitemap(posts) {
     { loc: `${SITE}/ai/`, prio: "0.9", freq: "monthly" },
     { loc: `${SITE}/about/`, prio: "0.8", freq: "monthly" },
     { loc: `${SITE}/blog/`, prio: "0.9", freq: "daily" },
+    { loc: `${SITE}/en/`, prio: "0.8", freq: "monthly" },
+    { loc: `${SITE}/en/ai/`, prio: "0.8", freq: "monthly" },
+    { loc: `${SITE}/en/blog/`, prio: "0.7", freq: "daily" },
   ];
   const today = todayKST();
   const items = staticUrls.map(u => `  <url>
@@ -358,22 +522,35 @@ function renderSitemap(posts) {
     <lastmod>${today}</lastmod>
     <changefreq>${u.freq}</changefreq>
     <priority>${u.prio}</priority>
-  </url>`).concat(posts.map(p => `  <url>
+  </url>`).concat(posts.flatMap(p => {
+    const urls = [`  <url>
     <loc>${SITE}/blog/posts/${p.slug}.html</loc>
     <lastmod>${p.date}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
-  </url>`)).join("\n");
+  </url>`];
+    if (p.enTitle) urls.push(`  <url>
+    <loc>${SITE}/blog/posts/${p.slug}-en.html</loc>
+    <lastmod>${p.date}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>`);
+    return urls;
+  })).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</urlset>\n`;
 }
 
 /* ---------------- 발행 ---------------- */
-function publish(entry, contentHTML, faq) {
+function publish(entry, contentHTML, faq, enHtml, enFaq) {
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   const posts = loadPosts();
   if (posts.some(p => p.slug === entry.slug)) throw new Error(`slug 중복: ${entry.slug}`);
   writeThumb(entry);
   fs.writeFileSync(path.join(POSTS_DIR, `${entry.slug}.html`), renderPost(entry, contentHTML, faq));
+  if (entry.enTitle && enHtml) {
+    fs.writeFileSync(path.join(POSTS_DIR, `${entry.slug}-en.html`), renderPostEn(entry, enHtml, enFaq));
+    console.log(`영어판 발행: /blog/posts/${entry.slug}-en.html`);
+  }
   posts.unshift(entry);
   savePosts(posts);
   rebuild(posts);
@@ -381,8 +558,10 @@ function publish(entry, contentHTML, faq) {
 }
 function rebuild(posts = loadPosts()) {
   fs.writeFileSync(path.join(BLOG, "index.html"), renderIndex(posts));
+  fs.mkdirSync(path.join(ROOT, "en", "blog"), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, "en", "blog", "index.html"), renderIndexEn(posts));
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), renderSitemap(posts));
-  console.log(`index/sitemap 재생성 (${posts.length}편)`);
+  console.log(`index(ko/en)/sitemap 재생성 (${posts.length}편, EN ${posts.filter(p => p.enTitle).length}편)`);
 }
 
 /* ---------------- Claude API 생성 ---------------- */
@@ -414,7 +593,11 @@ ${recent}
   "icon": "글 주제와 가장 관련 있는 것 하나: ${ICON_KEYS.join(" | ")}",
   "en": ["주제를 나타내는 영문 단어 2개 (예: [\\"Voice\\",\\"Agent\\"], 각 12자 이내, 썸네일 타이포그래피용)"],
   "html": "<p>...</p><h2>...</h2>...",
-  "faq": [{"q":"질문","a":"두세 문장 답변"},{"q":"...","a":"..."},{"q":"...","a":"..."}]
+  "faq": [{"q":"질문","a":"두세 문장 답변"},{"q":"...","a":"..."},{"q":"...","a":"..."}],
+  "enTitle": "Natural English title for the same article",
+  "enSummary": "One-sentence English summary (under 120 chars)",
+  "enHtml": "Full English edition of the article — natural English for a global reader, not a literal translation. Same tag rules as html, including question-style <h2> headings.",
+  "enFaq": [{"q":"English question","a":"Two-to-three sentence answer"},{"q":"...","a":"..."},{"q":"...","a":"..."}]
 }`;
 
   const stream = client.messages.stream({
@@ -438,8 +621,10 @@ ${recent}
     slug, date, title: data.title, category: data.category,
     summary: data.summary, readMin: readMinutes(data.html),
     icon: ICONS[data.icon] ? data.icon : undefined, en,
+    enTitle: typeof data.enTitle === "string" && data.enHtml ? data.enTitle : undefined,
+    enSummary: typeof data.enSummary === "string" ? data.enSummary : undefined,
   };
-  publish(entry, data.html, data.faq);
+  publish(entry, data.html, data.faq, data.enHtml, data.enFaq);
 }
 
 /* ---------------- main ---------------- */

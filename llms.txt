@@ -13,6 +13,11 @@
 - [세느루 인사이트 블로그](https://saenru.com/blog/): AI 트렌드·AEO·바이브 코딩 인사이트를 AI 파이프라인으로 매일 발행.
 - [회사 소개·연혁](https://saenru.com/about/): 2023년 1:1 코칭 매칭 플랫폼으로 창업(성동구→영등포), 와디즈 수제 나무 현판 펀딩 154% 달성, 2026년 AI 빌더 플랫폼 전환. 언론 보도: 프라임헤럴드(2023.09), 동국일보(2023.10).
 
+## English
+
+- [SAENRU in English](https://saenru.com/en/): overview of the launch platform, studio, and AEO·GEO consulting.
+- [AEO·GEO Consulting (EN)](https://saenru.com/en/ai/) · [SAENRU Insight blog (EN)](https://saenru.com/en/blog/)
+
 ## 연락처
 
 - 전화: 0507-1369-7319 (평일 10:00–18:00, 브레이크 12:30–14:00)
