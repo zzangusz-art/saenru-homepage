@@ -9,7 +9,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://saenru.com/blog/posts/2026-08-21-ai-agent-delegation-design-for-small-teams.html">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://saenru.com/assets/og-image.png">
+<meta property="og:image" content="https://saenru.com/assets/og-image-v2.png">
 <link rel="canonical" href="https://saenru.com/blog/posts/2026-08-21-ai-agent-delegation-design-for-small-teams.html">
 <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="/assets/logo-icon.png" sizes="512x512">
@@ -76,7 +76,7 @@
   </div>
 </footer>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI 에이전트, 어디까지 맡겨도 될까?","description":"실행하는 AI가 늘어난 지금, 1인 빌더와 소규모 팀이 업무를 안전하게 위임하는 설계법을 정리했습니다.","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-21-ai-agent-delegation-design-for-small-teams.html","image":"https://saenru.com/assets/og-image.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-21-ai-agent-delegation-design-for-small-teams.html"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI 에이전트, 어디까지 맡겨도 될까?","description":"실행하는 AI가 늘어난 지금, 1인 빌더와 소규모 팀이 업무를 안전하게 위임하는 설계법을 정리했습니다.","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-21-ai-agent-delegation-design-for-small-teams.html","image":"https://saenru.com/assets/og-image-v2.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-21-ai-agent-delegation-design-for-small-teams.html"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI 에이전트를 도입하려면 개발자가 꼭 필요한가요?","acceptedAnswer":{"@type":"Answer","text":"간단한 업무 위임은 개발 없이도 가능합니다. Zapier, Make, n8n 같은 자동화 도구나 ChatGPT·Claude의 프로젝트 기능만으로도 초안 생성과 분류 업무는 충분히 붙일 수 있습니다. 다만 사내 데이터베이스를 직접 수정하는 작업까지 가려면 개발 지원이 필요합니다."}},{"@type":"Question","name":"에이전트가 잘못된 작업을 했는지 어떻게 알 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"실행 로그를 남기는 것이 최소 조건입니다. 어떤 입력으로 무엇을 실행했는지 시트나 슬랙 채널에 자동 기록해 두고, 초기에는 20건 단위로 몰아서 검수하세요. 틀린 사례는 지시문에 그대로 예시로 넣으면 같은 실수가 눈에 띄게 줄어듭니다."}},{"@type":"Question","name":"고객 응대를 에이전트에게 완전히 맡겨도 될까요?","acceptedAnswer":{"@type":"Answer","text":"권장하지 않습니다. 외부로 나가는 최종 메시지는 되돌릴 수 없어 신뢰 손실이 크기 때문입니다. 초안 생성까지만 맡기고 발송은 사람이 누르는 구조로 시작해, 반복 유형(배송 조회, 영업시간 안내 등)부터 조건을 정해 단계적으로 자동화하세요."}}]}

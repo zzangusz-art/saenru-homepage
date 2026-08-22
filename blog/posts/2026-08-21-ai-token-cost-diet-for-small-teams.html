@@ -9,7 +9,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://saenru.com/blog/posts/2026-08-21-ai-token-cost-diet-for-small-teams.html">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://saenru.com/assets/og-image.png">
+<meta property="og:image" content="https://saenru.com/assets/og-image-v2.png">
 <link rel="canonical" href="https://saenru.com/blog/posts/2026-08-21-ai-token-cost-diet-for-small-teams.html">
 <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="/assets/logo-icon.png" sizes="512x512">
@@ -76,7 +76,7 @@
   </div>
 </footer>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI 요금이 갑자기 늘었다면? 토큰 다이어트 6가지","description":"1인 빌더와 소규모 팀이 품질을 지키면서 AI API 비용을 줄이는 실전 절감법 6가지를 정리했습니다.","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-21-ai-token-cost-diet-for-small-teams.html","image":"https://saenru.com/assets/og-image.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-21-ai-token-cost-diet-for-small-teams.html"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI 요금이 갑자기 늘었다면? 토큰 다이어트 6가지","description":"1인 빌더와 소규모 팀이 품질을 지키면서 AI API 비용을 줄이는 실전 절감법 6가지를 정리했습니다.","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-21-ai-token-cost-diet-for-small-teams.html","image":"https://saenru.com/assets/og-image-v2.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-21-ai-token-cost-diet-for-small-teams.html"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"프롬프트 캐싱은 어떤 경우에 효과가 큰가요?","acceptedAnswer":{"@type":"Answer","text":"시스템 프롬프트, 정책 문서, 예시 답변처럼 매 요청마다 똑같이 들어가는 앞부분이 길수록 효과가 큽니다. 고정 내용을 프롬프트 앞쪽에 모으고 변하는 사용자 입력을 뒤에 배치해야 캐시 적중률이 올라갑니다. 반대로 매 요청마다 앞부분이 조금씩 달라지면 캐시가 거의 걸리지 않습니다."}},{"@type":"Question","name":"저렴한 소형 모델로 바꾸면 품질이 많이 떨어지지 않나요?","acceptedAnswer":{"@type":"Answer","text":"작업 종류에 따라 다릅니다. 분류, 태깅, 키워드 추출, 형식 변환처럼 정답 범위가 좁은 작업은 소형 모델로도 충분한 경우가 많습니다. 최종 고객에게 나가는 답변 작성이나 복잡한 추론은 상위 모델을 유지하고, 실제 문의 30개 정도의 평가셋으로 교체 전후를 비교해 결정하세요."}},{"@type":"Question","name":"비용 절감을 위해 가장 먼저 확인할 지표는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"총 요금이 아니라 '호출 1회당 평균 입력 토큰'과 '기능별 호출 수'입니다. 이 두 가지를 보면 비용이 사용자 증가 때문인지, 프롬프트가 비대해진 탓인지 바로 구분됩니다. 관측 도구를 붙이기 어렵다면 API 응답의 usage 값을 로그에 남기는 것만으로도 시작할 수 있습니다."}}]}

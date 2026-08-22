@@ -9,7 +9,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://saenru.com/assets/og-image.png">
+<meta property="og:image" content="https://saenru.com/assets/og-image-v2.png">
 <link rel="canonical" href="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html">
 <link rel="alternate" hreflang="ko" href="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html">
 <link rel="alternate" hreflang="en" href="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams-en.html">
@@ -79,7 +79,7 @@
   </div>
 </footer>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"프롬프트 대신 컨텍스트, 뭐부터 만들까?","description":"지시문을 다듬는 대신 AI가 매번 참고할 '컨텍스트 팩' 한 장을 만드는 법.","datePublished":"2026-08-22","dateModified":"2026-08-22","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html","image":"https://saenru.com/assets/og-image.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"프롬프트 대신 컨텍스트, 뭐부터 만들까?","description":"지시문을 다듬는 대신 AI가 매번 참고할 '컨텍스트 팩' 한 장을 만드는 법.","datePublished":"2026-08-22","dateModified":"2026-08-22","inLanguage":"ko","url":"https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html","image":"https://saenru.com/assets/og-image-v2.png","author":{"@type":"Organization","name":"세느루","url":"https://saenru.com"},"publisher":{"@type":"Organization","name":"세느루","url":"https://saenru.com","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"컨텍스트 팩과 RAG(문서 검색 연결)는 어떻게 다른가요?","acceptedAnswer":{"@type":"Answer","text":"컨텍스트 팩은 매번 통째로 함께 주는 고정 배경 자료이고, RAG는 질문에 맞는 문서 조각을 그때그때 찾아 붙이는 방식입니다. 문서가 몇 장 수준이면 팩만으로 충분하고, 수백 건의 자료를 다뤄야 할 때 검색 방식이 필요해집니다. 대부분의 소규모 팀은 팩부터 시작해도 늦지 않습니다."}},{"@type":"Question","name":"컨텍스트 팩은 얼마나 자주 업데이트해야 하나요?","acceptedAnswer":{"@type":"Answer","text":"가격, 정책, 영업시간처럼 바뀌면 바로 문제가 되는 항목은 변경 즉시 고치고, 나머지는 분기에 한 번 훑어보는 정도로 충분합니다. 문서 맨 위에 최종 수정일과 담당자를 적어두면 방치되는 일을 막을 수 있습니다."}},{"@type":"Question","name":"컨텍스트를 많이 넣으면 요금이 많이 나오나요?","acceptedAnswer":{"@type":"Answer","text":"매 요청마다 같은 자료를 함께 보내므로 길수록 비용은 늘어납니다. 그래서 업무별로 필요한 부분만 발췌해 짧게 유지하는 것이 좋고, 반복되는 앞부분은 캐싱을 지원하는 도구를 쓰면 부담을 줄일 수 있습니다."}}]}
