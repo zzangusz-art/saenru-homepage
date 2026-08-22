@@ -6,6 +6,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const KO_PATH = path.join(ROOT, "tools", "ko-descriptions.json");
+const KO = fs.existsSync(KO_PATH) ? JSON.parse(fs.readFileSync(KO_PATH, "utf8")) : {};
 
 // 15개 카테고리: [key, 표시명, 이모지, 검색 쿼리(2개까지)]
 const CATS = [
@@ -46,7 +48,7 @@ for (const [key, label, emoji, queries] of CATS) {
       if (seen.has(it.full_name)) continue;
       if (!it.description) continue;
       seen.add(it.full_name);
-      all.push({
+      const entry = {
         n: it.name,
         f: it.full_name,
         d: String(it.description).slice(0, 140),
@@ -54,7 +56,9 @@ for (const [key, label, emoji, queries] of CATS) {
         l: it.language || "",
         u: it.html_url,
         c: key,
-      });
+      };
+      if (KO[it.full_name]) entry.k = KO[it.full_name];
+      all.push(entry);
       count++;
     }
     // rate limit 완화

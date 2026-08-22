@@ -184,6 +184,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing
 .ref .logo{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;background:linear-gradient(140deg,var(--mint),var(--mint-2));border:1px solid var(--mint-2)}
 .ref h4{font-family:var(--body);font-weight:700;font-size:.98rem;color:var(--ink)}
 .ref h4 .own{font-family:var(--mono);font-weight:400;font-size:.72rem;color:var(--ink-soft);margin-left:6px}
+.ref h4 .rk{font-family:var(--mono);font-weight:500;font-size:.76rem;color:var(--accent-strong);margin-right:9px}
 .ref .desc{font-size:.83rem;color:var(--ink-soft);margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ref .m{font-family:var(--mono);font-size:.68rem;color:var(--accent-strong);letter-spacing:.06em;margin-top:6px}
 .ref .stars{font-family:var(--mono);font-size:.82rem;color:var(--accent-strong);white-space:nowrap;text-align:right}
@@ -584,7 +585,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
       <div>
         <div class="sec-eyebrow">Global References</div>
         <h3 class="lib-title">글로벌 레퍼런스 라이브러리</h3>
-        <p class="lib-lead">전 세계에서 주목받는 AI 도구·자동화·웹서비스·개발자 도구를 15개 카테고리로 수집했습니다. 다음 프로젝트의 영감을 찾아보세요.</p>
+        <p class="lib-lead">전 세계에서 주목받는 AI 도구·자동화·웹서비스·개발자 도구를 15개 카테고리로 모았습니다. TOP 50 랭킹은 GitHub 스타 수 기준으로 매일 자동 갱신됩니다.</p>
       </div>
       <input class="lib-search" id="libSearch" type="search" placeholder="이름·설명 검색" aria-label="레퍼런스 검색">
     </div>
@@ -991,35 +992,38 @@ fetch("blog/posts.json").then(function(r){return r.json();}).then(function(posts
   if(!listEl) return;
   var chipsEl=document.getElementById("libChips"), searchEl=document.getElementById("libSearch"),
       moreBtn=document.getElementById("libMore");
-  var state={cat:"all", q:"", shown:24, items:[], cats:{}, emoji:{}};
+  var state={cat:"top", q:"", shown:24, items:[], cats:{}, emoji:{}};
   function escR(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML;}
   function fmtStars(s){return s>=1000?(s/1000).toFixed(1).replace(/\.0$/,"")+"k":String(s);}
   function filtered(){
     var q=state.q.toLowerCase();
-    return state.items.filter(function(it){
-      if(state.cat!=="all"&&it.c!==state.cat) return false;
-      if(q&&(it.n+" "+it.d+" "+it.f).toLowerCase().indexOf(q)<0) return false;
+    var base = state.cat==="top" ? state.items.slice(0,50) : state.items;
+    return base.filter(function(it){
+      if(state.cat!=="all"&&state.cat!=="top"&&it.c!==state.cat) return false;
+      if(q&&(it.n+" "+(it.k||"")+" "+it.d+" "+it.f).toLowerCase().indexOf(q)<0) return false;
       return true;
     });
   }
   function render(){
     var rows=filtered();
-    var slice=rows.slice(0,state.shown);
-    listEl.innerHTML=slice.map(function(it){
+    var top=state.cat==="top";
+    var slice=top?rows:rows.slice(0,state.shown);
+    listEl.innerHTML=slice.map(function(it,i){
       return '<a class="ref" href="'+it.u+'" target="_blank" rel="noopener nofollow">'
         +'<span class="logo" aria-hidden="true">'+(state.emoji[it.c]||"🔧")+'</span>'
-        +'<span><h4>'+escR(it.n)+'<span class="own">'+escR(it.f.split("/")[0])+'</span></h4>'
-        +'<p class="desc">'+escR(it.d)+'</p>'
+        +'<span><h4>'+(top?'<span class="rk">'+(i<9?"0":"")+(i+1)+'</span>':"")+escR(it.n)+'<span class="own">'+escR(it.f.split("/")[0])+'</span></h4>'
+        +'<p class="desc">'+escR(it.k||it.d)+'</p>'
         +'<span class="m"># '+escR(state.cats[it.c]||it.c)+'</span></span>'
         +'<span class="stars">★ '+fmtStars(it.s)+'<span class="lang">'+escR(it.l||"")+'</span></span></a>';
     }).join("")||'<div class="lib-empty">검색 결과가 없습니다.</div>';
-    moreBtn.hidden=rows.length<=state.shown;
+    moreBtn.hidden=top||rows.length<=state.shown;
     moreBtn.textContent="더 보기 ("+Math.min(state.shown,rows.length)+" / "+rows.length+")";
   }
   fetch("data/projects.json").then(function(r){return r.json();}).then(function(j){
     state.items=j.items;
     j.meta.categories.forEach(function(c){state.cats[c.key]=c.label;state.emoji[c.key]=c.emoji;});
-    var chips=['<button class="chip on" data-cat="all" type="button">전체</button>']
+    var chips=['<button class="chip on" data-cat="top" type="button">🏆 TOP 50</button>',
+      '<button class="chip" data-cat="all" type="button">전체</button>']
       .concat(j.meta.categories.map(function(c){
         return '<button class="chip" data-cat="'+c.key+'" type="button">'+c.emoji+" "+escR(c.label)+'</button>';
       }));

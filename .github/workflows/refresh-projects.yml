@@ -1,0 +1,38 @@
+name: refresh-projects
+
+on:
+  schedule:
+    # KST 07:00 (UTC 22:00) — 레퍼런스 라이브러리 매일 갱신 (스타 수·순위 최신화)
+    - cron: "0 22 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-projects
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Collect references
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node tools/collect-projects.mjs
+
+      - name: Commit & push
+        run: |
+          git config user.name "saenru-bot"
+          git config user.email "dkdlslek1@naver.com"
+          git add data
+          git diff --cached --quiet && echo "변경 없음" && exit 0
+          git commit -m "data: 레퍼런스 라이브러리 자동 갱신 $(TZ=Asia/Seoul date +%Y-%m-%d)"
+          git push
