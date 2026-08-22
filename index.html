@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="세느루(SAENRU) — 대한민국 AI 빌더들의 런칭 무대. AI로 만든 웹·앱을 GitHub와 함께 공개하고, 반응을 얻고, 커뮤니티와 함께 성장하는 플랫폼.">
+<meta name="description" content="세느루(SAENRU) — AI 빌더들의 오픈 런칭 무대. AI로 만든 웹·앱을 GitHub와 함께 공개하고, 반응을 얻고, 커뮤니티와 함께 성장하는 플랫폼.">
 <meta property="og:title" content="세느루 SAENRU — AI 빌더들의 런칭 무대">
 <meta property="og:description" content="AI로 만든 프로젝트가 GitHub와 함께 공개되고, 세상과 만나는 곳. 빌더 플랫폼 · 웹앱 공유 · 커뮤니티">
 <meta property="og:type" content="website">
@@ -155,6 +155,41 @@ h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.35;letter-spacing
 .define .facts{list-style:none;display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);font-size:.78rem;color:var(--accent-strong)}
 .define .facts li{padding-left:16px;position:relative}
 .define .facts li::before{content:"✓";position:absolute;left:0}
+
+/* ---------- WEEKLY EVENT ---------- */
+.event{position:relative;overflow:hidden;border-radius:20px;border:1px solid #14532A;
+  background:linear-gradient(120deg,#0B2415 0%,#0A3A18 55%,#0E4A1F 100%);color:var(--white);
+  display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;padding:38px 42px}
+.event::before{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(216,194,137,.16) 0%,rgba(216,194,137,0) 70%);pointer-events:none}
+.event .e-badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.26em;color:#041307;background:#D8C289;border-radius:999px;padding:5px 14px;font-weight:500;display:inline-block}
+.event h2{color:var(--white);font-size:clamp(1.2rem,2.5vw,1.65rem);margin:16px 0 10px;line-height:1.45}
+.event h2 em{font-style:normal;color:#D8C289}
+.event p{color:#C4E4C6;font-size:.92rem;max-width:38em}
+.event .e-right{text-align:center;flex-shrink:0;position:relative;z-index:1}
+.event .count-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:#86C288;margin-bottom:8px}
+.event .count{font-family:var(--mono);font-size:1.45rem;color:#3EDC5B;letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.event .e-right .btn{margin-top:16px;font-size:.88rem;padding:12px 24px}
+
+/* ---------- REFERENCE LIBRARY ---------- */
+.lib-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:84px;border-top:1px solid var(--line);padding-top:60px}
+.lib-title{font-size:1.5rem;color:var(--forest)}
+.lib-title .cnt{font-family:var(--mono);font-size:.95rem;color:var(--accent-strong);margin-left:8px}
+.lib-lead{color:var(--ink-soft);font-size:.95rem;max-width:44em;margin-top:8px}
+.lib-lead .src{font-family:var(--mono);font-size:.74rem;color:var(--accent-strong)}
+.lib-search{border:1px solid var(--line);border-radius:999px;padding:12px 20px;font:inherit;font-size:.9rem;min-width:min(260px,100%);background:var(--white);color:var(--ink)}
+.lib-search:focus{outline:none;border-color:var(--accent)}
+.ref{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 20px;transition:transform .18s,box-shadow .18s,border-color .18s}
+.ref:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(6,42,17,.08);border-color:var(--mint-2)}
+.ref .logo{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;background:linear-gradient(140deg,var(--mint),var(--mint-2));border:1px solid var(--mint-2)}
+.ref h4{font-family:var(--body);font-weight:700;font-size:.98rem;color:var(--ink)}
+.ref h4 .own{font-family:var(--mono);font-weight:400;font-size:.72rem;color:var(--ink-soft);margin-left:6px}
+.ref .desc{font-size:.83rem;color:var(--ink-soft);margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ref .m{font-family:var(--mono);font-size:.68rem;color:var(--accent-strong);letter-spacing:.06em;margin-top:6px}
+.ref .stars{font-family:var(--mono);font-size:.82rem;color:var(--accent-strong);white-space:nowrap;text-align:right}
+.ref .stars .lang{display:block;color:var(--ink-soft);font-size:.68rem;margin-top:3px}
+.lib-more{margin-top:26px;text-align:center}
+.lib-empty{color:var(--ink-soft);font-size:.9rem;padding:26px 0;text-align:center}
 
 /* ---------- PROJECT RANKING (jocohunt-style) ---------- */
 .rank-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -408,7 +443,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
       <div class="stage" id="st3">
         <div class="eyebrow">LAUNCH · VOTE · GROW TOGETHER</div>
         <p class="h1">세상과 만나는 무대, 세느루.</p>
-        <p class="sub">대한민국 AI 빌더들의 런칭 무대.<br>프로젝트를 올리고, 반응을 받고,<br>다음 빌더의 레퍼런스가 되세요.</p>
+        <p class="sub">AI 빌더들의 오픈 런칭 무대.<br>프로젝트를 올리고, 반응을 받고,<br>다음 빌더의 레퍼런스가 되세요.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#projects">오늘의 프로젝트 보기</a>
           <a class="btn btn-ghost" href="https://naver.me/Fx23UZ1g" target="_blank" rel="noopener">프로젝트 출시하기</a>
@@ -428,8 +463,25 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
       <ul class="facts">
         <li>프로젝트 출시 무료 · 큐레이션 영업일 1일</li>
         <li>GitHub 오픈 런칭 · 코드 소유권은 빌더에게</li>
-        <li>2023년 설립 · 서울 영등포 기반</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEEKLY EVENT ============ -->
+<section class="sec" id="event" style="padding-top:56px;padding-bottom:0">
+  <div class="wrap">
+    <div class="event reveal">
+      <div>
+        <span class="e-badge">WEEKLY EVENT</span>
+        <h2>주간 인기 1위 프로젝트에게<br><em>메인 빅배너 1주일 무상 홍보</em>를 드립니다</h2>
+        <p>매주 일요일 자정(KST) '오늘의 프로젝트' 투표 1위 팀에게 — 메인 히어로 배너 노출 1주일 + 세느루 인사이트 인터뷰 기사 + 커뮤니티 스포트라이트를 무상으로 제공합니다. 지금 출시하고 이번 주 랭킹에 도전하세요.</p>
+      </div>
+      <div class="e-right">
+        <div class="count-label">이번 주 마감까지</div>
+        <div class="count" id="eventCount" aria-live="off">--일 --:--:--</div>
+        <a class="btn btn-primary" href="https://naver.me/Fx23UZ1g" target="_blank" rel="noopener">프로젝트 출시하고 도전 →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -519,13 +571,26 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
       </article>
     </div>
     <div class="quiet reveal">
-      <span class="q-label">WAITING — 반응을 기다려요</span>
+      <span class="q-label">SPOTLIGHT — 첫 박수를 기다리는 중</span>
       <div class="q-items">
         <span><b>새벽운동단</b> · 기상 인증 챗봇</span>
         <span><b>가게일지</b> · 사장님 장부 자동화</span>
         <span><b>필사의방</b> · 매일 한 문장 필사 커뮤니티</span>
       </div>
     </div>
+
+    <!-- 글로벌 레퍼런스 라이브러리 -->
+    <div class="lib-head reveal" id="library">
+      <div>
+        <div class="sec-eyebrow">Global References</div>
+        <h3 class="lib-title">글로벌 레퍼런스 라이브러리<span class="cnt" id="libCount"></span></h3>
+        <p class="lib-lead">전 세계에서 주목받는 AI 도구·자동화·웹서비스·개발자 도구를 15개 카테고리로 수집했습니다. 다음 프로젝트의 영감을 찾아보세요. <span class="src" id="libMeta"></span></p>
+      </div>
+      <input class="lib-search" id="libSearch" type="search" placeholder="이름·설명 검색" aria-label="레퍼런스 검색">
+    </div>
+    <div class="chips" id="libChips" role="group" aria-label="레퍼런스 카테고리"></div>
+    <div class="rank-list" id="libList" style="margin-top:22px"></div>
+    <div class="lib-more"><button class="btn btn-line" id="libMore" type="button" hidden>더 보기</button></div>
   </div>
 </section>
 
@@ -590,7 +655,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
         <li class="reveal">
           <span class="k">02</span>
           <h3>반응과 피드백</h3>
-          <p>투표와 답글이 다음 버전을 만듭니다. 조용한 프로젝트에는 '반응을 기다려요' 무대를 따로 마련합니다.</p>
+          <p>투표와 답글이 다음 버전을 만듭니다. 조용한 프로젝트에는 '첫 박수' 무대를 따로 마련합니다.</p>
         </li>
         <li class="reveal">
           <span class="k">03</span>
@@ -674,7 +739,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
     <a class="ai-banner reveal" href="ai/">
       <div>
         <div class="mono-path">saenru.com/ai →</div>
-        <h3>AI가 당신의 브랜드를 어떻게 말하는지 알고 계신가요?</h3>
+        <h3>AI에게 물으면, 당신의 브랜드가 답에 등장하나요?</h3>
         <p>AEO·GEO 컨설팅은 전용 페이지에서. AI 검색 노출 진단 리포트부터 월간 운영까지.</p>
       </div>
       <span class="btn btn-primary" style="flex-shrink:0">AI 컨설팅 보기</span>
@@ -733,7 +798,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
       </details>
       <details>
         <summary>어떤 프로젝트를 올릴 수 있나요?</summary>
-        <div class="a">AI를 활용해 만든 웹사이트·웹앱·자동화·봇이라면 무엇이든 환영합니다. 완성도보다 '실제로 돌아가는 링크'가 기준입니다. 초안 단계라면 '반응을 기다려요' 무대부터 시작할 수 있습니다.</div>
+        <div class="a">AI를 활용해 만든 웹사이트·웹앱·자동화·봇이라면 무엇이든 환영합니다. 완성도보다 '실제로 돌아가는 링크'가 기준입니다. 초안 단계라면 '첫 박수' 무대부터 시작할 수 있습니다.</div>
       </details>
       <details>
         <summary>GitHub 공개가 필수인가요?</summary>
@@ -801,7 +866,7 @@ footer .cr{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spaci
     "postalCode":"07421",
     "addressCountry":"KR"
   },
-  "description":"대한민국 AI 빌더들의 런칭 무대. AI로 만든 웹·앱을 GitHub와 함께 공개하고 반응을 얻는 빌더 플랫폼 겸 커뮤니티. 제작 스튜디오와 AEO·GEO 컨설팅(saenru.com/ai)을 함께 운영.",
+  "description":"AI 빌더들의 오픈 런칭 무대. AI로 만든 웹·앱을 GitHub와 함께 공개하고 반응을 얻는 빌더 플랫폼 겸 커뮤니티. 제작 스튜디오와 AEO·GEO 컨설팅(saenru.com/ai)을 함께 운영.",
   "makesOffer":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"프로젝트 런칭 플랫폼","description":"AI로 만든 웹·앱 프로젝트 무료 등록·노출, 투표와 커뮤니티 피드백"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"AI 웹사이트·웹앱 제작(세느루 스튜디오)","description":"48시간 프로토타입, GitHub 저장소 이관, AEO 기본 내장"}},
@@ -898,6 +963,87 @@ fetch("blog/posts.json").then(function(r){return r.json();}).then(function(posts
       +'<h3>'+escT(p.title)+'</h3><p>'+escT(p.summary)+'</p><span class="go">읽기 →</span></a>';
   }).join("");
 }).catch(function(){});
+
+/* ---------- 위클리 이벤트 카운트다운 (일요일 자정 KST) ---------- */
+(function(){
+  var el=document.getElementById("eventCount");
+  if(!el) return;
+  function nextResetUTC(){
+    var kstNow=new Date(Date.now()+9*3600*1000);
+    var day=kstNow.getUTCDay(); /* 0=일 */
+    var days=(8-day)%7; if(days===0) days=7; /* 다음 월요일 00:00 KST = 일요일 자정 */
+    return Date.UTC(kstNow.getUTCFullYear(),kstNow.getUTCMonth(),kstNow.getUTCDate()+days,0,0,0)-9*3600*1000;
+  }
+  var target=nextResetUTC();
+  function pad(n){return (n<10?"0":"")+n;}
+  function tick(){
+    var diff=target-Date.now();
+    if(diff<=0){ target=nextResetUTC(); diff=target-Date.now(); }
+    var d=Math.floor(diff/86400000), h=Math.floor(diff/3600000)%24, m=Math.floor(diff/60000)%60, s=Math.floor(diff/1000)%60;
+    el.textContent=d+"일 "+pad(h)+":"+pad(m)+":"+pad(s);
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+/* ---------- 글로벌 레퍼런스 라이브러리 ---------- */
+(function(){
+  var listEl=document.getElementById("libList");
+  if(!listEl) return;
+  var chipsEl=document.getElementById("libChips"), searchEl=document.getElementById("libSearch"),
+      moreBtn=document.getElementById("libMore"), countEl=document.getElementById("libCount"), metaEl=document.getElementById("libMeta");
+  var state={cat:"all", q:"", shown:24, items:[], cats:{}, emoji:{}};
+  function escR(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML;}
+  function fmtStars(s){return s>=1000?(s/1000).toFixed(1).replace(/\.0$/,"")+"k":String(s);}
+  function filtered(){
+    var q=state.q.toLowerCase();
+    return state.items.filter(function(it){
+      if(state.cat!=="all"&&it.c!==state.cat) return false;
+      if(q&&(it.n+" "+it.d+" "+it.f).toLowerCase().indexOf(q)<0) return false;
+      return true;
+    });
+  }
+  function render(){
+    var rows=filtered();
+    var slice=rows.slice(0,state.shown);
+    listEl.innerHTML=slice.map(function(it){
+      return '<a class="ref" href="'+it.u+'" target="_blank" rel="noopener nofollow">'
+        +'<span class="logo" aria-hidden="true">'+(state.emoji[it.c]||"🔧")+'</span>'
+        +'<span><h4>'+escR(it.n)+'<span class="own">'+escR(it.f.split("/")[0])+'</span></h4>'
+        +'<p class="desc">'+escR(it.d)+'</p>'
+        +'<span class="m"># '+escR(state.cats[it.c]||it.c)+'</span></span>'
+        +'<span class="stars">★ '+fmtStars(it.s)+'<span class="lang">'+escR(it.l||"")+'</span></span></a>';
+    }).join("")||'<div class="lib-empty">검색 결과가 없습니다.</div>';
+    moreBtn.hidden=rows.length<=state.shown;
+    moreBtn.textContent="더 보기 ("+Math.min(state.shown,rows.length)+" / "+rows.length+")";
+  }
+  fetch("data/projects.json").then(function(r){return r.json();}).then(function(j){
+    state.items=j.items;
+    j.meta.categories.forEach(function(c){state.cats[c.key]=c.label;state.emoji[c.key]=c.emoji;});
+    countEl.textContent=j.meta.total.toLocaleString()+"개";
+    metaEl.textContent="("+j.meta.source+" · "+j.meta.collectedAt+" 수집)";
+    var chips=['<button class="chip on" data-cat="all" type="button">전체</button>']
+      .concat(j.meta.categories.map(function(c){
+        return '<button class="chip" data-cat="'+c.key+'" type="button">'+c.emoji+" "+escR(c.label)+'</button>';
+      }));
+    chipsEl.innerHTML=chips.join("");
+    chipsEl.querySelectorAll(".chip").forEach(function(ch){
+      ch.addEventListener("click",function(){
+        chipsEl.querySelectorAll(".chip").forEach(function(x){x.classList.remove("on");});
+        ch.classList.add("on");
+        state.cat=ch.dataset.cat; state.shown=24; render();
+      });
+    });
+    render();
+  }).catch(function(){
+    listEl.innerHTML='<div class="lib-empty">레퍼런스를 불러오지 못했습니다.</div>';
+  });
+  var deb;
+  searchEl.addEventListener("input",function(){
+    clearTimeout(deb);
+    deb=setTimeout(function(){ state.q=searchEl.value.trim(); state.shown=24; render(); },150);
+  });
+  moreBtn.addEventListener("click",function(){ state.shown+=24; render(); });
+})();
 
 /* ---------- GLOBE v2 : 질감 + 인터랙션 ---------- */
 var cv = document.getElementById("globe"), ctx = cv.getContext("2d");
