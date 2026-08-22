@@ -33,6 +33,98 @@ function readMinutes(html) {
   return Math.max(2, Math.round(chars / 500));
 }
 
+/* ---------------- 썸네일 SVG (브랜드 제너러티브) ---------------- */
+function hashSeed(s) {
+  let h = 7;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+function makeThumb(category, slug) {
+  const seed = hashSeed(slug);
+  // 시드 기반 배경 도트 (글마다 배치가 달라짐)
+  let dots = "";
+  for (let i = 0; i < 70; i++) {
+    const x = (i * 149 + (seed % 977)) % 1200;
+    const y = (i * 211 + ((seed >> 5) % 613)) % 630;
+    const o = 0.05 + ((seed >> (i % 20)) % 10) / 100;
+    const r = 2 + ((i + seed) % 3);
+    dots += `<circle cx="${x}" cy="${y}" r="${r}" fill="#97DBA0" opacity="${o.toFixed(2)}"/>`;
+  }
+  const rot = (seed % 21) - 10; // 모티프 미세 회전
+  const MOTIFS = {
+    "AI 트렌드": `
+      <g stroke="#3EDC5B" stroke-width="9" fill="none" stroke-linecap="round">
+        <path d="M 770 380 A 150 150 0 0 1 1070 380" opacity="0.35"/>
+        <path d="M 810 380 A 110 110 0 0 1 1030 380" opacity="0.6"/>
+        <path d="M 850 380 A 70 70 0 0 1 990 380" opacity="0.9"/>
+      </g>
+      <circle cx="920" cy="380" r="16" fill="#3EDC5B"/>
+      <polyline points="760,300 840,250 900,270 1000,170 1060,190" stroke="#EAF6EC" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      <path d="M 1060 190 l -34 -6 m 34 6 l -8 33" stroke="#EAF6EC" stroke-width="9" fill="none" stroke-linecap="round"/>`,
+    "AEO·GEO": `
+      <g stroke="#97DBA0" stroke-width="8" fill="none" opacity="0.9">
+        <circle cx="880" cy="300" r="130"/>
+        <ellipse cx="880" cy="300" rx="130" ry="50"/>
+        <ellipse cx="880" cy="300" rx="50" ry="130"/>
+      </g>
+      <g transform="translate(990,150)">
+        <rect x="0" y="0" width="190" height="120" rx="26" fill="#00AF1C"/>
+        <path d="M 40 120 L 40 160 L 88 120 Z" fill="#00AF1C"/>
+        <path d="M 50 62 l 28 28 l 60 -56" stroke="#04200C" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>`,
+    "바이브 코딩": `
+      <g transform="rotate(${rot} 920 300)">
+        <rect x="740" y="160" width="380" height="280" rx="24" fill="none" stroke="#97DBA0" stroke-width="8" opacity="0.85"/>
+        <line x1="740" y1="222" x2="1120" y2="222" stroke="#97DBA0" stroke-width="8" opacity="0.85"/>
+        <circle cx="778" cy="191" r="9" fill="#3EDC5B"/><circle cx="812" cy="191" r="9" fill="#97DBA0" opacity="0.6"/><circle cx="846" cy="191" r="9" fill="#97DBA0" opacity="0.35"/>
+        <path d="M 830 280 l -46 46 l 46 46" stroke="#3EDC5B" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 1030 280 l 46 46 l -46 46" stroke="#3EDC5B" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="950" y1="270" x2="912" y2="382" stroke="#EAF6EC" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+      </g>`,
+    "AI 도구": `
+      <g stroke="#97DBA0" stroke-width="7" opacity="0.8">
+        <line x1="820" y1="220" x2="1000" y2="180"/><line x1="820" y1="220" x2="880" y2="390"/>
+        <line x1="1000" y1="180" x2="1070" y2="330"/><line x1="880" y1="390" x2="1070" y2="330"/>
+        <line x1="820" y1="220" x2="1070" y2="330"/>
+      </g>
+      <circle cx="820" cy="220" r="26" fill="#3EDC5B"/>
+      <circle cx="1000" cy="180" r="20" fill="none" stroke="#EAF6EC" stroke-width="9"/>
+      <circle cx="880" cy="390" r="20" fill="none" stroke="#EAF6EC" stroke-width="9"/>
+      <circle cx="1070" cy="330" r="26" fill="#00AF1C"/>`,
+    "케이스 스터디": `
+      <g transform="rotate(${rot} 940 320)">
+        <rect x="780" y="330" width="70" height="110" rx="12" fill="#97DBA0" opacity="0.55"/>
+        <rect x="880" y="270" width="70" height="170" rx="12" fill="#3EDC5B" opacity="0.8"/>
+        <rect x="980" y="200" width="70" height="240" rx="12" fill="#00AF1C"/>
+        <path d="M 780 240 L 900 190 L 1000 140" stroke="#EAF6EC" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M 1000 140 l -36 -2 m 36 2 l -12 34" stroke="#EAF6EC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      </g>`,
+  };
+  const motif = MOTIFS[category] || MOTIFS["AI 트렌드"];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="${esc(category)} 썸네일">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0C4A1E"/><stop offset="0.55" stop-color="#062A11"/><stop offset="1" stop-color="#04200C"/>
+</linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.42" r="0.65">
+<stop offset="0" stop-color="#00AF1C" stop-opacity="0.28"/><stop offset="1" stop-color="#00AF1C" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#g)"/>
+<rect width="1200" height="630" fill="url(#glow)"/>
+${dots}
+${motif}
+<text x="64" y="524" font-family="'IBM Plex Mono',Consolas,monospace" font-size="24" letter-spacing="8" fill="#52C868">SAENRU INSIGHT</text>
+<text x="64" y="574" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="38" font-weight="700" fill="#EAF6EC">${esc(category)}</text>
+</svg>
+`;
+}
+function writeThumb(category, slug) {
+  const dir = path.join(BLOG, "thumbs");
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, `${slug}.svg`), makeThumb(category, slug));
+}
+
 /* ---------------- 공통 조각 ---------------- */
 const HEAD_COMMON = (depth) => `
 <link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
@@ -105,6 +197,7 @@ ${NAV("../../")}
       <h1>${esc(post.title)}</h1>
       <p class="post-summary">${esc(post.summary)}</p>
     </header>
+    <img class="post-thumb" src="../thumbs/${post.slug}.svg" alt="${esc(post.category)} 대표 이미지" width="1200" height="630">
     <div class="prose">
 ${contentHTML}
     </div>${faqHTML ? `
@@ -148,6 +241,7 @@ function renderIndex(posts) {
     .concat(cats.map(c => `<button class="chip" data-cat="${esc(c)}" type="button">${esc(c)}</button>`)).join("\n      ");
   const cards = posts.map(p => `
       <a class="card" data-cat="${esc(p.category)}" href="posts/${p.slug}.html">
+        <img class="card-thumb" src="thumbs/${p.slug}.svg" alt="" loading="lazy" width="1200" height="630">
         <div class="card-meta"><span class="cat">${esc(p.category)}</span><time datetime="${p.date}">${p.date}</time></div>
         <h2>${esc(p.title)}</h2>
         <p>${esc(p.summary)}</p>
@@ -248,6 +342,7 @@ function publish(entry, contentHTML, faq) {
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   const posts = loadPosts();
   if (posts.some(p => p.slug === entry.slug)) throw new Error(`slug 중복: ${entry.slug}`);
+  writeThumb(entry.category, entry.slug);
   fs.writeFileSync(path.join(POSTS_DIR, `${entry.slug}.html`), renderPost(entry, contentHTML, faq));
   posts.unshift(entry);
   savePosts(posts);
@@ -316,6 +411,20 @@ ${recent}
 const args = process.argv.slice(2);
 if (args[0] === "--rebuild") {
   rebuild();
+} else if (args[0] === "--thumbs") {
+  // 백필: 모든 글의 썸네일 생성 + 기존 포스트 HTML에 이미지 삽입 + index 재생성
+  const posts = loadPosts();
+  for (const p of posts) {
+    writeThumb(p.category, p.slug);
+    const file = path.join(POSTS_DIR, `${p.slug}.html`);
+    let html = fs.readFileSync(file, "utf8");
+    if (!html.includes("post-thumb")) {
+      html = html.replace("</header>", `</header>\n    <img class="post-thumb" src="../thumbs/${p.slug}.svg" alt="${esc(p.category)} 대표 이미지" width="1200" height="630">`);
+      fs.writeFileSync(file, html);
+      console.log(`이미지 삽입: ${p.slug}`);
+    }
+  }
+  rebuild(posts);
 } else if (args[0] === "--seed") {
   const seeds = JSON.parse(fs.readFileSync(path.resolve(args[1]), "utf8"));
   for (const s of seeds) {
