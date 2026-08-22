@@ -1,5 +1,20 @@
 [
   {
+    "slug": "2026-08-22-context-engineering-for-small-teams",
+    "date": "2026-08-22",
+    "title": "프롬프트 대신 컨텍스트, 뭐부터 만들까?",
+    "category": "AI 트렌드",
+    "summary": "지시문을 다듬는 대신 AI가 매번 참고할 '컨텍스트 팩' 한 장을 만드는 법.",
+    "readMin": 4,
+    "icon": "data",
+    "en": [
+      "Context",
+      "Pack"
+    ],
+    "enTitle": "Forget Better Prompts — Build a Context Pack Instead",
+    "enSummary": "Why teams are shifting from prompt tweaking to context engineering, and how to write your first one-page context pack."
+  },
+  {
     "slug": "2026-08-22-ai-video-ads-for-small-teams",
     "date": "2026-08-22",
     "title": "AI 영상 광고, 1인 사업자도 매주 만들 수 있을까?",

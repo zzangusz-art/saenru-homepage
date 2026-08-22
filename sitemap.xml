@@ -43,6 +43,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams-en.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://saenru.com/blog/posts/2026-08-22-ai-video-ads-for-small-teams.html</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>yearly</changefreq>

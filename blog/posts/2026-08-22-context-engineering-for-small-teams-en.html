@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Why teams are shifting from prompt tweaking to context engineering, and how to write your first one-page context pack.">
+<meta property="og:title" content="Forget Better Prompts — Build a Context Pack Instead">
+<meta property="og:description" content="Why teams are shifting from prompt tweaking to context engineering, and how to write your first one-page context pack.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams-en.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://saenru.com/assets/og-image.png">
+<link rel="canonical" href="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams-en.html">
+<link rel="alternate" hreflang="ko" href="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams.html">
+<link rel="alternate" hreflang="en" href="https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams-en.html">
+<link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="/assets/logo-icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#062A11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/blog.css">
+<title>Forget Better Prompts — Build a Context Pack Instead — SAENRU Insight</title>
+</head>
+<body>
+
+<nav class="nav solid" aria-label="Main navigation">
+  <a class="nav-logo" href="/en/"><img src="/assets/logo-icon.png" alt="SAENRU logo" width="34" height="34">세느루 <span class="en">SAENRU</span></a>
+  <div class="nav-links">
+    <a href="/en/">Home</a>
+    <a href="/en/blog/">Blog</a>
+    <a href="/en/ai/">AI Search (AEO)</a>
+    <a href="/blog/" lang="ko">한국어</a>
+    <a class="nav-cta" href="/en/#contact">CONTACT</a>
+  </div>
+</nav>
+<main class="post-main">
+  <article class="wrap-narrow">
+    <header class="post-head">
+      <div class="post-meta"><a class="cat" href="/en/blog/">AI 트렌드</a><time datetime="2026-08-22">2026-08-22</time><span>4 min read</span><a class="cat" href="2026-08-22-context-engineering-for-small-teams.html" hreflang="ko">한국어로 읽기</a></div>
+      <h1>Forget Better Prompts — Build a Context Pack Instead</h1>
+      <p class="post-summary">Why teams are shifting from prompt tweaking to context engineering, and how to write your first one-page context pack.</p>
+    </header>
+    <img class="post-thumb" src="../thumbs/2026-08-22-context-engineering-for-small-teams.svg" alt="" width="600" height="600">
+    <div class="prose">
+<p>You've probably heard someone say that prompt engineering is dead. That's not quite right — the center of gravity has simply moved. As models get better, <strong>how</strong> you phrase a request matters less, while <strong>what material you hand over</strong> matters more. That work now has a name: context engineering.</p><p>Take a simple request: "Write the product page copy for our new item." On its own, you'll get something plausible that could belong to any company. Now attach the spec sheet, last month's best-performing product page, three phrases customers keep repeating in reviews, and one rule — "never use hype words" — and the output becomes something you can actually edit and ship. The instruction barely changed. The context did.</p><h2>How is context engineering different from writing prompts?</h2><p>A prompt is a one-time instruction; context is the background material the AI consults every single time. A cleverly worded prompt disappears when the chat ends, but context accumulates as a team asset. That's why effective teams stop rewriting prompts and start curating what they feed the model.</p><p>Developers already normalized this. Many repos now carry an AGENTS.md or CLAUDE.md file at the root, listing project rules, folder structure, and things never to do — and coding tools read it before acting. Marketing, support, and ops work exactly the same way. The only difference is that your file is called "team context pack."</p><h2>What goes into a context pack, and where do I start?</h2><p>Don't build a knowledge base. Start with one or two pages covering the one or two tasks you repeat most often, and write down the background knowledge a human already carries in their head. Pretend you're onboarding a new hire and it writes itself fast.</p><ol><li><strong>Who you are and who you serve</strong>: what you sell, who your core customer is, and who is explicitly not your customer.</li><li><strong>Tone and banned words</strong>: e.g. polite but plain, one emoji maximum, never claim "the best" or "number one."</li><li><strong>Hard facts</strong>: pricing, shipping and refund policy, business hours, approved answers to common questions.</li><li><strong>Three good examples</strong>: the actual text of a page, email, or support reply that worked well.</li><li><strong>Hard limits</strong>: no improvised discounts, no mentioning unreleased features, never ask for sensitive personal data.</li></ol><p>A single Google Doc or Notion page is enough. Paste it in when needed, or upload it to a persistent workspace like ChatGPT Projects, a custom GPT, or a Claude Project. The point is that the pack travels with you even when your tooling changes.</p><h2>Is more context always better?</h2><p>No. Past a certain point, adding material lowers accuracy while raising cost and latency. Two documents that match the task beat ten that vaguely relate to it.</p><ul><li><strong>Stale material</strong>: leave last year's price list in there and the model will confidently quote old prices. Put a "last updated" line at the top and review quarterly.</li><li><strong>Contradictory rules</strong>: "be casual" and "be formal" in the same doc means the tone wobbles every time. When rules conflict, delete one.</li><li><strong>Whole documents pasted in</strong>: three relevant paragraphs beat a thirty-page manual almost every time.</li><li><strong>Unverified additions</strong>: after changing the pack, re-run the same five questions you always use and check whether answers actually improved.</li></ul><p>Here's this week's version of the job: pick your most repeated task, draft a one-page context pack, run the same request once without it and once with it, then write whatever you liked about the better output back into the pack. That single page will show results faster than a hundred rounds of prompt tweaking.</p>
+    </div>
+    <section class="post-faq">
+      <h2>FAQ</h2>
+      <div class="faq">
+      <details><summary>How is a context pack different from RAG?</summary><div class="a">A context pack is fixed background material you send every time, while RAG retrieves the most relevant chunks from a larger library on demand. If your knowledge fits in a few pages, a pack is enough; retrieval matters once you're managing hundreds of documents. Most small teams can start with a pack and add retrieval later.</div></details>
+      <details><summary>How often should I update the context pack?</summary><div class="a">Update anything that breaks trust — prices, policies, hours — the moment it changes, and review the rest quarterly. Adding a &quot;last updated&quot; date and an owner at the top of the document is the simplest way to keep it from going stale.</div></details>
+      <details><summary>Does a long context pack make my API bill go up?</summary><div class="a">Yes, since the same material is sent with every request, length translates directly into token cost. Keep task-specific excerpts short rather than dumping everything, and use prompt caching if your provider supports it to reduce the cost of the repeated portion.</div></details>
+      </div>
+    </section>
+    <aside class="post-cta">
+      <div>
+        <div class="mono-path">SAENRU INSIGHT</div>
+        <b>Is your brand visible in AI search?</b>
+        <p>Our AEO·GEO diagnostic shows exactly what ChatGPT says about your brand today.</p>
+      </div>
+      <a class="btn btn-primary" href="/en/ai/">AEO Consulting</a>
+    </aside>
+    <p class="back-link"><a href="/en/blog/">← Back to Insights</a></p>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/logo-icon.png" alt="SAENRU symbol" width="40" height="40" style="border-radius:10px;margin-bottom:8px" loading="lazy">
+    <div class="biz">
+      SAENRU · CEO: Jaehyun Lee · Business Reg. No. 698-25-01527<br>
+      402, 9 Digital-ro 53ga-gil, Yeongdeungpo-gu, Seoul 07421, Republic of Korea · +82-507-1369-7319
+    </div>
+    <div class="cr">© 2026 SAENRU. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Forget Better Prompts — Build a Context Pack Instead","description":"Why teams are shifting from prompt tweaking to context engineering, and how to write your first one-page context pack.","datePublished":"2026-08-22","dateModified":"2026-08-22","inLanguage":"en","url":"https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams-en.html","image":"https://saenru.com/assets/og-image.png","author":{"@type":"Organization","name":"SAENRU","url":"https://saenru.com/en/"},"publisher":{"@type":"Organization","name":"SAENRU","url":"https://saenru.com/en/","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-22-context-engineering-for-small-teams-en.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a context pack different from RAG?","acceptedAnswer":{"@type":"Answer","text":"A context pack is fixed background material you send every time, while RAG retrieves the most relevant chunks from a larger library on demand. If your knowledge fits in a few pages, a pack is enough; retrieval matters once you're managing hundreds of documents. Most small teams can start with a pack and add retrieval later."}},{"@type":"Question","name":"How often should I update the context pack?","acceptedAnswer":{"@type":"Answer","text":"Update anything that breaks trust — prices, policies, hours — the moment it changes, and review the rest quarterly. Adding a \"last updated\" date and an owner at the top of the document is the simplest way to keep it from going stale."}},{"@type":"Question","name":"Does a long context pack make my API bill go up?","acceptedAnswer":{"@type":"Answer","text":"Yes, since the same material is sent with every request, length translates directly into token cost. Keep task-specific excerpts short rather than dumping everything, and use prompt caching if your provider supports it to reduce the cost of the repeated portion."}}]}
+</script>
+</body>
+</html>
