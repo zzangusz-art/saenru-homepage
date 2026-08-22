@@ -1,5 +1,20 @@
 [
   {
+    "slug": "2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt",
+    "date": "2026-08-22",
+    "title": "ChatGPT에 우리 브랜드를 노출시키려면?",
+    "category": "AEO·GEO",
+    "summary": "AI 답변에 브랜드가 인용되도록 만드는 8가지 체크리스트와 실측 방법을 정리했습니다.",
+    "readMin": 5,
+    "icon": "search",
+    "en": [
+      "Brand",
+      "Visibility"
+    ],
+    "enTitle": "How Do You Get Your Brand Mentioned in ChatGPT?",
+    "enSummary": "An eight-point checklist and a measurement routine for making your brand citable in AI answers."
+  },
+  {
     "slug": "2026-08-22-context-engineering-for-small-teams",
     "date": "2026-08-22",
     "title": "프롬프트 대신 컨텍스트, 뭐부터 만들까?",

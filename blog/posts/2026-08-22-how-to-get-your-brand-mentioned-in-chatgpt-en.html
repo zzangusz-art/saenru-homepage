@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An eight-point checklist and a measurement routine for making your brand citable in AI answers.">
+<meta property="og:title" content="How Do You Get Your Brand Mentioned in ChatGPT?">
+<meta property="og:description" content="An eight-point checklist and a measurement routine for making your brand citable in AI answers.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://saenru.com/blog/posts/2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt-en.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://saenru.com/assets/og-image.png">
+<link rel="canonical" href="https://saenru.com/blog/posts/2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt-en.html">
+<link rel="alternate" hreflang="ko" href="https://saenru.com/blog/posts/2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt.html">
+<link rel="alternate" hreflang="en" href="https://saenru.com/blog/posts/2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt-en.html">
+<link rel="icon" href="/assets/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="/assets/logo-icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#062A11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/blog.css">
+<title>How Do You Get Your Brand Mentioned in ChatGPT? — SAENRU Insight</title>
+</head>
+<body>
+
+<nav class="nav solid" aria-label="Main navigation">
+  <a class="nav-logo" href="/en/"><img src="/assets/logo-icon.png" alt="SAENRU logo" width="34" height="34">세느루 <span class="en">SAENRU</span></a>
+  <div class="nav-links">
+    <a href="/en/">Home</a>
+    <a href="/en/blog/">Blog</a>
+    <a href="/en/ai/">AI Search (AEO)</a>
+    <a href="/blog/" lang="ko">한국어</a>
+    <a class="nav-cta" href="/en/#contact">CONTACT</a>
+  </div>
+</nav>
+<main class="post-main">
+  <article class="wrap-narrow">
+    <header class="post-head">
+      <div class="post-meta"><a class="cat" href="/en/blog/">AEO·GEO</a><time datetime="2026-08-22">2026-08-22</time><span>5 min read</span><a class="cat" href="2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt.html" hreflang="ko">한국어로 읽기</a></div>
+      <h1>How Do You Get Your Brand Mentioned in ChatGPT?</h1>
+      <p class="post-summary">An eight-point checklist and a measurement routine for making your brand citable in AI answers.</p>
+    </header>
+    <img class="post-thumb" src="../thumbs/2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt.svg" alt="" width="600" height="600">
+    <div class="prose">
+<p>"We rank fine in search, but ChatGPT never mentions us." We hear this a lot lately. The short answer: getting into AI answers is less like buying ad space and more like <strong>leaving citable evidence on the open web</strong>. Here is where to start and in what order.</p><h2>Where does ChatGPT get information about your brand?</h2><p>There are roughly three sources: knowledge baked in at training time, live documents retrieved during the answer, and material the user pastes in. The one you can actually influence is the <strong>second</strong> — the pages an AI opens while composing a reply.</p><p>So the goal is not "train the model on us." It is "make sure a clear, machine-readable document exists when someone asks a question in our category." If a user asks for a studio in a specific neighborhood that fits three people, the model needs a page where location, capacity, price, and booking rules appear <strong>as text</strong>. If those facts live only inside an image or behind a booking widget, they exist but are never read.</p><h2>What should you fix first?</h2><p>Order matters. Build the readable structure before you scale up content. This is the priority list we work through.</p><ol><li><strong>One question per page</strong>: don't cram services, pricing, reviews, and hiring onto one page. Split by the question each page answers.</li><li><strong>Answer in the first paragraph</strong>: skip the brand story and state the conclusion within two or three sentences. That opening is what tends to get quoted.</li><li><strong>Render in raw HTML</strong>: text that only appears after JavaScript executes can be missed depending on the crawler. Core facts should be visible in view-source.</li><li><strong>JSON-LD structured data</strong>: add Organization, Product, FAQPage, or LocalBusiness schema so the same facts are also machine-readable.</li><li><strong>Write a fact sheet</strong>: location, who it's for, price range or how pricing is calculated, timeline, and what's excluded. Vague phrasing does not get cited.</li><li><strong>Publish an llms.txt</strong>: list and summarize your key documents so an AI can grasp the site structure quickly.</li><li><strong>Earn third-party mentions</strong>: your own site alone is weak evidence. Directory listings, community posts, and interviews act as cross-verification.</li><li><strong>Show a last-updated date</strong>: revise the date whenever pricing or policy changes. It reduces the risk of stale facts being quoted.</li></ol><h2>How do you know if it's working?</h2><p>Measure it instead of guessing. Write out 30 to 50 questions your customers would realistically ask, run the same questions through ChatGPT, Gemini, and Claude, and log <strong>whether you're mentioned, what gets cited, and whether the facts are correct</strong>. Answers vary between sessions, so repeat each query and look at the trend, not a single result.</p><p>Common mistakes worth avoiding:</p><ul><li>Repeating the brand name without ever stating what the company does — models need category context to shortlist you.</li><li>Hiding every price behind "contact us" — you drop out of comparison questions. A range or a pricing basis is better than nothing.</li><li>Treating it as a one-off project — retrieval behavior keeps changing, so re-measure.</li><li>Ignoring incorrect facts being cited — correction comes before exposure.</li></ul><h2>How does SAENRU do this?</h2><p>The SAENRU site itself is a worked example. It ships raw HTML with embedded JSON-LD and an llms.txt, so an AI opening the page reads the facts immediately. Applying our own method to our own site is simply the fastest way to explain it.</p><p>If you'd rather not do it in-house, see our <a href="/ai/">AEO·GEO consulting</a>. A measured diagnostic report across ChatGPT, Gemini, and Claude is KRW 190,000 (5 business days); implementation packages start at KRW 3,600,000 and monthly operations at KRW 1,470,000 per month. The diagnostic fee is fully credited if you proceed with implementation, and all prices exclude VAT. Taking the diagnostic and executing internally is a perfectly valid option.</p><p>If what you need is that third-party mention layer, you can also <a href="/#launch">launch your project</a> on SAENRU — AI-built web and app projects can be listed and shown for free, with voting and feedback. The weekly vote winner gets a free week on the main banner plus an interview feature. We encourage open launching on GitHub, and code ownership always stays with the builder.</p><p>One honest caveat: none of this promises a spot in any particular answer. What it does reliably prevent is being left out because there was nothing solid for the model to verify. That's a good place to start.</p>
+    </div>
+    <section class="post-faq">
+      <h2>FAQ</h2>
+      <div class="faq">
+      <details><summary>Can I pay to have my brand listed inside ChatGPT answers?</summary><div class="a">There is no official paid placement channel for brand mentions inside ChatGPT answers today. The practical route is to make the web documents an AI consults accurate, structured, and easy to read.</div></details>
+      <details><summary>Will publishing more blog posts get me mentioned more often?</summary><div class="a">Structure comes before volume. Get one-question-per-page layout, a direct opening answer, raw HTML rendering, and structured data in place first, then scale content.</div></details>
+      <details><summary>How do you measure results?</summary><div class="a">Build a list of 30–50 questions real customers would ask, run them repeatedly across multiple AI assistants, and log mentions, citations, and factual accuracy. SAENRU offers this measured diagnostic report for KRW 190,000 (5 business days, VAT excluded), fully credited toward an implementation contract.</div></details>
+      </div>
+    </section>
+    <aside class="post-cta">
+      <div>
+        <div class="mono-path">SAENRU INSIGHT</div>
+        <b>Is your brand visible in AI search?</b>
+        <p>Our AEO·GEO diagnostic shows exactly what ChatGPT says about your brand today.</p>
+      </div>
+      <a class="btn btn-primary" href="/en/ai/">AEO Consulting</a>
+    </aside>
+    <p class="back-link"><a href="/en/blog/">← Back to Insights</a></p>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/logo-icon.png" alt="SAENRU symbol" width="40" height="40" style="border-radius:10px;margin-bottom:8px" loading="lazy">
+    <div class="biz">
+      SAENRU · CEO: Jaehyun Lee · Business Reg. No. 698-25-01527<br>
+      402, 9 Digital-ro 53ga-gil, Yeongdeungpo-gu, Seoul 07421, Republic of Korea · +82-507-1369-7319
+    </div>
+    <div class="cr">© 2026 SAENRU. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Do You Get Your Brand Mentioned in ChatGPT?","description":"An eight-point checklist and a measurement routine for making your brand citable in AI answers.","datePublished":"2026-08-22","dateModified":"2026-08-22","inLanguage":"en","url":"https://saenru.com/blog/posts/2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt-en.html","image":"https://saenru.com/assets/og-image.png","author":{"@type":"Organization","name":"SAENRU","url":"https://saenru.com/en/"},"publisher":{"@type":"Organization","name":"SAENRU","url":"https://saenru.com/en/","logo":{"@type":"ImageObject","url":"https://saenru.com/assets/logo-stacked.png"}},"mainEntityOfPage":"https://saenru.com/blog/posts/2026-08-22-how-to-get-your-brand-mentioned-in-chatgpt-en.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I pay to have my brand listed inside ChatGPT answers?","acceptedAnswer":{"@type":"Answer","text":"There is no official paid placement channel for brand mentions inside ChatGPT answers today. The practical route is to make the web documents an AI consults accurate, structured, and easy to read."}},{"@type":"Question","name":"Will publishing more blog posts get me mentioned more often?","acceptedAnswer":{"@type":"Answer","text":"Structure comes before volume. Get one-question-per-page layout, a direct opening answer, raw HTML rendering, and structured data in place first, then scale content."}},{"@type":"Question","name":"How do you measure results?","acceptedAnswer":{"@type":"Answer","text":"Build a list of 30–50 questions real customers would ask, run them repeatedly across multiple AI assistants, and log mentions, citations, and factual accuracy. SAENRU offers this measured diagnostic report for KRW 190,000 (5 business days, VAT excluded), fully credited toward an implementation contract."}}]}
+</script>
+</body>
+</html>

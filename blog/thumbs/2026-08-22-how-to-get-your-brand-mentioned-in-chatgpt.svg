@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="AEO·GEO 썸네일">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#10281A"/><stop offset="0.6" stop-color="#081810"/><stop offset="1" stop-color="#050F0A"/>
+</linearGradient>
+<radialGradient id="vig" cx="0.5" cy="0.42" r="0.75">
+<stop offset="0.6" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.4"/>
+</radialGradient>
+<pattern id="tex" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<line x1="0" y1="0" x2="0" y2="7" stroke="#FFFFFF" stroke-opacity="0.028" stroke-width="1"/>
+</pattern>
+</defs>
+<rect width="600" height="600" fill="url(#g)"/>
+<rect width="600" height="600" fill="url(#tex)"/>
+<circle cx="220" cy="80" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="393" cy="211" r="2" fill="#D8C289" opacity="0.06"/><circle cx="566" cy="342" r="1" fill="#D8C289" opacity="0.06"/><circle cx="139" cy="473" r="2" fill="#9FE3AE" opacity="0.06"/><circle cx="312" cy="4" r="1" fill="#D8C289" opacity="0.06"/><circle cx="485" cy="135" r="2" fill="#D8C289" opacity="0.06"/><circle cx="58" cy="266" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="231" cy="397" r="2" fill="#D8C289" opacity="0.06"/><circle cx="404" cy="528" r="1" fill="#D8C289" opacity="0.06"/><circle cx="577" cy="59" r="2" fill="#9FE3AE" opacity="0.06"/><circle cx="150" cy="190" r="1" fill="#D8C289" opacity="0.06"/><circle cx="323" cy="321" r="2" fill="#D8C289" opacity="0.06"/><circle cx="496" cy="452" r="1" fill="#9FE3AE" opacity="0.06"/><circle cx="69" cy="583" r="2" fill="#D8C289" opacity="0.06"/>
+<rect width="600" height="600" fill="url(#vig)"/>
+<text x="300" y="84" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="13" letter-spacing="7" fill="#B9C7B4" opacity="0.75">SAENRU INSIGHT</text>
+<line x1="272" y1="104" x2="328" y2="104" stroke="#D8C289" stroke-width="1" opacity="0.55"/>
+<g transform="translate(300,235)">
+    <circle cx="-10" cy="-10" r="38" fill="none" stroke="#D8C289" stroke-width="3"/>
+    <line x1="18" y1="18" x2="52" y2="52" stroke="#D8C289" stroke-width="4" stroke-linecap="round"/>
+    <path d="M -50 -52 l 4 10 l 10 4 l -10 4 l -4 10 l -4 -10 l -10 -4 l 10 -4 Z" fill="#9FE3AE" opacity="0.9"/>
+</g>
+<text x="300" y="404" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="56" letter-spacing="2" fill="#EDE7D4">Brand</text>
+<text x="300" y="456" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="40" letter-spacing="1" fill="#D8C289">Visibility</text>
+<text x="300" y="512" text-anchor="middle" font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="17" fill="#CFDCCB" opacity="0.85">ChatGPT에 우리 브랜드를 노출시키려면?</text>
+<line x1="272" y1="542" x2="328" y2="542" stroke="#D8C289" stroke-width="1" opacity="0.4"/>
+<text x="300" y="570" text-anchor="middle" font-family="'IBM Plex Mono',Consolas,monospace" font-size="12" letter-spacing="5" fill="#8FA98F">AEO·GEO</text>
+</svg>
